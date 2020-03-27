@@ -1,5 +1,5 @@
 <?php
-echo "Predicado TUS MUERTOS";
+echo "Predicado TUS MUERTOS, illoooooooo";
 ?>
 
 <!DOCTYPE html>
