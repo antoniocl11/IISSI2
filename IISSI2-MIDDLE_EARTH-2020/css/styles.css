@@ -1,0 +1,221 @@
+*{  /*engloba a todo el html*/
+    font-family: sans-serif !important;
+	padding: 0px;
+    margin: 0px;
+    text-decoration:none;
+    
+}
+.espacio{
+    margin-top: 30px;
+}
+
+.contenedor{ /*estilos contenedor principal*/
+    max-width: 1400px !important;
+    width:100%;
+    display:block;
+    margin: 0 auto;}
+.colheader {/*estilos divison en columnas*/
+    width: calc((100% - 100px)/3) !important; /*Esto lo uso para dividir en 3 columnas y organizar la página*/
+    float: left;
+    margin-right: 20px;
+    }
+/*-----------------------------------------------------------*/
+
+#btn-menu {
+    display: none;
+}
+
+header label {
+    display: none;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border-right: 1px solid #fff;
+}
+
+header label:hover{
+    cursor: pointer;
+    background-color: #007ac3;
+}
+
+.menu-principal ul{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.menu-principal li {
+    text-align: center;
+    flex-grow: 1;/*Cada elemento del menu se distribuye uniformemente*/
+}
+
+.menu-principal li a{
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color:rgb(0, 0, 0);
+}
+
+.menu-principal li:hover{
+    background-color: #007ac3;
+   
+}
+
+.menu-principal a:hover{
+    color: white;
+}
+/*responsive design*/
+@media screen and (max-width:947px)/*Para modificar si se desea*/{
+    header label{
+        display: block;
+        margin-top: 12px;
+    }
+
+    .menu-principal{
+        position: absolute;
+        width: 70%;
+        margin-left: -110%;
+        transition: all 0.5s;
+        margin-top: 20px;
+    }
+
+    .menu-principal ul{
+        flex-direction: column;
+    }
+
+    .menu-principal li{
+        border-top: 1px solid #fff;
+    }
+
+    #btn-menu:checked ~ .menu-principal { /*Cuando este el check buscara y mostrara la clase menu*/
+        margin: 0;
+
+    }
+}
+
+/*-----------------------------------------------------------*/
+
+/*Estilos botones*/    
+
+.botones{   /*botones registro y login*/
+    text-align: right;
+    margin-top: 17px;
+    
+}
+
+.botones a{ /*diseño botones*/
+    
+    padding: 6px; /*espacio alrededor texto*/
+    background-color: #007ac3; /*color botón*/
+    color: #ffffff; /*color texto*/
+    text-decoration: none; /*decoración texto*/
+    text-align: center;
+    border-radius: 2px; /*bordes redondos*/
+    }
+.botones a:hover{
+    background-color: #004f7c;
+}
+
+
+.login{ /*separacion boton login*/
+    margin: 19px;
+}
+
+/*Estilos formulario alta usuario*/
+.formulario_alta_usuario{
+    position: absolute;
+    display: block;
+    margin: 10px auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    font-family: sans-serif !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.botones input{ /*diseño botones*/
+    
+    padding: 6px; /*espacio alrededor texto*/
+    background-color: #007ac3; /*color botón*/
+    color: #ffffff; /*color texto*/
+    text-decoration: none; /*decoración texto*/
+    text-align: center;
+    border-radius: 2px; /*bordes redondos*/
+    }
+
+.campos{
+    margin-bottom: 13px;
+}
+
+.campos input{
+    width: 100%;
+}
+
+
+
+
+
+/*Estilos banner (imagen del index)*/
+.banner img{
+    position: relative;
+    display: block;
+    margin: 10px auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+@media screen and (max-width: 800px){
+    .banner img{
+        position: relative;
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+.texto-banner h3{
+    text-align: center;
+    margin-top: 25px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+div.boton1{
+    text-align: center;
+    margin-top: 25px;
+}
+
+
+
+/*Estilos footer*/
+footer{
+    position:absolute; 
+    bottom:0;
+    width: 100%;
+    background-color: #007ac3; 
+    color: #ffffff;
+}
+
+.centrar{
+    text-align: center !important;
+}
+.derecha{
+    text-align: right !important;
+}
+.footercol{
+    width: calc((100% - 100px)/3) !important;
+    float: left;   
+    padding: 10px;
+}
+
+
+
+
+/*---------------------------------------------------------*/
+
+
+
