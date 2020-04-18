@@ -5,8 +5,12 @@
 		// Recogemos los datos del formulario
 		$nuevoUsuario["nif"] = $_REQUEST["nif"];
 		$nuevoUsuario["nombre"] = $_REQUEST["nombre"];
-		$nuevoUsuario["apellidos"] = $_REQUEST["apellidos"];
-    
+        $nuevoUsuario["apellidos"] = $_REQUEST["apellidos"];
+        $nuevoUsuario["telefono"] = $_REQUEST["telefono"];
+        $nuevoUsuario["esSocio"] = $_REQUEST["esSocio"];
+        $nuevoUsuario["fechaNacimiento"] = $_REQUEST["fechaNacimiento"];
+        $nuevoUsuario["email"] = $_REQUEST["email"];
+        $nuevoUsuario["contraseña"] = $_REQUEST["contraseña"];
 
         $_SESSION["formulario"] = $nuevoUsuario;
     }
@@ -25,27 +29,36 @@
     
     function validarDatosUsuario($nuevoUsuario){
             $errores = array();
-        //Validacion DNI, no puede estar vacio
-        if($nuevoUsuario["nif"]=="")
+        //Validacion DNI, no puede estar vacio ni ser nulo
+        if($nuevoUsuario["nif"]=="" || $nuevoUsuario["nif"]==null)
             $errores = "<p>El campo NIF no puede estar vacío</p>";
         //el DNI debe contener 8 numero y una letra mayuscula al final
         else if(!preg_match("/^[0-9]{8}[A-Z]$/", $nuevoUsuario["nif"])){
             $errores[] = "<p>El NIF debe contener 8 números y una letra mayúscula" . $nuevoUsuario["nif"] . "</p>";
         }
-        //El campo nombre no puede estar vacio
-        if($nuevoUsuario["nombre"]=="") 
+        //El campo nombre no puede estar vacio ni ser nulo
+        if($nuevoUsuario["nombre"]=="" || $nuevoUsuario["nombre"]==null) 
             $errores[] = "<p>El nombre no puede estar vacío</p>";
-        //El campo apellidos no puede estar vacio
-        if($nuevoUsuario["apellidos"]=="") 
+        
+            //El campo apellidos no puede estar vacio ni ser nulo
+        if($nuevoUsuario["apellidos"]=="" || $nuevoUsuario["apellidos"]==null) 
             $errores[] = "<p>Los apellidos no pueden estar vacíos</p>";
         
-        if($nuevoUsuario["telefono"]=="")
+        if($nuevoUsuario["telefono"]=="" || $nuevoUsuario["telefono"]==null)
             $errores[] = "<p>El teléfono no puede estar vacío</p>";
-        else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["telefono"])){
+        else if(!preg_match("/^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/", $nuevoUsuario["telefono"])){
             $errores[] = "<p>El teléfono debe contener 9 números" . $nuevoUsuario["telefono"] . "</p>";
         }
         
+
+        if($nuevoUsuario["email"]=="" || $nuevoUsuario["email"] == null){
+            $errores[] = "<p>El campo email no puede estar vacio ni ser nulo</p>";
+        }
         
+        
+
+
+
             return $errores;
         
         

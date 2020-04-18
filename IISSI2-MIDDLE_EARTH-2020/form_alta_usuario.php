@@ -62,6 +62,10 @@
                 $formulario['apellidos'] = "";
                 $formulario['telefono'] = "";
                 $formulario['direccion'] = "";
+                $formulario['esSocio'] = "";
+                $formulario['fechaNacimiento'] = "";
+                $formulario['email'] = "";
+                $formulario['contraseña'] ="";
 
                 $_SESSION["formulario"] = $formulario;
             }
@@ -98,21 +102,45 @@
                     <input class="nif" name="nif" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" 
                     title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['nif'];?>" required>
                     </div>
+
                     <div class="campos"><label for="nombre">Nombre<em>*</em></label>
                     <input class="nombre" name="nombre" type="text" size="25"  value="<?php echo $formulario['nombre'];?>" required>
                     </div>
+
                     <div class="campos"><label for="apellidos">Apellidos<em>*</em></label>
                     <input class="apellidos" name="apellidos" type="text"   value="<?php echo $formulario['apellidos'];?>" required>
                     </div>
-                    <div class="campos"><label for="direccion">Dirección<em>*</em></label>
-                    <input class="direccion" name="direccion" type="text"   value="<?php echo $formulario['direccion'];?>" required>
-                    </div>
-                    
-                    
+
                     <div class="campos"><label for="telefono">Teléfono<em>*</em></label>
                     <input class="telefono" name="telefono" type="phone" value="<?php echo $formulario['telefono'];?>" required>
                     </div>
-    
+
+                    <div class="campos"><label for="direccion">Dirección<em>*</em></label>
+                    <input class="direccion" name="direccion" type="text"   value="<?php echo $formulario['direccion'];?>" >
+                    </div>
+
+                    <div class="campos"><label for="essocio">¿Eres socio?<em>*</em></label>
+                     <select name="esSocio" value="<?php echo $formulario['esSocio'];?>" required>>
+                        <option value="Sí">Sí</option> 
+                        <option value="No">No</option> 
+                     </select>
+                    </div>
+                    
+                    <div class="campos"><label for="fechaNacimiento">Fecha de Nacimiento<em>*</em></label>
+                    <input class="fechaNacimiento" name="fechaNacimiento" type="date"  placeholder= "Sólo mayores de 16 años" 
+                    value="<?php echo $formulario['fechaNacimiento'];?>" required>
+                    </div>
+
+                    <div class="campos"><label for="email">E-Mail<em>*</em></label>
+                    <input class="email" name="email" type="email" placeholder="example@domain.com" value="<?php echo $formulario['email'];?>" required>
+                    </div>
+
+                    <div class="campos"><label for="contraseña">Contraseña<em>*</em></label>
+                    <input class="contraseña" name="contraseña" min="8" type="password" placeholder="Mínimo 8 caracteres, incluyendo letras y dígitos" 
+                    value="<?php echo $formulario['contraseña'];?>" required>
+                    </div>
+                    
+                
                     <div class="botones"><input type="submit" value="Enviar"/></div>
                     <p><a href="#">¿Ya tienes una cuenta?</a></p>
                 </form>
