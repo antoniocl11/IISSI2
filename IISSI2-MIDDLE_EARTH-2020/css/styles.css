@@ -70,6 +70,7 @@ header label:hover{
     header label{
         display: block;
         margin-top: 12px;
+        margin-left: 18px;
     }
 
     .menu-principal{
@@ -140,6 +141,7 @@ header label:hover{
     box-sizing: border-box;
 }
 
+
 .botones input{ /*diseño botones*/
     
     padding: 6px; /*espacio alrededor texto*/
@@ -151,11 +153,19 @@ header label:hover{
     }
 
 .campos{
-    margin-bottom: 13px;
+    margin-bottom: 7px;
 }
 
 .campos input{
     width: 100%;
+}
+
+/*Estilos errores de formulario*/
+div.error {
+    color: red;	
+	border: 2px solid red;
+	padding: 10px;
+	margin: 18px;
 }
 
 
