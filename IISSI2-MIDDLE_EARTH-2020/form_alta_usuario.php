@@ -43,7 +43,7 @@
                 <div class="colheader">
                     <div class="botones">
                         <a class="login" href="index.html">Entrar</a>
-                        <a href="index.html">Registrarse</a>
+                        <a href="form_alta_usuario.php">Registrarse</a>
                     </div>
                 </div>
             </div>
@@ -51,8 +51,7 @@
     
     </header>
     
-        <body>
-        <?php
+    <?php
             session_start();
             
             //Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
@@ -63,7 +62,8 @@
                 $formulario['telefono'] = "";
                 $formulario['direccion'] = "";
                 $formulario['esSocio'] = "";
-                $formulario['fechaNacimiento'] = "";
+                //$formulario['fechaNacimiento'] = "";
+                $formulario['edad'] = "";
                 $formulario['email'] = "";
                 $formulario['contraseña'] ="";
 
@@ -80,18 +80,25 @@
             }
         ?>
 
-        <?php
+    
+    <body>
+        
+
+
+    <section class="formulario_alta_usuario">
+            <?php
+        //Muestra los errores de validación si ha encontrado alguno
             if(isset($errores) && count($errores) > 0){
-                echo "<div id\"div_errores\" class=\"error\">";
+                echo "<div id=\"div_errores\" class=\"error\">";
                 echo "<h4> Errores en el formulario:</h4>";
                 foreach($errores as $error){
                     echo $error;
                 }
 
-                echo "</div";
+                echo "</div>";
             }
         ?>
-            <section class="formulario_alta_usuario">
+        
                 <form class="altaUsuario" method="get" action="validacion_alta_usuario.php">
                     
                     <p class="campos">
@@ -112,10 +119,10 @@
                     </div>
 
                     <div class="campos"><label for="telefono">Teléfono<em>*</em></label>
-                    <input class="telefono" name="telefono" type="phone" value="<?php echo $formulario['telefono'];?>" required>
+                    <input type="number"  class="telefono" name="telefono" value="<?php echo $formulario['telefono'];?>" required>
                     </div>
 
-                    <div class="campos"><label for="direccion">Dirección<em>*</em></label>
+                    <div class="campos"><label for="direccion">Dirección</label>
                     <input class="direccion" name="direccion" type="text"   value="<?php echo $formulario['direccion'];?>" >
                     </div>
 
@@ -125,10 +132,16 @@
                         <option value="No">No</option> 
                      </select>
                     </div>
-                    
+                    <!--
                     <div class="campos"><label for="fechaNacimiento">Fecha de Nacimiento<em>*</em></label>
                     <input class="fechaNacimiento" name="fechaNacimiento" type="date"  placeholder= "Sólo mayores de 16 años" 
-                    value="<?php echo $formulario['fechaNacimiento'];?>" required>
+                    value="</?php echo $formulario['fechaNacimiento'];?>" required>
+                    </div>
+                    -->
+
+                    <div class="campos"><label for="edad">Edad<em>*</em></label>
+                    <input class="edad" name="edad" type="number" min="16" placeholder="No permitido a menores de 16 años" 
+                    value="<?php echo $formulario['direccion'];?>" required>
                     </div>
 
                     <div class="campos"><label for="email">E-Mail<em>*</em></label>
@@ -136,7 +149,7 @@
                     </div>
 
                     <div class="campos"><label for="contraseña">Contraseña<em>*</em></label>
-                    <input class="contraseña" name="contraseña" min="8" type="password" placeholder="Mínimo 8 caracteres, incluyendo letras y dígitos" 
+                    <input class="contraseña" name="contraseña" minLength="8" type="password" placeholder="Mínimo 8 caracteres, incluyendo letras y dígitos" 
                     value="<?php echo $formulario['contraseña'];?>" required>
                     </div>
                     
@@ -151,7 +164,7 @@
         
         </body>
             
-            
+         
             
             
        

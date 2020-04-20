@@ -36,8 +36,9 @@
 			<li><?php echo "Nombre: " . $nuevoUsuario["nombre"]; ?></li>
 			<li><?php echo "Apellidos: " . $nuevoUsuario["apellidos"]; ?></li>
 			<li><?php echo "Teléfono: " . $nuevoUsuario["telefono"]; ?></li>
-			<li><?php echo "esSocio: " . $nuevoUsuario["esSocio"]; ?></li>
-			<li><?php echo "fechaNacimiento: " . $nuevoUsuario["fechaNacimiento"]; ?></li>
+			<li><?php echo "¿Es Socio?: " . $nuevoUsuario["esSocio"]; ?></li>
+			<li><?php echo "Edad: " . $nuevoUsuario["edad"]; ?></li>
+			<!--<li></?php echo "fechaNacimiento: " . $nuevoUsuario["fechaNacimiento"]; ?></li>-->
 			<li><?php echo "email: " . $nuevoUsuario["email"]; ?></li>
 			
 
