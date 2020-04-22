@@ -1,0 +1,136 @@
+*{
+    font-family: sans-serif !important;
+    text-decoration: none;
+}
+/*Estilos titulos*/
+h1{
+    color: #333;
+    text-align: center;
+    padding: 16px 32px;
+    
+}
+h2{
+    color: #333;
+    text-align: center;
+    padding: 16px 32px;
+    
+}
+
+#titulo a{
+    float: right;
+    color: white;
+    text-align: center;
+    padding: 14px 14px;
+    margin-top: 3px;
+    font-size: 15px;
+    background-color: #007ac3;
+    border-radius: 2px;
+    text-decoration: none;
+}
+
+#titulo a:hover{
+    background-color: #004f7c;
+}
+/*-------------------------------------------------------------*/
+
+/*Estilos menu*/
+#menu/*padre*/{
+    overflow: hidden;
+    background-color:  #007ac3;
+    text-align: center;
+}
+
+.dentroMenu/*hijo*/{
+    display: inline-block;
+    margin-bottom: -4px;
+}
+
+#menu a{
+    float: left;
+    display: block;
+    color:  white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 2px;
+}
+
+#menu a.active{
+    background-color: #004f7c;
+}
+
+#menu a:hover{
+    background-color: #004f7c;
+    color: white;
+}
+/*----------------------------------------------------------*/
+
+/*Estilos imagen principal*/
+.imagenInicio img{
+    position: relative;
+    display: block;
+    margin: 10px auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+@media screen and (max-width: 800px){
+    .banner img{
+        position: relative;
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+
+/*Estilos formularios*/
+.formulario{
+    position: absolute;
+    display: block;
+    margin: 10px auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    font-family: sans-serif !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.botones input{ /*diseño botones*/
+    
+    padding: 6px; /*espacio alrededor texto*/
+    background-color: #007ac3; /*color botón*/
+    color: #ffffff; /*color texto*/
+    text-decoration: none; /*decoración texto*/
+    text-align: center;
+    border-radius: 2px; /*bordes redondos*/
+    }
+
+/*Estilos tablas*/
+table{
+    background-color: #007ac3;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table th{
+    border: 1px solid black;
+    padding: 8px;
+    color: white;
+}
+
+table td{
+    text-align: center;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 8px;
+}
+
+
+

@@ -6,7 +6,7 @@
     
 }
 .espacio{
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .contenedor{ /*estilos contenedor principal*/
@@ -54,16 +54,17 @@ header label:hover{
     display: block;
     padding: 15px;
     text-decoration: none;
-    color:rgb(0, 0, 0);
+    
 }
 
 .menu-principal li:hover{
     background-color: #007ac3;
-   
+    
 }
 
 .menu-principal a:hover{
     color: white;
+    
 }
 /*responsive design*/
 @media screen and (max-width:947px)/*Para modificar si se desea*/{
@@ -83,6 +84,7 @@ header label:hover{
 
     .menu-principal ul{
         flex-direction: column;
+        background-color: #007ac3;
     }
 
     .menu-principal li{
@@ -91,8 +93,21 @@ header label:hover{
 
     #btn-menu:checked ~ .menu-principal { /*Cuando este el check buscara y mostrara la clase menu*/
         margin: 0;
-
+        z-index: 1;
     }
+
+    .menu-principal li:hover{
+        background-color: white;
+    }
+    .menu-principal a{
+        color: white;
+    }
+
+    .menu-principal a:hover{
+        color: black;
+    }
+
+    
 }
 
 /*-----------------------------------------------------------*/
@@ -121,6 +136,13 @@ header label:hover{
 
 .login{ /*separacion boton login*/
     margin: 19px;
+}
+
+@media screen and (max-width: 947px){
+    .botones a{
+        padding: 0px;
+        
+    }
 }
 
 /*Estilos formulario alta usuario*/
