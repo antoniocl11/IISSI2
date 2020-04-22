@@ -16,10 +16,12 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="css/biblio.css" />
-  <title>Gestión de biblioteca: ¡Se ha producido un problema!</title>
+  <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
+  <title>Middle Earth Error</title>
 </head>
 <body>	
 	
+
 
 	<div>
 		<h2>Ups!</h2>
@@ -33,7 +35,8 @@
 	<div class='excepcion'>	
 		<?php echo "Información relativa al problema: $excepcion;" ?>
 	</div>
-	
+
+
 
 </body>
 </html>
