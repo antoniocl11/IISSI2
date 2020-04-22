@@ -32,11 +32,11 @@
             
             //Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
             if(!isset($_SESSION["formulario"])){
-                $formulario['cif'] = "";
+                $formulario['nif'] = "";
                 $formulario['nombre'] = "";
-                $formulario['telefono'] = "";
-                $formulario['direccion'] = "";
- 
+                $formulario['apellidos'] = "";
+                $formulario['turno'] = "";
+                $formulario['sueldo'] = "";
 
                 $_SESSION["formulario"] = $formulario;
             }
