@@ -27,7 +27,7 @@
 <?php
     session_start();
     require_once("gestionBD.php");
-    require_once("gestionar_clientes.php");
+    require_once("gestionar_usuario.php");
     require_once("paginacion_consulta.php");
 
     if(isset($_SESSION["usuario"])){
