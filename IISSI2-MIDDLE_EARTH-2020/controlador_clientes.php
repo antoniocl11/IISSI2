@@ -6,7 +6,7 @@ if (isset($_REQUEST["OID_U"])) {
         $CIF["NIF"] = $_REQUEST["NIF"];
         $CIF["NOMBRE"] = $_REQUEST["NOMBRE"];
 		$CIF["APELLIDOS"] = $_REQUEST["APELLIDOS"];
-        $CIF["EMAIL"] = $_REQUEST["EMAIL"];
+        $CIF["EMAIL"] = $_REQUEST["EMAIL"]; 
         $CIF["TELEFONO"] = $_REQUEST["TELEFONO"];
         $CIF["ESSOCIO"] = $_REQUEST["ESSOCIO"];
         $CIF["DIRECCION"] = $_REQUEST["DIRECCION"];

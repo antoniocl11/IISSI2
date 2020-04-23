@@ -103,7 +103,7 @@
     <table >
 			<tr>
                 <th>OID_U</th>
-                <th>NIF</th>
+                <th>NIF</th> 
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>Email</th>
