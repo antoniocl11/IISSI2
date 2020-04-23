@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - miércoles-abril-22-2020   
+-- Archivo creado  - jueves-abril-23-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence SEC_EMPLEADO
@@ -50,7 +50,7 @@
 --  DDL for Table EMPLEADO
 --------------------------------------------------------
 
-  CREATE TABLE "EMPLEADO" ("OID_E" NUMBER, "NIF" CHAR(9), "NOMBRE" VARCHAR2(25), "APELLIDOS" VARCHAR2(50), "TURNO" CHAR(1), "SUELDO" FLOAT(126)) ;
+  CREATE TABLE "EMPLEADO" ("OID_E" NUMBER, "NIF" CHAR(9), "NOMBRE" VARCHAR2(25), "APELLIDOS" VARCHAR2(50), "TURNO" CHAR(1), "SUELDO" FLOAT(126), "ID" NUMBER(9,0)) ;
 --------------------------------------------------------
 --  DDL for Table FOTO
 --------------------------------------------------------
@@ -2085,6 +2085,7 @@ END ASSERT_EQUALS;
   ALTER TABLE "EMPLEADO" ADD CONSTRAINT "CK_EMPLEADO_SUELDO" CHECK (Sueldo > 0.0) ENABLE;
   ALTER TABLE "EMPLEADO" ADD CONSTRAINT "AK_EMPLEADO_NIF" UNIQUE ("NIF") ENABLE;
   ALTER TABLE "EMPLEADO" ADD CONSTRAINT "PK_EMPLEADO" PRIMARY KEY ("OID_E") ENABLE;
+  ALTER TABLE "EMPLEADO" MODIFY ("ID" NOT NULL ENABLE);
   ALTER TABLE "EMPLEADO" MODIFY ("SUELDO" NOT NULL ENABLE);
   ALTER TABLE "EMPLEADO" MODIFY ("TURNO" NOT NULL ENABLE);
   ALTER TABLE "EMPLEADO" MODIFY ("NIF" NOT NULL ENABLE);

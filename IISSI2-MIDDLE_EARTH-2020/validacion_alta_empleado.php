@@ -2,7 +2,8 @@
     session_start();
 
     if (isset($_SESSION["formulario"])) {
-		// Recogemos los datos del formulario
+        // Recogemos los datos del formulario
+        $nuevoEmpleado["id"] = $_REQUEST["id"];
 		$nuevoEmpleado["nif"] = $_REQUEST["nif"];
 		$nuevoEmpleado["nombre"] = $_REQUEST["nombre"];
         $nuevoEmpleado["apellidos"] = $_REQUEST["apellidos"];
@@ -29,38 +30,46 @@
     /////////Validacion del formulario
     function validarDatosEmpleado($nuevoEmpleado){
             $errores = array();
+        //El campo id no puede estar vacío ni ser nulo
+        if($nuevoEmpleado["id"]=="" || $nuevoEmpleado["id"]==null)
+            $errores = "<p>El campo ID no puede estar vacío ni ser nulo</p>";
+        //El ID del empleado contendrá 9 caracteres numéricos
+        else if(!preg_match("/^[0-9]{9}$/", $nuevoEmpleado["id"])){
+            $errores[] = "<p>El ID del empleado contiene 9 dígitos numéricos" . $nuevoEmpleado["id"] . "</p>";
+        }
         //Validacion DNI, no puede estar vacio ni ser nulo
         if($nuevoEmpleado["nif"]=="" || $nuevoEmpleado["nif"]==null)
-            $errores = "<p>El campo NIF no puede estar vacío</p>";
+            $errores = "<p>El campo NIF no puede estar vacío ni ser nulo</p>";
         //el DNI debe contener 8 numero y una letra mayuscula al final
         else if(!preg_match("/^[0-9]{8}[A-Z]$/", $nuevoEmpleado["nif"])){
             $errores[] = "<p>El NIF debe contener 8 números y una letra mayúscula" . $nuevoEmpleado["nif"] . "</p>";
         }
         //El campo nombre no puede estar vacio ni ser nulo
         if($nuevoEmpleado["nombre"]=="" || $nuevoEmpleado["nombre"]==null) 
-            $errores[] = "<p>El nombre no puede estar vacío</p>";
+            $errores[] = "<p>El nombre no puede estar vacío ni ser nulo</p>";
         
         //El campo apellidos no puede estar vacio ni ser nulo
         if($nuevoEmpleado["apellidos"]=="" || $nuevoEmpleado["apellidos"]==null) 
-            $errores[] = "<p>Los apellidos no pueden estar vacíos</p>";
-        
-        //El campo teléfono no puede estar vacío ni ser nulo, además sólo debe contener
-        //9 números y ninguna letra 
-        if($nuevoEmpleado["telefono"]=="" || $nuevoEmpleado["telefono"]==null)
-            $errores[] = "<p>El teléfono no puede estar vacío ni ser nulo</p>";
-        else if(!preg_match("/^[0-9]{9}$/", $nuevoEmpleado["telefono"])){
-            $errores[] = "<p>El teléfono debe contener 9 números</p>";
-        }
-        else if (preg_match("/^{a-z}{A-Z}$/", $nuevoEmpleado["telefono"])) {
-			$errores[] = "<p>El número de teléfono no puede contener letras.</p>";
+            $errores[] = "<p>Los apellidos no pueden estar vacíos ni ser nulos</p>";
+        /*
+        //El campo turno no puede estar vacío ni ser nulo
+        if($nuevoEmpleado["turno"] =="" || $nuevoEmpleado["turno"]==null){
+            $errores[] ="<p>El campo Turno no puede estar vacío ni ser nulo</p>";
         }
         
-        
-        
-
-        
-
-
+        //El campo turno solo puede poseer los valores T, M y P 
+        else if(!($nuevoEmpleado["turno"]=="M" || $nuevoEmpleado["turno"]=="T" || $nuevoEmpleado["turno"]=="P")){
+            $errores[] = "<p>El campo Turno solo puede contener los caracteres T, P y M</p>";
+        }
+        */
+        //El campo sueldo no puede estar vacío
+        if($nuevoEmpleado["sueldo"]=="" || $nuevoEmpleado["sueldo"]==null){
+            $errores[] ="<p>El campo Sueldo no puede estar vacío ni ser nulo</p>";
+        }
+        //El campo sueldo no puede contener letras
+        else if(preg_match("/^{a-z}{A-Z}$/", $nuevoEmpleado["sueldo"])){
+            $errores[] = "<p>El campo sueldo solo puede contener letras</p>";
+        }
 
             return $errores;
         
