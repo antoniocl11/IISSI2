@@ -83,6 +83,8 @@ h2{
     }
 }
 
+/*------------------------------------------------------------*/
+
 /*Estilos formularios*/
 .formulario{
     position: absolute;
@@ -100,6 +102,29 @@ h2{
     border-radius: 4px;
     box-sizing: border-box;
 }
+/*Separación en los inputs del formulario*/
+.campos{
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.campos input{
+    width: 100%;
+}
+/*Estilos errores de formulario*/
+div.error {
+    color: red;	
+	border: 2px solid red;
+	padding: 10px;
+	margin: 18px;
+}
+.casillasTurnos{
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+
+/*--------------------------------------------------------------------*/
 
 .botones input{ /*diseño botones*/
     

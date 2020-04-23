@@ -26,26 +26,20 @@
 		<div id="div_exito">
 		  <h1>Hola <?php echo $nuevoUsuario["nombre"]; ?>, gracias por registrarte</h1>
 			<div id="div_volver">	
-			   Pulsa <a href="form_alta_usuario.php">aquí</a> para volver al formulario de altas de usuarios.
+			   Pulsa <a href="empleados.php">aquí</a> para ir a la lista de empleados.
 			</div>
 		</div>
 
-		<h2>El nuevo usuario ha sido dado de alta con éxito con los siguientes datos:</h2>
+		<h2>El nuevo empleado ha sido agregado con los siguientes datos.</h2>
 		<ul>
+			<li><?php echo "ID: " . $nuevoUsuario["id"]; ?></li>
 			<li><?php echo "NIF: " . $nuevoUsuario["nif"]; ?></li>
 			<li><?php echo "Nombre: " . $nuevoUsuario["nombre"]; ?></li>
 			<li><?php echo "Apellidos: " . $nuevoUsuario["apellidos"]; ?></li>
-			<li><?php echo "Teléfono: " . $nuevoUsuario["telefono"]; ?></li>
-			<li><?php echo "¿Es Socio?: " . $nuevoUsuario["esSocio"]; ?></li>
-			<li><?php echo "Edad: " . $nuevoUsuario["edad"]; ?></li>
-			<!--<li></?php echo "fechaNacimiento: " . $nuevoUsuario["fechaNacimiento"]; ?></li>-->
-			<li><?php echo "email: " . $nuevoUsuario["email"]; ?></li>
+			<li><?php echo "Turno: " . $nuevoUsuario["turno"]; ?></li>
+			<li><?php echo "Sueldo: " . $nuevoUsuario["sueldo"]; ?></li>
+
 			
-
-				<ul>
-
-				</ul>
-			</li>
 		</ul>		
 	</main>
 
