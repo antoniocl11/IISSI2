@@ -24,7 +24,7 @@
 	<main>
 			
 		<div id="div_exito">
-		  <h1>Hola <?php echo $nuevoUsuario["nombre"]; ?>, gracias por registrarte</h1>
+		  <h1>Hola <?php echo $nuevoEmpleado["nombre"]; ?>, gracias por registrarte</h1>
 			<div id="div_volver">	
 			   Pulsa <a href="empleados.php">aquí</a> para ir a la lista de empleados.
 			</div>
@@ -32,12 +32,12 @@
 
 		<h2>El nuevo empleado ha sido agregado con los siguientes datos.</h2>
 		<ul>
-			<li><?php echo "ID: " . $nuevoUsuario["id"]; ?></li>
-			<li><?php echo "NIF: " . $nuevoUsuario["nif"]; ?></li>
-			<li><?php echo "Nombre: " . $nuevoUsuario["nombre"]; ?></li>
-			<li><?php echo "Apellidos: " . $nuevoUsuario["apellidos"]; ?></li>
-			<li><?php echo "Turno: " . $nuevoUsuario["turno"]; ?></li>
-			<li><?php echo "Sueldo: " . $nuevoUsuario["sueldo"]; ?></li>
+			<li><?php echo "ID: " . $nuevoEmpleado["id"]; ?></li>
+			<li><?php echo "NIF: " . $nuevoEmpleado["nif"]; ?></li>
+			<li><?php echo "Nombre: " . $nuevoEmpleado["nombre"]; ?></li>
+			<li><?php echo "Apellidos: " . $nuevoEmpleado["apellidos"]; ?></li>
+			<li><?php echo "Turno: " . $nuevoEmpleado["turno"]; ?></li>
+			<li><?php echo "Sueldo: " . $nuevoEmpleado["sueldo"]; ?></li>
 
 			
 		</ul>		

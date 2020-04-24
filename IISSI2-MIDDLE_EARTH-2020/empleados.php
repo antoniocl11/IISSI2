@@ -25,7 +25,6 @@
 			<a href="#">Proveedores</a>
 			<a href="#">Reservas</a>
 			<a href="#">Tickets</a>
-            <a href="#">Linea Pedido</a>
             </div>
         </div>
         <div>Continuar aquí</div>
