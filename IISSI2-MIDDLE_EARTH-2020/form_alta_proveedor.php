@@ -17,19 +17,19 @@
 		</div>
 		<div class="topnav" id = "menu">
             <div class="dentroMenu">
-			<a class="active" href="admin.php">Inicio</a>
+			<a href="admin.php">Inicio</a>
 			<a href="#">Clientes</a>
             <a href="#">Empleados</a>
 			<a href="#">Pedidos</a>	
-			<a href="#">Proveedores</a>
+			<a class="active" href="proveedores.php">Proveedores</a>
 			<a href="#">Reservas</a>
 			<a href="#">Tickets</a>
-            <a href="#">Linea Pedido</a>
             </div>
         </div>
         <?php
             session_start();
             
+            require_once("gestionBD.php");
             //Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
             if(!isset($_SESSION["formulario"])){
                 $formulario['cif'] = "";
@@ -49,6 +49,9 @@
                     $errores = $_SESSION["errores"];
                     unset($_SESSION["errores"]);
             }
+
+            //Creamos la conxion con la base de datos
+            $conexion = crearConexionBD();
         ?>
 
     
@@ -70,14 +73,14 @@
             }
         ?>
         
-                <form class="altaProveedor" method="get" action="validacion_alta_usuario.php">
+                <form class="altaProveedor" method="get" action="validacion_alta_proveedor.php">
                     
                     <p class="campos">
                         <i>Los campos obligatorios están marcados con </i><em>*</em>
                     </p>
 
                     <div class="campos"><label for="cif">CIF<em>*</em></label>
-                    <input class="cif" name="cif" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" 
+                    <input class="cif" name="cif" type="text" placeholder="12345678X" pattern="^[A-Z][0-9]{8}" 
                     title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['cif'];?>" required>
                     </div>
 
@@ -92,11 +95,13 @@
                     <div class="campos"><label for="direccion">Dirección<em>*</em></label>
                     <input class="direccion" name="direccion" type="text"   value="<?php echo $formulario['direccion'];?>" required>
                     </div>
-                    <div class="botones"><input type="submit" value="Confirmar"/></div>
+                    <div class="nuevo"><input type="submit" value="Confirmar"/></div>
                 </form>
             </section>    
         
-        
+        <?php
+            cerrarConexionBD($conexion);
+        ?>
         
         
         </body>

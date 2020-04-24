@@ -61,8 +61,11 @@
             if(isset($errores) && count($errores) > 0){
                 echo "<div id=\"div_errores\" class=\"error\">";
                 echo "<h4> Errores en el formulario:</h4>";
+                print_r($errores);
+                
                 foreach($errores as $error){    //Muestrame cada error de la colección errores
                     echo $error;
+                    print_r($error);
                 }
 
                 echo "</div>";

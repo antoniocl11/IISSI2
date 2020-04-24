@@ -125,8 +125,23 @@ div.error {
 
 
 /*--------------------------------------------------------------------*/
+/*boton añadir nueva entrada*/
+.nuevo{
+    padding: 6px; /*espacio alrededor texto*/
+    background-color: #007ac3; /*color botón*/
+    border-radius: 2px;
+    margin: 4px;
+    display: block;
+    float: right;
+}
 
-.botones input{ /*diseño botones*/
+.nuevo a{
+    color: white;
+    font-size: 14px;
+}
+
+/*Boton cambiar pagina*/
+.cambiarPagina input{ /*diseño botones*/
     
     padding: 6px; /*espacio alrededor texto*/
     background-color: #007ac3; /*color botón*/
@@ -136,6 +151,19 @@ div.error {
     border-radius: 2px; /*bordes redondos*/
     }
 
+/*----------------------------------------------------------------------*/
+/*Estilos paginacion*/
+.enlaces{
+    padding: 8px;
+}
+
+
+
+
+
+
+
+/*------------------------------------------------------------------------*/
 /*Estilos tablas*/
 table{
     background-color: #007ac3;

@@ -76,7 +76,7 @@ header label:hover{
 
     .menu-principal{
         position: absolute;
-        width: 70%;
+        width: 40%;
         margin-left: -110%;
         transition: all 0.5s;
         margin-top: 20px;

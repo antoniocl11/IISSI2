@@ -15,13 +15,12 @@
 		<div class="topnav" id = "menu">
             <div class="dentroMenu">
 			<a  href="admin.php">Inicio</a>
-			<a href="#">Clientes</a>
+			<a href="clientes.php">Clientes</a>
             <a href="empleados.php">Empleados</a>
 			<a href="#">Pedidos</a>	
 			<a class="active" href="proveedores.php">Proveedores</a>
 			<a href="#">Reservas</a>
 			<a href="#">Tickets</a>
-            <a href="#">Linea Pedido</a>
             </div>
         </div>
         
@@ -84,7 +83,9 @@
 
 <main>
 <nav>
-		<div id="enlaces">
+        <div class="nuevo" ><a href="form_alta_proveedor.php">Nuevo proveedor</a></div>
+        
+        <div class="enlaces">
 			<?php
 				for( $pagina = 1; $pagina <= $total_paginas; $pagina++ ) 
 					if ( $pagina == $pagina_seleccionada) { 	?>
@@ -101,8 +102,8 @@
 				min="1" max="<?php echo $total_registros;?>" 
 				value="<?php echo $pag_tam?>" autofocus="autofocus" /> 
             entradas de <?php echo $total_registros?>
-            <!--Botón para cambiar el número de valores que te muestra-->
-			<div class="botones"><input type="submit" value="Cambiar"></div>
+            <!--Botón para cambiar el número de entradas que te muestra-->
+			<div class="cambiarPagina"><input type="submit" value="Cambiar"></div>
 		</form>
 	</nav>
 
