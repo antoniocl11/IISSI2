@@ -8,8 +8,8 @@
         <link type="text/css" href="css/styles.css" rel="stylesheet">
         <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> <!--Para detectar el tamaño de pantalla-->
-        <script type="text/javascript" src="js/javascript.js"></script>
-        <script src="https://kit.fontawesome.com/b3de7dbd0c.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/validacion_alta_usuario.js"></script>
+        <!--<script src="https://kit.fontawesome.com/b3de7dbd0c.js" crossorigin="anonymous"></script>-->
     </head>
         
 
@@ -62,8 +62,7 @@
                 $formulario['telefono'] = "";
                 $formulario['direccion'] = "";
                 $formulario['esSocio'] = "";
-                //$formulario['fechaNacimiento'] = "";
-                $formulario['edad'] = "";
+                $formulario['fechaNacimiento'] = "";
                 $formulario['email'] = "";
                 $formulario['contraseña'] ="";
 
@@ -87,8 +86,14 @@
 
     <section class="formulario_alta_usuario">
             <?php
+
+
         //Muestra los errores de validación si ha encontrado alguno
-            if(isset($errores) && count($errores) > 0){
+        if(isset($errores) && is_array($errores)){
+            //isset me determina si la variable está definida y
+            //is_array, me comprueba que $errores sea un array en el que 
+            //posteriormente almacenaré la lista de errores (evitar el warning)
+            if(count($errores) > 0){
                 echo "<div id=\"div_errores\" class=\"error\">";
                 echo "<h4> Errores en el formulario:</h4>";
                 foreach($errores as $error){
@@ -97,60 +102,62 @@
 
                 echo "</div>";
             }
+        }
         ?>
         
-                <form class="altaUsuario" method="get" action="validacion_alta_usuario.php">
-                    
+                <form class="altaUsuario" method="get" action="validacion_alta_usuario.php" >
+                   
                     <p class="campos">
                         <i>Los campos obligatorios están marcados con </i><em>*</em>
                     </p>
 
                     <div class="campos"><label for="nif">NIF<em>*</em></label>
-                    <input class="nif" name="nif" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" 
-                    title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['nif'];?>" required>
+                    <input id="nif" class="nif" name="nif" type="text" placeholder="12345678X" 
+                    title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['nif'];?>" 
+                    oninput="validacion_nif()"><!--required Quitado para validaciones js-->
                     </div>
 
                     <div class="campos"><label for="nombre">Nombre<em>*</em></label>
-                    <input class="nombre" name="nombre" type="text" size="25"  value="<?php echo $formulario['nombre'];?>" required>
+                    <input id="nombre" class="nombre" name="nombre" type="text" size="25"  value="<?php echo $formulario['nombre'];?>" 
+                    oninput="validacion_nombre()" ><!--required Quitado para validaciones js-->
                     </div>
 
                     <div class="campos"><label for="apellidos">Apellidos<em>*</em></label>
-                    <input class="apellidos" name="apellidos" type="text"   value="<?php echo $formulario['apellidos'];?>" required>
+                    <input  id="apellidos" class="apellidos" name="apellidos" type="text"   value="<?php echo $formulario['apellidos'];?>" 
+                    oninput="validacion_apellidos()" ><!--required Quitado para validaciones js-->
                     </div>
 
                     <div class="campos"><label for="telefono">Teléfono<em>*</em></label>
-                    <input type="number"  class="telefono" name="telefono" value="<?php echo $formulario['telefono'];?>" required>
+                    <input id="telefono" type="text"  class="telefono" name="telefono" value="<?php echo $formulario['telefono'];?>" 
+                    oninput="validacion_telefono()" ><!--required Quitado para validaciones js-->
                     </div>
 
                     <div class="campos"><label for="direccion">Dirección</label>
-                    <input class="direccion" name="direccion" type="text"   value="<?php echo $formulario['direccion'];?>" >
+                    <input  id="direccion" class="direccion" name="direccion" type="text"   value="<?php echo $formulario['direccion'];?>" 
+                    oninput="validacion_direccion()">
                     </div>
 
                     <div class="campos"><label for="essocio">¿Eres socio?<em>*</em></label>
-                     <select name="esSocio" value="<?php echo $formulario['esSocio'];?>" required>>
-                        <option value="Sí">Sí</option> 
-                        <option value="No">No</option> 
+                     <select id="essocio" name="esSocio" value="<?php echo $formulario['esSocio'];?>" ><!--required Quitado para validaciones js-->
+                        <option value="1">Sí</option> 
+                        <option value="0">No</option> 
                      </select>
                     </div>
-                    <!--
+                    
                     <div class="campos"><label for="fechaNacimiento">Fecha de Nacimiento<em>*</em></label>
-                    <input class="fechaNacimiento" name="fechaNacimiento" type="date"  placeholder= "Sólo mayores de 16 años" 
-                    value="</?php echo $formulario['fechaNacimiento'];?>" required>
+                    <input id="fechaNacimiento" class="fechaNacimiento" name="fechaNacimiento" type="date"  placeholder= "Sólo mayores de 16 años" 
+                    value="<?php echo $formulario['fechaNacimiento'];?>" oninput="validacion_fechaNacimiento()" ><!--required Quitado para validaciones js-->
                     </div>
-                    -->
-
-                    <div class="campos"><label for="edad">Edad<em>*</em></label>
-                    <input class="edad" name="edad" type="number" min="16" placeholder="No permitido a menores de 16 años" 
-                    value="<?php echo $formulario['direccion'];?>" required>
-                    </div>
+                    
 
                     <div class="campos"><label for="email">E-Mail<em>*</em></label>
-                    <input class="email" name="email" type="email" placeholder="example@domain.com" value="<?php echo $formulario['email'];?>" required>
+                    <input id="email" class="email" name="email" type="email" placeholder="example@domain.com" value="<?php echo $formulario['email'];?>" 
+                    oninput="validacion_email()" ><!--required Quitado para validaciones js-->
                     </div>
 
                     <div class="campos"><label for="contraseña">Contraseña<em>*</em></label>
-                    <input class="contraseña" name="contraseña" minLength="8" type="password" placeholder="Mínimo 8 caracteres, incluyendo letras y dígitos" 
-                    value="<?php echo $formulario['contraseña'];?>" required>
+                    <input id="contraseña" class="contraseña" name="contraseña" minLength="8" type="password" placeholder="Mínimo 8 caracteres, incluyendo letras y dígitos" 
+                    value="<?php echo $formulario['contraseña'];?>" oninput="validacion_contrasena()" ><!--required Quitado para validaciones js-->
                     </div>
                     
                 
