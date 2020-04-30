@@ -8,7 +8,8 @@
 		<meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/adminStyles.css" />
         <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
-		<title>Admin Middle-Earth</title>
+        <script type="text/javascript" src="js/validacion_alta_proveedor.js"></script>
+		<title>Alta Proveedor</title>
 	</head>
 	<body>
 		<div class = "topnav" id ="titulo">
@@ -19,7 +20,7 @@
             <div class="dentroMenu">
 			<a href="admin.php">Inicio</a>
 			<a href="#">Clientes</a>
-            <a href="#">Empleados</a>
+            <a href="empleados.php">Empleados</a>
 			<a href="#">Pedidos</a>	
 			<a class="active" href="proveedores.php">Proveedores</a>
 			<a href="#">Reservas</a>
@@ -80,22 +81,26 @@
                     </p>
 
                     <div class="campos"><label for="cif">CIF<em>*</em></label>
-                    <input class="cif" name="cif" type="text" placeholder="12345678X" pattern="^[A-Z][0-9]{8}" 
-                    title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['cif'];?>" required>
+                    <input id="cif" class="cif" name="cif" type="text" placeholder="X12345678" 
+                    title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['cif'];?>" 
+                    oninput="validacion_cif()"><!--required Quitado para probar validaciones js-->
                     </div>
 
                     <div class="campos"><label for="nombre">Nombre<em>*</em></label>
-                    <input class="nombre" name="nombre" type="text" size="25"  value="<?php echo $formulario['nombre'];?>" required>
+                    <input id="nombre" class="nombre" name="nombre" type="text" size="25"  value="<?php echo $formulario['nombre'];?>"
+                    oninput="validacion_nombre()" ><!--required Quitado para probar validaciones js-->
                     </div>
 
                     <div class="campos"><label for="telefono">Teléfono<em>*</em></label>
-                    <input type="number"  class="telefono" name="telefono" value="<?php echo $formulario['telefono'];?>" required>
+                    <input id="telefono" type="number"  class="telefono" name="telefono" value="<?php echo $formulario['telefono'];?>" 
+                    oninput="validacion_telefono()"><!--required Quitado para probar validaciones js-->
                     </div>
 
                     <div class="campos"><label for="direccion">Dirección<em>*</em></label>
-                    <input class="direccion" name="direccion" type="text"   value="<?php echo $formulario['direccion'];?>" required>
+                    <input id="direccion" class="direccion" name="direccion" type="text"   value="<?php echo $formulario['direccion'];?>" 
+                    oninput="validacion_direccion()"><!--required Quitado para probar validaciones js-->
                     </div>
-                    <div class="nuevo"><input type="submit" value="Confirmar"/></div>
+                    <div class="botones"><input type="submit" value="Confirmar"/></div>
                 </form>
             </section>    
         

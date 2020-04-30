@@ -83,7 +83,7 @@
 
 <main>
 <nav>
-        <div class="nuevo" ><a href="form_alta_proveedor.php">Nuevo proveedor</a></div>
+        <div class="botones" ><a href="form_alta_proveedor.php">Nuevo proveedor</a></div>
         
         <div class="enlaces">
 			<?php
@@ -124,11 +124,57 @@
 				<td><?php echo $fila["NOMBRE"]?></td>
 				<td><?php echo $fila["TELEFONO"]?></td>
                 <td><?php echo $fila["DIRECCION"]?></td>
+            <td>
 
+            <?php
+                if(isset($proveedor) and ($proveedor["CIF"]== $fila["CIF"])){ ?>
+
+                <form id="grabarProveedor" method="post" action="controlador_proveedores.php">
+                    
+                        <label for="CIF">CIF</label>
+                        <input id="CIF" name="CIF" type="text" value="<?php echo $proveedor["CIF"]; ?>"/>
+
+                        <label for="NOMBRE">Nombre</label>
+                        <input id="NOMBRE_<?php $proveedor["CIF"]?>" name="NOMBRE" type="text" value="<?php echo $proveedor["NOMBRE"]; ?>"/>
+
+                        <label for="TELEFONO">Telefono</label>
+                        <input id="TELEFONO_<?php $proveedor["CIF"]?>" name="TELEFONO" type="text" value="<?php echo $proveedor["TELEFONO"]; ?>"/>
+
+                        <label for="DIRECCION">Direccion</label>
+                        <input id="DIRECCION_<?php $proveedor["CIF"]?>" name="DIRECCION" type="text" value="<?php echo $proveedor["DIRECCION"]; ?>"/>
+                    
+                
+                        <button id="grabar" name="grabar" type="submit">Actualizar</button>
+                    <!--Aquí edita los campos de la fila-->
+                        
+                        </form>
+                
+                <?php }  else { ?>
+                        
+                        <form id="editarProveedor" method="post" action="controlador_proveedores.php">    
+                            
+                            <input id="CIF" name="CIF" type="hidden" value="<?php echo $fila["CIF"]; ?>"/>
+                            <input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
+                            <input id="TELEFONO" name="TELEFONO" type="hidden" value="<?php echo $fila["TELEFONO"]; ?>"/>
+                            <input id="DIRECCION" name="DIRECCION" type="hidden" value="<?php echo $fila["DIRECCION"]; ?>"/>
+                        
+                            <button id="editar" name="editar" type="submit">Editar</button>
+                            <div class="botones_fila">
+
+                            <button id="borrar" name="borrar" type="submit">Borrar</button>
+                        </div>
+                        </form>
+                    <?php } ?>
+
+                        
+                            
+                    </form>
+            </td>
         </tr>
 
-
-            <?php } ?>
+                    
+        <?php } ?>
+        </table>
         </main>
     </body>
 </html>

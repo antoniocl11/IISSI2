@@ -115,29 +115,59 @@ h2{
 div.error {
     color: red;	
 	border: 2px solid red;
-	padding: 10px;
-	margin: 18px;
+    padding: 10px;
+    margin: 18px;
 }
+/*EVITAR MARGENES EN ERRORES(PROVISIONAL)*/
+h4{
+    margin-top: 0px;
+}
+
+p{
+    margin: 0px;
+}
+/*---------------------------------------------------------------------*/
 .casillasTurnos{
     margin-bottom: 4px;
     font-weight: bold;
 }
 
+/*formulario responsive*/
+@media screen and(max-width: 947px){
+    
+}
+
+
 
 /*--------------------------------------------------------------------*/
 /*boton añadir nueva entrada*/
-.nuevo{
-    padding: 6px; /*espacio alrededor texto*/
-    background-color: #007ac3; /*color botón*/
-    border-radius: 2px;
-    margin: 4px;
-    display: block;
-    float: right;
+.botones{   /*botones registro y login*/
+    text-align: right;
+    margin-top: 17px;
+    
 }
 
-.nuevo a{
-    color: white;
-    font-size: 14px;
+.botones input{ /*diseño boton añadir nueva entrada*/
+    
+    padding: 6px; /*espacio alrededor texto*/
+    background-color: #007ac3; /*color botón*/
+    color: #ffffff; /*color texto*/
+    text-decoration: none; /*decoración texto*/
+    text-align: center;
+    border-radius: 2px; /*bordes redondos*/
+    }
+
+.botones a{ /*diseño botones generales*/
+    
+    padding: 6px; /*espacio alrededor texto*/
+    background-color: #007ac3; /*color botón*/
+    color: #ffffff; /*color texto*/
+    text-decoration: none; /*decoración texto*/
+    text-align: center;
+    border-radius: 2px; /*bordes redondos*/
+    }
+.botones a:hover{
+    background-color: #004f7c;
 }
 
 /*Boton cambiar pagina*/
