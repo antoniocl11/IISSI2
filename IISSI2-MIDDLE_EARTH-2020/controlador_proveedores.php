@@ -15,7 +15,7 @@ if (isset($_REQUEST["OID_PV"])) {
         }
         
 		else if(isset($_REQUEST["grabar"])){
-			Header("Location: modificar_proveedor.php");
+			Header("Location: modificar_proveedores.php");
         }
         else if(isset($_REQUEST["borrar"])){
 			Header("Location: borrar_proveedor.php");
