@@ -9,7 +9,7 @@
 		require_once("gestionar_proveedores.php");
 		
 		$conexion = crearConexionBD();		
-		$excepcion = eliminar_proveedor($conexion,$libro["CIF"]);
+		$excepcion = eliminar_proveedor($conexion,$proveedor["OID_PV"]);
 		cerrarConexionBD($conexion);
 			
 		if ($excepcion<>"") {

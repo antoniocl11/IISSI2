@@ -125,50 +125,62 @@
 				<td><?php echo $fila["TELEFONO"]?></td>
                 <td><?php echo $fila["DIRECCION"]?></td>
             <td>
-
-            <?php
-                if(isset($proveedor) and ($proveedor["CIF"]== $fila["CIF"])){ ?>
-
-                <form id="grabarProveedor" method="post" action="controlador_proveedores.php">
-                    
-                        <label for="CIF">CIF</label>
-                        <input id="CIF" name="CIF" type="text" value="<?php echo $proveedor["CIF"]; ?>"/>
-
-                        <label for="NOMBRE">Nombre</label>
-                        <input id="NOMBRE_<?php $proveedor["CIF"]?>" name="NOMBRE" type="text" value="<?php echo $proveedor["NOMBRE"]; ?>"/>
-
-                        <label for="TELEFONO">Telefono</label>
-                        <input id="TELEFONO_<?php $proveedor["CIF"]?>" name="TELEFONO" type="text" value="<?php echo $proveedor["TELEFONO"]; ?>"/>
-
-                        <label for="DIRECCION">Direccion</label>
-                        <input id="DIRECCION_<?php $proveedor["CIF"]?>" name="DIRECCION" type="text" value="<?php echo $proveedor["DIRECCION"]; ?>"/>
-                    
                 
-                        <button id="grabar" name="grabar" type="submit">Actualizar</button>
-                    <!--Aquí edita los campos de la fila-->
+
+                <form method="post" action="controlador_proveedores.php">
+                    
                         
-                        </form>
-                
+                        <input id="OID_PV" name="OID_PV" type="hidden" value="<?php echo $fila["OID_PV"]; ?>"/>
+
+                             
+                <?php        
+                    if(isset($proveedor) and ($proveedor["OID_PV"]== $fila["OID_PV"])){ ?>
+                        <!--Editando los campos del GRID-->
+                        <h3><input id="CIF" name="CIF" type="text" value="<?php echo $fila["CIF"]; ?>"/></h3>
+                        <h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/></h3>
+                        <h3><input id="TELEFONO" name="TELEFONO" type="text" value="<?php echo $fila["TELEFONO"]; ?>"/></h3>
+                        <h3><input id="DIRECCION" name="DIRECCION" type="text" value="<?php echo $fila["DIRECCION"]; ?>"/></h3>
+
                 <?php }  else { ?>
-                        
-                        <form id="editarProveedor" method="post" action="controlador_proveedores.php">    
-                            
-                            <input id="CIF" name="CIF" type="hidden" value="<?php echo $fila["CIF"]; ?>"/>
-                            <input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
-                            <input id="TELEFONO" name="TELEFONO" type="hidden" value="<?php echo $fila["TELEFONO"]; ?>"/>
-                            <input id="DIRECCION" name="DIRECCION" type="hidden" value="<?php echo $fila["DIRECCION"]; ?>"/>
-                        
-                            <button id="editar" name="editar" type="submit">Editar</button>
-                            <div class="botones_fila">
+                
+                    <input id="CIF" name="CIF" type="hidden" value="<?php echo $fila["CIF"]; ?>"/>
+                    <input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
+                    <input id="TELEFONO" name="TELEFONO" type="hidden" value="<?php echo $fila["TELEFONO"]; ?>"/>
+                    <input id="DIRECCION" name="DIRECCION" type="hidden" value="<?php echo $fila["DIRECCION"]; ?>"/>
 
-                            <button id="borrar" name="borrar" type="submit">Borrar</button>
-                        </div>
-                        </form>
+                    <!--<div class="nombre"><b><//?php echo $fila["NOMBRE"]; ?></b></div>-->
+                        
                     <?php } ?>
 
-                        
+                    <div id="botones_fila">
+
+                            <?php if (isset($proveedor) and ($proveedor["OID_PV"] == $proveedor["OID_PV"])) { ?>
+
+                                    <button id="grabar" name="grabar" type="submit" class="boton_grabar">
+
+                                        <img src="images/icono_guardar.png" class="editar_fila" alt="Guardar modificación">
+
+                                    </button>
+
+                            <?php } else { ?>
+
+                                    <button id="editar" name="editar" type="submit" class="boton_editar">
+
+                                       <img src="images/icono_editar.png" class="editar_fila" alt="Editar libro">
+
+                                    </button>
+
+                            <?php } ?>
+
+                                <button id="borrar" name="borrar" type="submit" class="boton_borrar">
+
+                                    <img src="images/icono_borrar.png" class="editar_fila" alt="Borrar libro">
+
+                                </button>
+
+                    </div>
                             
-                    </form>
+                </form>
             </td>
         </tr>
 
