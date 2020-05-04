@@ -80,6 +80,30 @@
     cerrarConexionBD($conexion);
 ?>
 
+<!--Script alerta para delete-->
+<script type="text/javascript">
+function confirmar_eliminar(){
+    var respuesta= confirm ("¿Está seguro que deseas eliminar el Proveedor?");
+
+    if (respuesta == true){
+        return true;
+    }
+
+    else{
+        return false;
+    }
+}
+</script>
+<!------------------------------------------------------------->
+<!--Script alerta para actualizado-->
+<script>
+function actualizado_correcto(){
+    var respuesta=alert("Proveedor modificado correctamente");
+    print_r(respuesta);
+    
+}
+</script>
+
 
 <main>
 <nav>
@@ -148,31 +172,42 @@
                     <input id="TELEFONO" name="TELEFONO" type="hidden" value="<?php echo $fila["TELEFONO"]; ?>"/>
                     <input id="DIRECCION" name="DIRECCION" type="hidden" value="<?php echo $fila["DIRECCION"]; ?>"/>
 
-                    <!--<div class="nombre"><b><//?php echo $fila["NOMBRE"]; ?></b></div>-->
+                    
                         
                     <?php } ?>
 
                     <div id="botones_fila">
 
                             <?php if (isset($proveedor) and ($proveedor["OID_PV"] == $proveedor["OID_PV"])) { ?>
-
-                                    <button id="grabar" name="grabar" type="submit" class="boton_grabar">
+                                    
+                                    <button id="grabar" name="grabar" type="submit" class="boton_grabar" onclick="return actualizado_correcto()">
 
                                         <img src="images/icono_guardar.png" class="editar_fila" alt="Guardar modificación">
 
                                     </button>
 
-                            <?php } else { ?>
+                                    <button id="atras" name="atras" type="submit" class="boton_atras" >
+                                        
+                                        <a href="<?=$_SERVER["HTTP_REFERER"]?>" class="link_atras">Atras</a>
+                                        <!--Esto lo que hace es volver atras en caso de que no se quiera editar nada--> 
 
+                                        <!--<img  src="images/boton_atras.png" alt="Volver atrás">-->
+                                        
+                                    </button>
+
+                            <?php } else { ?>
+                                    
                                     <button id="editar" name="editar" type="submit" class="boton_editar">
 
                                        <img src="images/icono_editar.png" class="editar_fila" alt="Editar libro">
 
                                     </button>
 
+                                    
+
                             <?php } ?>
 
-                                <button id="borrar" name="borrar" type="submit" class="boton_borrar">
+                                <button id="borrar" name="borrar" type="submit" class="boton_borrar" onclick="return confirmar_eliminar()">
 
                                     <img src="images/icono_borrar.png" class="editar_fila" alt="Borrar libro">
 
