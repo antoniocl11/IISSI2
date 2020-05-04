@@ -26,7 +26,7 @@
 <?php
     session_start();
     require_once("gestionBD.php");
-    require_once("gestionar_pedido.php");
+    require_once("gestionar_pedidos.php");
     require_once("paginacion_consulta.php");
 
     if(isset($_SESSION["pedido"])){
