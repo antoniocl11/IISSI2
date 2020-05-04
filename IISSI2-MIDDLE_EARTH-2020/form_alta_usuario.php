@@ -162,20 +162,10 @@
                     
                 
                     <div class="botones"><input type="submit" value="Enviar"/></div>
-                    <p><a href="#">¿Ya tienes una cuenta?</a></p>
+                    <p><a href="login.html">¿Ya tienes una cuenta?</a></p>
                 </form>
             </section>    
-        
-        
-        
-        
         </body>
-            
-         
-            
-            
-       
-   
              <footer>  
            <div class="contenedor">
             <div class="footercol">

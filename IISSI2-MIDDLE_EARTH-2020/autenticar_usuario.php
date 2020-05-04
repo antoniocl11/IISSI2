@@ -33,9 +33,11 @@ if($stmt = $conexion->prepare('SELECT OID_U,contrasena FROM usuario WHERE email 
 		$_SESSION['loggedin'] = TRUE;
 		$_SESSION['name'] = $_POST['email'];
 		$_SESSION['id'] = $id;
-		echo 'Bienvenido, ' . $_SESSION['name'] . '! - Tu ID es ' . $_SESSION['id'];
+		//header('Location: perfil_user.php');
+		echo 'Bienvenido,' . $_SESSION['name'];
+		header("Location: index_dos.php");
 	} else {
-		echo 'Contraseña incorrecta!';
+		header('Location: login.html');
 	}
 } else {
 	echo 'Nombre de usuario incorrecto!';

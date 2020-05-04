@@ -5,6 +5,7 @@
     text-decoration:none;
     
 }
+
 .espacio{
     margin-top: 20px;
 }
@@ -132,7 +133,9 @@ header label:hover{
 .botones a:hover{
     background-color: #004f7c;
 }
-
+.botones a:active{
+    background-color: darkgoldenrod;
+}
 
 .login{ /*separacion boton login*/
     margin: 19px;
@@ -300,5 +303,3 @@ footer{
                 background-color: #2868c7;
                 transition: background-color 0.2s;
     }
-
-
