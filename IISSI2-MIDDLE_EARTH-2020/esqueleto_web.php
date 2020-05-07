@@ -32,12 +32,11 @@ function headermain() {
                     <input type="checkbox" id="btn-menu">
                     <label for="btn-menu"><img src="images/icono-menu.png"></label>
                     <nav class="menu-principal">    
-                        <ul>
-                            <li><a href="index_dos.php">Inicio</a></li>
-                            <li><a href="#">Productos</a></li>
-                            <li><a href="#">Sobre Nosotros</a></li>
-                            <li><a href="#">Contacto</a></li>
-                        </ul>
+                        <a href="index_dos.php" class="nav-item is-active" active-color="#007ac3">Inicio</a>
+                        <a href="#" class="nav-item" active-color="#007ac3">Productos</a>
+                        <a href="#" class="nav-item" active-color="#007ac3">Compromiso</a>
+                        <a href="#" class="nav-item" active-color="#007ac3">Contacto</a>
+                        <span class="nav-indicator"></span>
                     </nav>
                 </div>
                     <div class="colheader">

@@ -1,9 +1,10 @@
-*{  /*engloba a todo el html*/
-    font-family: sans-serif !important;
-	padding: 0px;
+@import url('https://fonts.googleapis.com/css?family=DM+Sans:500,700&display=swap');
+
+* { /*engloba a todo el html*/
+    font-family: 'DM Sans', sans-serif;
+    padding: 0px;
     margin: 0px;
-    text-decoration:none;
-    
+    text-decoration: none;
 }
 
 .espacio{
@@ -62,26 +63,20 @@ header label:hover{
     background-color: #007ac3;
     
 }
-
+/*
 .menu-principal a:hover{
     color: white;
     
 }
-/*responsive design*/
-@media screen and (max-width:947px)/*Para modificar si se desea*/{
-    header label{
+    *//*responsive design*/
+@media screen and (max-width:947px) /*Para modificar si se desea*/ {
+    header label {
         display: block;
         margin-top: 12px;
         margin-left: 18px;
     }
 
-    .menu-principal{
-        position: absolute;
-        width: 40%;
-        margin-left: -110%;
-        transition: all 0.5s;
-        margin-top: 20px;
-    }
+    
 
     .menu-principal ul{
         flex-direction: column;
@@ -100,6 +95,8 @@ header label:hover{
     .menu-principal li:hover{
         background-color: white;
     }
+
+    /*
     .menu-principal a{
         color: white;
     }
@@ -108,7 +105,7 @@ header label:hover{
         color: black;
     }
 
-    
+    */ 
 }
 
 /*-----------------------------------------------------------*/
@@ -118,21 +115,23 @@ header label:hover{
 .botones{   /*botones registro y login*/
     text-align: right;
     margin-top: 17px;
-    
 }
 
-.botones a{ /*diseño botones*/
-    
-    padding: 6px; /*espacio alrededor texto*/
-    background-color: #007ac3; /*color botón*/
-    color: #ffffff; /*color texto*/
-    text-decoration: none; /*decoración texto*/
-    text-align: center;
-    border-radius: 2px; /*bordes redondos*/
+.botones a { /*diseño botones*/
+        font-family: 'DM Sans', sans-serif;
+        padding: 30px; /*espacio alrededor texto*/
+        background-color: #007ac3; /*color botón*/
+        color: #ffffff; /*color texto*/
+        text-decoration: none; /*decoración texto*/
+        text-align: center;
+        border-radius: 30px; /*bordes redondos*/
+        transition: all 0.5s;
+       
     }
-.botones a:hover{
-    background-color: #004f7c;
-}
+        .botones a:hover {
+            background-color: #004f7c;
+            cursor: pointer;
+        }
 .botones a:active{
     background-color: darkgoldenrod;
 }
