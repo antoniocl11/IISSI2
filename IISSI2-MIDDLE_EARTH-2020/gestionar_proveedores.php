@@ -25,6 +25,7 @@
 
         catch(PDOException $e){
             return $e -> getMessage();
+            Header("Location: excepcion.php");
         }
     }
 

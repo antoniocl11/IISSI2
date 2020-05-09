@@ -42,9 +42,10 @@
                 $_SESSION["formulario"] = $formulario;
             }
             //si ya existían valores se usan para inicializar el formulario
-            else
-                $formulario = $_SESSION["formulario"];
+            else{
                 
+                $formulario = $_SESSION["formulario"];
+            }   
             //si hay errores de validacion hay que mostrarlos y marcar los datos
             if (isset($_SESSION["errores"])){
                     $errores = $_SESSION["errores"];
@@ -74,7 +75,7 @@
             }
         ?>
         
-                <form class="altaProveedor" method="get" action="validacion_alta_proveedor.php">
+                <form class="altaProveedor" method="get" action="validacion_alta_proveedor.php" >
                     
                     <p class="campos">
                         <i>Los campos obligatorios están marcados con </i><em>*</em>
@@ -82,7 +83,7 @@
 
                     <div class="campos"><label for="cif">CIF<em>*</em></label>
                     <input id="cif" class="cif" name="cif" type="text" placeholder="X12345678" 
-                    title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['cif'];?>" 
+                    title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['cif'];?>"
                     oninput="validacion_cif()"><!--required Quitado para probar validaciones js-->
                     </div>
 
