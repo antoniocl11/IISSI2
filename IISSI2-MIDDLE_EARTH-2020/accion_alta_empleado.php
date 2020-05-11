@@ -30,7 +30,7 @@
 
 <main>
       <?php
-        if(añadir_empleado($conexion, $nuevoEmpleado)==""){
+        if(añadir_empleado($conexion, $nuevoEmpleado)){
       ?>
             <div id="div_exito">
               <h1>Empleado <?php echo $nuevoEmpleado["nombre"]; ?>, añadido con éxito</h1>
@@ -42,11 +42,14 @@
         
         else { ?>
                   <h2>El Empleado ya existe en la base de datos.</h2>
+                
                   
               <div>
-                Pulsa <a href="form_alta_Empleado.php"> aquí</a> para volver al formulario o pulsa <a href="empleados.php">aquí</a> para ir a la lista de Empleados
+                Pulsa <a href="form_alta_empleado.php"> aquí</a> para volver al formulario o pulsa <a href="empleados.php">aquí</a> para ir a la lista de Empleados
               </div>
-        <?php } ?>
+        <?php }
+        print_r($nuevoEmpleado);
+        ?>
 			
 		</ul>		
 	</main>

@@ -1,6 +1,11 @@
 <?php
     session_start();
-    //Aqui comprobamos que hemos llegado a esta página porque se ha rellenado el formulario.
+	//Aqui comprobamos que hemos llegado a esta página porque se ha rellenado el formulario.
+	
+	   //Importo archivos necesarios para la gestion del usuario
+	   require_once("gestionBD.php");
+	   require_once("gestionar_usuario.php");
+
     if(isset($_SESSION["formulario"])){
         $nuevoUsuario = $_SESSION["formulario"];
         $_SESSION["formulario"] = null;
@@ -9,19 +14,27 @@
     //sino volvemos al formulario
     else{
         Header("Location: form_alta_usuario.php");
-    }
+	}
+	
+	$conexion = crearConexionBD();
+
     ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Middle-Earth: Registro realizado con éxito</title>
+  <title>Nuevo Usuario</title>
+  <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
 </head>
 
 <body>
 
 
 	<main>
+
+	<?php
+		if(añadir_usuario($conexion, $nuevoUsuario)){
+	?>
 			
 		<div id="div_exito">
 		  <h1>Hola <?php echo $nuevoUsuario["nombre"]; ?>, gracias por registrarte</h1>
@@ -30,25 +43,22 @@
 			</div>
 		</div>
 
-		<h2>El nuevo usuario ha sido dado de alta con éxito con los siguientes datos:</h2>
-		<ul>
-			<li><?php echo "NIF: " . $nuevoUsuario["nif"]; ?></li>
-			<li><?php echo "Nombre: " . $nuevoUsuario["nombre"]; ?></li>
-			<li><?php echo "Apellidos: " . $nuevoUsuario["apellidos"]; ?></li>
-			<li><?php echo "Teléfono: " . $nuevoUsuario["telefono"]; ?></li>
-			<li><?php echo "Dirección: " . $nuevoUsuario["direccion"]; ?></li>
-			<li><?php echo "¿Es Socio?: " . $nuevoUsuario["esSocio"]; ?></li>
-			<li><?php echo "fechaNacimiento: " . $nuevoUsuario["fechaNacimiento"]; ?></li>
-			<li><?php echo "email: " . $nuevoUsuario["email"]; ?></li>
+		<?php }
+		else { print_r($nuevoUsuario);?>
+
+			<h2>El usuario ya ha sido registrado</h2>
 			
 
-				<ul>
-
-				</ul>
-			</li>
-		</ul>		
+			<div>
+                Pulsa <a href="form_alta_usuario.php"> aquí</a> para volver al formulario o pulsa <a href="login.html">aquí</a> para entrar en la página
+              </div>
+			
+		<?php } ?>
 	</main>
 
 </body>
 </html>
+<?php 
+	cerrarConexionBD($conexion);
+?>
 

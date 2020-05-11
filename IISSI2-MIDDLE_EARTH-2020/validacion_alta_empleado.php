@@ -17,6 +17,7 @@
     }
 
     else
+        
         Header("Location: form_alta_empleado.php");
 
     //Validamos el formulario en el servidor
@@ -24,7 +25,7 @@
     $errores = validarDatosEmpleado($conexion, $nuevoEmpleado);
     cerrarConexionBD($conexion);
     
-    $errores = validarDatosEmpleado($nuevoEmpleado);
+    
     //Si se han detectado errores
         if (count($errores)>0) {
             // Guardo en la sesión los mensajes de error y volvemos al formulario
@@ -79,7 +80,7 @@
         }
 
             return $errores;
-        
+       
         
     }
 ?>

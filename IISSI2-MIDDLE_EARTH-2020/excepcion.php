@@ -9,6 +9,7 @@
 		unset($_SESSION["destino"]);	
 	} else 
 		$destino = "";
+
 ?>
 
 <!DOCTYPE html>

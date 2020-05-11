@@ -42,7 +42,7 @@
             
                 <div class="colheader">
                     <div class="botones">
-                        <a class="login" href="index.html">Entrar</a>
+                        <a class="login" href="login.html">Entrar</a>
                         <a href="form_alta_usuario.php">Registrarse</a>
                     </div>
                 </div>
@@ -53,6 +53,8 @@
     
     <?php
             session_start();
+
+            require_once("gestionBD.php");
             
             //Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
             if(!isset($_SESSION["formulario"])){
@@ -77,6 +79,9 @@
                     $errores = $_SESSION["errores"];
                     unset($_SESSION["errores"]);
             }
+
+            //Creamos la conexion de la base de datos
+            $conexion = crearConexionBD();
         ?>
 
     
@@ -96,6 +101,7 @@
             if(count($errores) > 0){
                 echo "<div id=\"div_errores\" class=\"error\">";
                 echo "<h4> Errores en el formulario:</h4>";
+                print_r($formulario);
                 foreach($errores as $error){
                     echo $error;
                 }
@@ -165,6 +171,10 @@
                     <p><a href="login.html">¿Ya tienes una cuenta?</a></p>
                 </form>
             </section>    
+
+            <?php
+                cerrarConexionBD($conexion);
+            ?>
         </body>
              <footer>  
            <div class="contenedor">

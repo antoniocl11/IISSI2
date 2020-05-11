@@ -33,7 +33,7 @@
 
 	<main>
       <?php
-        if(añadir_proveedor($conexion, $nuevoProveedor)==""){
+        if(añadir_proveedor($conexion, $nuevoProveedor)){
       ?>
             <div id="div_exito">
               <h1>Proveedor <?php echo $nuevoProveedor["nombre"]; ?>, añadido con éxito</h1>
