@@ -19,9 +19,9 @@
 		<div class="topnav" id = "menu">
             <div class="dentroMenu">
 			<a href="admin.php">Inicio</a>
-			<a href="#">Clientes</a>
+			<a href="clientes.php">Clientes</a>
             <a href="empleados.php">Empleados</a>
-			<a href="#">Pedidos</a>	
+			<a href="pedidos.php">Pedidos</a>	
 			<a class="active" href="proveedores.php">Proveedores</a>
 			<a href="#">Reservas</a>
 			<a href="#">Tickets</a>
@@ -83,7 +83,7 @@
 
                     <div class="campos"><label for="cif">CIF<em>*</em></label>
                     <input id="cif" class="cif" name="cif" type="text" placeholder="X12345678" 
-                    title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['cif'];?>"
+                    title="Una letra mayúscula seguida de 8 dígitos numéricos" value="<?php echo $formulario['cif'];?>"
                     oninput="validacion_cif()"><!--required Quitado para probar validaciones js-->
                     </div>
 

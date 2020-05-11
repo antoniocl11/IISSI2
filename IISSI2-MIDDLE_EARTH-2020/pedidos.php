@@ -9,15 +9,16 @@
 	</head>
 	<body>
 		<div class = "topnav" id ="titulo">
-			<a id="cerrar" href="#" class="button">Cerrar Sesión</a>
-			<h2>Admin Panel Middle-Earth(Sevilla)</h2>
+        <a id="cerrar" href="index_dos.php" class="button">Cerrar Sesión</a>
+			<a id="pagina" href="#" class="button">Ver Web</a>
+			<h2>Admin Panel Middle-Earth</h2>
 		</div>
 		<div class="topnav" id = "menu">
             <div class="dentroMenu">
 			<a  href="admin.php">Inicio</a>
-			<a class="active" href="pedidos.php">Pedidos</a>
+			<a href="clientes.php">Clientes</a>
             <a href="empleados.php">Empleados</a>
-			<a href="pedidos.php">Pedidos</a>	
+			<a class="active" href="pedidos.php">Pedidos</a>	
 			<a href="proveedores.php">Proveedores</a>
 			<a href="#">Reservas</a>
 			<a href="#">Tickets</a>
@@ -110,7 +111,7 @@
     ?>
         <tr><!--Muestra los datos recogidos de la base de datos en cada campo-->
                 <td><?php echo $fila["ID"]?></td>
-                <td><?php echo $fila["Fecha"]?></td>
+                <td><?php echo $fila["FECHA"]?></td>
                 <th></th>
         </tr>
             <?php } ?>

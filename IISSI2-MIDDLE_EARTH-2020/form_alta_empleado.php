@@ -21,7 +21,7 @@
 			<a  href="admin.php">Inicio</a>
 			<a href="clientes.php">Clientes</a>
             <a class="active" href="empleados.php">Empleados</a>
-			<a href="#">Pedidos</a>	
+			<a href="pedidos.php">Pedidos</a>	
 			<a href="proveedores.php">Proveedores</a>
 			<a href="#">Reservas</a>
 			<a href="#">Tickets</a>
@@ -70,6 +70,8 @@
             if(count($errores) > 0){
                 echo "<div id=\"div_errores\" class=\"error\">";
                 echo "<h4> Errores en el formulario:</h4>";
+                
+                
                 foreach($errores as $error){
                     echo $error;
                 }
@@ -79,21 +81,21 @@
         }
     ?>
             
-                <form class="altaProveedor" method="get" action="validacion_alta_empleado.php">
+                <form class="altaEmpleado" method="get" action="validacion_alta_empleado.php">
                     
                     <p class="campos">
                         <i>Los campos obligatorios están marcados con </i><em>*</em>
                     </p>
 
                     <div class="campos"><label for="id">ID<em>*</em></label>
-                    <input id="id" name="id" type="number"
+                    <input id="id" name="id" type="number" class="id" placeholder="9 dígitos numéricos"
                     title="El ID asociado debe contener 9 dígitos numéricos" value="<?php echo $formulario['id'];?>" 
                     oninput="validacion_id()"><!--required Quitado para probar validacion js-->
                     </div>
                     <div class="campos"><label for="nif">NIF<em>*</em></label>
-                    <input id="nif" name="cif" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" 
-                    title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['nif'];?>" 
-                    oninput="validacion_nif()"><!--required Quitado para probar validacion js-->
+                    <input id="nif" class="nif" name="nif" type="text" placeholder="12345678X" 
+                    title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['nif'];?>"
+                    oninput="validacion_nif()"><!--required Quitado para probar validaciones js-->
                     </div>
 
                     <div class="campos"><label for="nombre">Nombre<em>*</em></label>
