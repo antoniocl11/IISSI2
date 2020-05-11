@@ -74,7 +74,7 @@
             }
         ?>
         
-                <form class="altaProveedor" method="get" action="validacion_alta_proveedor.php">
+                <form class="altaProveedor" method="get" action="validacion_alta_proveedor.php" novalidate>
                     
                     <p class="campos">
                         <i>Los campos obligatorios están marcados con </i><em>*</em>
