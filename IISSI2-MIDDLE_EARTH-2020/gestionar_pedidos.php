@@ -3,7 +3,7 @@
 
     /*Consultar pedidos*/
     function consultarTodosPedidos($conexion){
-        $consulta = "SELECT * FROM PEDIDO";
+        $consulta = "SELECT * FROM PEDIDOS";
         return $conexion->query($consulta);
        
     }
@@ -12,27 +12,31 @@
 
     function añadir_pedido($conexion, $nuevoPedido){
         try{
-            $consulta = 'CALL NUEVO_PEDIDO(:ID,:FECHA)';
+            $consulta = 'CALL NUEVO_PEDIDO(:FECHA,:ID,:OID_U)';
 
             $stmt = $conexion -> prepare($consulta);
-            $stmt -> bindParam(':ID', $nuevoPedido["id"]);
             $stmt -> bindParam(':FECHA', $nuevoPedido["fecha"]);
+            $stmt -> bindParam(':ID', $nuevoPedido["id"]);
+            $stmt -> bindParam(':OID_U', $nuevoPedido["oid_u"]);
             $stmt -> execute();
             return "";
         }
 
         catch(PDOException $e){
             return $e -> getMessage();
+            Header("Location: excepcion.php");
         }
     }
 
     /*Modificar pedidos*/
-    function modificar_pedidos($conexion, $OID_PEDIDO, $ID, $FECHA){
+    function modificar_pedidos($conexion, $OID_PEDIDO,$FECHA,$ID,$OID_U){
         try{
-            $stmt = $conexion -> prepare('CALL pk_proveedor.actualizar_proveedor(:OID_PV,:CIF,:NOMBRE,:TELEFONO,:DIRECCION)');
+            $stmt = $conexion -> prepare('CALL ACTUALIZAR_PEDIDOS(:OID_PEDIDO,:FECHA,:ID,:OID_U)');
             $stmt -> bindParam(':OID_PEDIDO', $OID_PEDIDO);
-            $stmt -> bindParam(':ID', $ID);
             $stmt -> bindParam(':FECHA', $FECHA);
+            $stmt -> bindParam(':ID', $ID);
+            $stmt -> bindParam(':OID_U', $OID_U);
+            
             $stmt -> execute();
             return "";
         }
@@ -42,11 +46,11 @@
         }
     }
 
-    /*Eliminar proveedor*/
+    /*Eliminar pedido*/
 
-    function eliminar_proveedor($conexion,$OID_PEDIDO){
+    function eliminar_pedido($conexion,$OID_PEDIDO){
         try{
-            $stmt = $conexion -> prepare('CALL ELIMINAR_PEDIDO(:OID_PEDIDO)');
+            $stmt = $conexion -> prepare('CALL ELIMINAR_PEDIDOS(:OID_PEDIDO)');
 
             $stmt-> bindParam(':OID_PEDIDO', $OID_PEDIDO);
             $stmt -> execute();

@@ -1,15 +1,15 @@
 <?php	
 	session_start();	
 	
-	if (isset($_SESSION["pedidos"])) {
-		$proveedor = $_SESSION["pedidos"];
-		unset($_SESSION["pedidos"]);
+	if (isset($_SESSION["pedido"])) {
+		$pedido = $_SESSION["pedido"];
+		unset($_SESSION["pedido"]);
 		
 		require_once("gestionBD.php");
 		require_once("gestionar_pedidos.php");
 		
 		$conexion = crearConexionBD();		
-		$excepcion = eliminar_pedido($conexion,$libro["CIF"]);
+		$excepcion = eliminar_pedido($conexion,$pedido["OID_PEDIDO"]);
 		cerrarConexionBD($conexion);
 			
 		if ($excepcion<>"") {
@@ -19,5 +19,5 @@
 		}
 		else Header("Location: pedidos.php");
 	}
-	else Header("Location: pedidos.php"); // Se ha tratado de acceder directamente a este PHP
+	else Header("Location: pedidos.php"); 
 ?>

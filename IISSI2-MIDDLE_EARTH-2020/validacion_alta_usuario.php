@@ -14,14 +14,14 @@
         $nuevoUsuario["esSocio"] = $_REQUEST["esSocio"];
         $nuevoUsuario["fechaNacimiento"] = $_REQUEST["fechaNacimiento"];
         $nuevoUsuario["email"] = $_REQUEST["email"];
-        $nuevoUsuario["contraseña"] = $_REQUEST["contraseña"];
+        $nuevoUsuario["contrasena"] = $_REQUEST["contrasena"];
 
         $_SESSION["formulario"] = $nuevoUsuario;
     }
 
-    else
+    else{
         Header("Location: form_alta_usuario.php");
-
+    }
     //Validamos el formulario en el servidor
     $conexion = crearConexionBD();
     $errores = validarDatosUsuario($conexion, $nuevoUsuario);
@@ -93,7 +93,7 @@
         }
 
         //El campo contraseña no puede estar vacío
-        if($nuevoUsuario["contraseña"]=="" || $nuevoUsuario["contraseña"==null]){
+        if($nuevoUsuario["contrasena"]=="" || $nuevoUsuario["contrasena"==null]){
             $errores[] = "<p>El campo contraseña no puede estar vacío</p>";
         }
         else if(preg_match("/^[/s]$/", $nuevoUsuario["contraseña"])){

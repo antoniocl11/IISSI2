@@ -2,7 +2,7 @@
 	session_start();
 	
 	//Importo archivos necesarios para la gestion del empleado
-    require_once("gestionBD.php");
+  require_once("gestionBD.php");
 	require_once("gestionar_empleados.php");
 	
     //Aqui comprobamos que hemos llegado a esta página porque se ha rellenado el formulario.
@@ -48,7 +48,7 @@
                 Pulsa <a href="form_alta_empleado.php"> aquí</a> para volver al formulario o pulsa <a href="empleados.php">aquí</a> para ir a la lista de Empleados
               </div>
         <?php }
-        print_r($nuevoEmpleado);
+        
         ?>
 			
 		</ul>		

@@ -9,7 +9,7 @@
     
     function añadir_empleado($conexion, $nuevoEmpleado){
         try{
-            $consulta = 'CALL NUEVO_EMPLEADO(:NIF,:NOMBRE,:APELLIDOS,:TURNO,:SUELDO,:ID)';
+            $consulta = 'CALL PK_EMPLEADO.NUEVO_EMPLEADO(:NIF,:NOMBRE,:APELLIDOS,:TURNO,:SUELDO,:ID)';
 
             $stmt = $conexion -> prepare($consulta);
             $stmt -> bindParam(':NIF', $nuevoEmpleado["nif"]);

@@ -33,10 +33,10 @@
             require_once("gestionBD.php");
             //Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
             if(!isset($_SESSION["formulario"])){
-                $formulario['cif'] = "";
-                $formulario['nombre'] = "";
-                $formulario['telefono'] = "";
-                $formulario['direccion'] = "";
+                $formulario["cif"] = "";
+                $formulario["nombre"] = "";
+                $formulario["telefono"] = "";
+                $formulario["direccion"] = "";
  
 
                 $_SESSION["formulario"] = $formulario;
@@ -83,22 +83,22 @@
 
                     <div class="campos"><label for="cif">CIF<em>*</em></label>
                     <input id="cif" class="cif" name="cif" type="text" placeholder="X12345678" 
-                    title="Una letra mayúscula seguida de 8 dígitos numéricos" value="<?php echo $formulario['cif'];?>"
-                    oninput="validacion_cif()"><!--required Quitado para probar validaciones js-->
+                    title="Una letra mayúscula seguida de 8 dígitos numéricos" value="<?php echo @$formulario["cif"];?>"
+                    oninput="validacion_cif()" ><!--required Quitado para probar validaciones js-->
                     </div>
 
                     <div class="campos"><label for="nombre">Nombre<em>*</em></label>
-                    <input id="nombre" class="nombre" name="nombre" type="text" size="25"  value="<?php echo $formulario['nombre'];?>"
+                    <input id="nombre" class="nombre" name="nombre" type="text" size="25"  value="<?php echo @$formulario["nombre"];?>"
                     oninput="validacion_nombre()" ><!--required Quitado para probar validaciones js-->
                     </div>
 
                     <div class="campos"><label for="telefono">Teléfono<em>*</em></label>
-                    <input id="telefono" type="number"  class="telefono" name="telefono" value="<?php echo $formulario['telefono'];?>" 
+                    <input id="telefono" type="number"  class="telefono" name="telefono" value="<?php echo @$formulario["telefono"];?>" 
                     oninput="validacion_telefono()"><!--required Quitado para probar validaciones js-->
                     </div>
 
                     <div class="campos"><label for="direccion">Dirección<em>*</em></label>
-                    <input id="direccion" class="direccion" name="direccion" type="text"   value="<?php echo $formulario['direccion'];?>" 
+                    <input id="direccion" class="direccion" name="direccion" type="text"   value="<?php echo @$formulario["direccion"];?>" 
                     oninput="validacion_direccion()"><!--required Quitado para probar validaciones js-->
                     </div>
                     <div class="botones"><input type="submit" value="Confirmar"/></div>

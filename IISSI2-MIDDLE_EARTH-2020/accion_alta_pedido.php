@@ -33,10 +33,10 @@
 
 	<main>
       <?php
-        if(añadir_pedido($conexion, $nuevoProveedor)==""){
+        if(añadir_pedido($conexion, $nuevoPedido)){
       ?>
             <div id="div_exito">
-              <h1>Pedido <?php echo $nuevoPedido["id"]; ?>, añadido con éxito</h1>
+              <h1>Pedido con ID: <?php echo $nuevoPedido["id"]; ?>, añadido con éxito</h1>
               <div id="div_volver">	
                 Pulsa <a href="pedidos.php">aquí</a> para ir a la lista de pedidos.
               </div>

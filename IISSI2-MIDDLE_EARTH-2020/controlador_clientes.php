@@ -11,6 +11,7 @@ if (isset($_REQUEST["OID_U"])) {
         $usuario["ESSOCIO"] = $_REQUEST["ESSOCIO"];
         $usuario["DIRECCION"] = $_REQUEST["DIRECCION"];
         $usuario["FECHANACIMIENTO"] = $_REQUEST["FECHANACIMIENTO"];
+        $usuario["CONTRASENA"] = $_REQUEST["CONTRASENA"];
 		
 		$_SESSION["usuario"] = $usuario;
 

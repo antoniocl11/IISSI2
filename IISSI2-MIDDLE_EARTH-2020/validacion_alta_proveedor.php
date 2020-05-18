@@ -23,6 +23,7 @@
     $errores = validarDatosProveedor($conexion, $nuevoProveedor);
     cerrarConexionBD($conexion);
 
+    
     //Si se han detectado errores
     if (count($errores)>0) {
         // Guardo en la sesión los mensajes de error y volvemos al formulario
@@ -33,6 +34,8 @@
         
         Header('Location: accion_alta_proveedor.php');
     }
+
+
     function validarDatosProveedor($conexion, $nuevoProveedor){
         $errores = array();
         

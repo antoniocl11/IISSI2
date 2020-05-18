@@ -5,12 +5,12 @@
         <link rel="stylesheet" type="text/css" href="css/adminStyles.css" />
         <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
 		<script src="js/desp_imagenes.js" type="text/javascript"></script>
-		<title>Usuarios</title>
+		<title>Admin Clientes</title>
 	</head>
 	<body>
 		<div class = "topnav" id ="titulo">
-        <a id="cerrar" href="index_dos.php" class="button">Cerrar Sesión</a>
-			<a id="pagina" href="#" class="button">Ver Web</a>
+        <a id="cerrar" href="#" class="button">Cerrar Sesión</a>
+        <a id="pagina" href="index_dos.php" class="button">Ver Web</a>
 			<h2>Admin Panel Middle-Earth</h2>
 		</div>
 		<div class="topnav" id = "menu">
@@ -20,7 +20,7 @@
             <a href="empleados.php">Empleados</a>
 			<a href="pedidos.php">Pedidos</a>	
 			<a href="proveedores.php">Proveedores</a>
-			<a href="#">Reservas</a>
+			<a href="reservas.php">Reservas</a>
 			<a href="#">Tickets</a>
             </div>
         </div>
@@ -112,7 +112,7 @@ function actualizado_correcto(){
 					if ( $pagina == $pagina_seleccionada) { 	?>
 						<span class="current"><?php echo $pagina; ?></span>
 			<?php }	else { ?>			
-						<a href="clientes.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
+						<a class="paginas" href="clientes.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 			<?php } ?>			
 		</div>
 		<form method="get" action="clientes.php">
@@ -163,15 +163,17 @@ function actualizado_correcto(){
                         <?php        
                             if(isset($usuario) and ($usuario["OID_U"]== $fila["OID_U"])){ ?>
                                 <!--Editando los campos del GRID-->
-                                <h3><input id="NIF" name="NIF" type="text" value="<?php echo $fila["NIF"]; ?>"/></h3>
-                                <h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/></h3>
-                                <h3><input id="APELLIDOS" name="APELLIDOS" type="text" value="<?php echo $fila["APELLIDOS"]; ?>"/></h3>
-                                <h3><input id="EMAIL" name="EMAIL" type="text" value="<?php echo $fila["EMAIL"]; ?>"/></h3>
-                                <h3><input id="TELEFONO" name="TELEFONO" type="text" value="<?php echo $fila["TELEFONO"]; ?>"/></h3>
-                                <h3><input id="ESSOCIO" name="ESSOCIO" type="number" value="<?php echo $fila["ESSOCIO"]; ?>"/></h3>
-                                <h3><input id="DIRECCION" name="DIRECCION" type="text" value="<?php echo $fila["DIRECCION"]; ?>"/></h3>
-                                <h3><input id="FECHANACIMIENTO" name="FECHANACIMIENTO" type="text" value="<?php echo $fila["FECHANACIMIENTO"]; ?>"/></h3>
-                                <h3><input id="CONTRASENA" name="CONTRASENA" type="text" value="<?php echo $fila["CONTRASENA"]; ?>"/></h3>
+                                <h5>NIF: <input id="NIF" name="NIF" type="text" value="<?php echo $fila["NIF"]; ?>"required/></h5>
+                                <h5>Nombre: <input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"required/></h5>
+                                <h5>Apellidos: <input id="APELLIDOS" name="APELLIDOS" type="text" value="<?php echo $fila["APELLIDOS"]; ?>"required/></h5>
+                                <h5>E-mail: <input id="EMAIL" name="EMAIL" type="text" value="<?php echo $fila["EMAIL"]; ?>"required/></h5>
+                                <h5>Teléfono: <input id="TELEFONO" name="TELEFONO" type="text" value="<?php echo $fila["TELEFONO"]; ?>"required/></h5>
+                                <h5>Es Socio: <input id="ESSOCIO" name="ESSOCIO" type="number" value="<?php echo $fila["ESSOCIO"]; ?>"required/></h5>
+                                <h5>Dirección: <input id="DIRECCION" name="DIRECCION" type="text" value="<?php echo $fila["DIRECCION"]; ?>"required/></h5>
+                                <h5>Fecha Nacimiento: <input id="FECHANACIMIENTO" name="FECHANACIMIENTO" type="text" value="<?php echo $fila["FECHANACIMIENTO"]; ?>"required/></h5>
+                                <h5>Contraseña: <input id="CONTRASENA" name="CONTRASENA" type="text" value="<?php echo $fila["CONTRASENA"]; ?>"required/></h5>
+
+                             
 
                         <?php }  else { ?>
                         
@@ -198,12 +200,13 @@ function actualizado_correcto(){
 
                                 </button>
 
-                                <button id="atras" name="atras" type="submit" class="boton_atras" >
+                                <button id="atras" name="atras" type="button" class="boton_atras" >
                                     
-                                    <a href="<?=$_SERVER["HTTP_REFERER"]?>" class="link_atras">Atras</a>
+                                    <a href="<?=$_SERVER["HTTP_REFERER"]?>" class="link_atras">
+                                    <img href="<?=$_SERVER["HTTP_REFERER"]?>" src="images/boton_atras.png" alt="Volver atrás">
+                                    </a>
                                     <!--Esto lo que hace es volver atras en caso de que no se quiera editar nada--> 
 
-                                    <!--<img  src="images/boton_atras.png" alt="Volver atrás">-->
                                     
                                 </button>
 
