@@ -159,7 +159,7 @@ function validacion_email(){
 
 //Validacion contraseña
 function validacion_contrasena(){
-    var tablaContrasena = document.getElementById(contraseña);
+    var tablaContrasena = document.getElementById("contraseña");
     var contrasena = tablaContrasena.value;
 
     var error;

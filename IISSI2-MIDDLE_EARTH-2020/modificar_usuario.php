@@ -16,10 +16,10 @@
         if($excepcion<>""){
             $_SESSION["excepcion"] = $excepcion;
             $_SESSION["destino"] = "clientes.php";
-            print_r($usuario);
+            //print_r($usuario);
             
-            print_r($_SESSION);
-            //Header("Location: excepcion.php");
+            
+            Header("Location: gestionar_usuario.php");
         }
         else{
             Header("Location: clientes.php");

@@ -1,10 +1,11 @@
 <?php
 session_start();
 
-if (isset($_REQUEST["OID_PV"])) {
+if (isset($_REQUEST["OID_PEDIDO"])) {
 		$pedido["OID_PEDIDO"] = $_REQUEST["OID_PEDIDO"];
         $pedido["ID"] = $_REQUEST["ID"];
-        $pedido["FECHA"] = $_REQUEST["FECHA"];
+		$pedido["FECHA"] = $_REQUEST["FECHA"];
+		$pedido["OID_U"] = $_REQUEST["OID_U"];
 		
 		$_SESSION["pedido"] = $pedido;
 

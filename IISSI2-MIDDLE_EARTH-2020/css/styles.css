@@ -303,3 +303,23 @@ footer{
                 background-color: #2868c7;
                 transition: background-color 0.2s;
     }
+
+    
+
+    .texto_sobre_nosotros{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        text-align: center;
+    }
+    
+    .titulo_sobre_nosotros{
+        
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            text-align: center;
+        
+    }

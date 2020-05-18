@@ -10,7 +10,7 @@
         unset($_SESSION["pedido"]);
 
         $conexion = crearConexionBD();
-        $excepcion = modificar_proveedor($conexion,$pedido["OID_PEDIDO"],$pedido["ID"],$pedido["FECHA"]);
+        $excepcion = modificar_pedidos($conexion,$pedido["OID_PEDIDO"],$pedido["FECHA"],$pedido["ID"],$pedido["OID_U"]);
         cerrarConexionBD($conexion);
 
         if($excepcion<>""){

@@ -7,8 +7,9 @@
      /*Añadir usuario*/
 
      function añadir_usuario($conexion, $nuevoUsuario){
+        
         try{
-            $consulta = 'CALL PK_USUARIO.NUEVO_USUARIO(:NIF,:NOMBRE,:APELLIDOS,:EMAIL,:TELEFONO,;ESSOCIO,:DIRECCION,:FECHANACIMIENTO,:CONTRASENA';
+            $consulta = 'CALL NUEVO_USUARIO(:NIF,:NOMBRE,:APELLIDOS,:EMAIL,:TELEFONO,:ESSOCIO,:DIRECCION,:FECHANACIMIENTO,:CONTRASENA)';
 
             $stmt = $conexion -> prepare($consulta);
             $stmt -> bindParam(':NIF', $nuevoUsuario["nif"]);
@@ -18,10 +19,13 @@
             $stmt -> bindParam(':TELEFONO', $nuevoUsuario["telefono"]);
             $stmt -> bindParam(':ESSOCIO', $nuevoUsuario["esSocio"]);
             $stmt -> bindParam(':DIRECCION', $nuevoUsuario["direccion"]);
-            $stmt -> bindParam(':FECHANACIMIENTO', $nuevoUsuario["fechanacimiento"]);
+            $stmt -> bindParam(':FECHANACIMIENTO', $nuevoUsuario["fechaNacimiento"]);
             $stmt -> bindParam(':CONTRASENA', $nuevoUsuario["contrasena"]);
+            
             $stmt -> execute();
             return "";
+
+           
         }
 
         catch(PDOException $e){
@@ -32,8 +36,11 @@
 
     /*Modificar usuario*/
     function modificar_usuario($conexion, $OID_U, $NIF, $NOMBRE,$APELLIDOS,$EMAIL,$TELEFONO,$ESSOCIO,$DIRECCION,$FECHANACIMIENTO,$CONTRASENA){
+        
+    
         try{
-            $stmt = $conexion -> prepare('CALL PK_USUARIO.ACTUALIZAR_USUARIO(:OID_U,:NIF,:NOMBRE,:APELLIDOS,:EMAIL,:TELEFONO,;ESSOCIO,:DIRECCION,:FECHANACIMIENTO,:CONTRASENA');
+            $consulta = 'CALL ACTUALIZAR_USUARIO(:OID_U,:NIF,:NOMBRE,:APELLIDOS,:EMAIL,:TELEFONO,:ESSOCIO,:DIRECCION,:FECHANACIMIENTO,:CONTRASENA)';
+            $stmt = $conexion -> prepare($consulta);
             $stmt -> bindParam(':OID_U', $OID_U);
             $stmt -> bindParam(':NIF',$NIF);
             $stmt -> bindParam(':NOMBRE',$NOMBRE);
@@ -44,12 +51,15 @@
             $stmt -> bindParam(':DIRECCION',$DIRECCION);
             $stmt -> bindParam(':FECHANACIMIENTO',$FECHANACIMIENTO);
             $stmt -> bindParam(':CONTRASENA',$CONTRASENA);
+            
             $stmt -> execute();
             return "";
         }
 
         catch(PDOException $e){
+            
             return $e -> getMessage();
+            
         }
     }
 

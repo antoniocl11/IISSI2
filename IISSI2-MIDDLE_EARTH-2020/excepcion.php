@@ -1,5 +1,7 @@
 <?php 
 	session_start();
+
+	
 	
 	$excepcion = $_SESSION["excepcion"];
 	unset($_SESSION["excepcion"]);
@@ -9,7 +11,7 @@
 		unset($_SESSION["destino"]);	
 	} else 
 		$destino = "";
-
+	
 ?>
 
 <!DOCTYPE html>
@@ -31,10 +33,13 @@
 		<?php } else { ?>
 		<p>Ocurrió un problema para acceder a la base de datos. </p>
 		<?php } ?>
+			
 	</div>
 		
 	<div class='excepcion'>	
 		<?php echo "Información relativa al problema: $excepcion;" ?>
+
+		
 	</div>
 
 

@@ -12,8 +12,8 @@
 	</head>
 	<body>
 		<div class = "topnav" id ="titulo">
-			<a id="cerrar" href="index_dos.php" class="button">Cerrar Sesión</a>
-			<a id="pagina" href="#" class="button">Ver Web</a>
+			<a id="cerrar" href="#" class="button">Cerrar Sesión</a>
+			<a id="pagina" href="index_dos.php" class="button">Ver Web</a>
 			<h2>Admin Panel Middle-Earth</h2>
 		</div>
 		<div class="topnav" id = "menu">

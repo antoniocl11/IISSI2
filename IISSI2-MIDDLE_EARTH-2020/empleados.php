@@ -9,12 +9,12 @@
         <link rel="stylesheet" type="text/css" href="css/adminStyles.css" />
         <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
 		<script src="js/desp_imagenes.js" type="text/javascript"></script>
-		<title>Admin Middle-Earth</title>
+		<title>Admin Empleados</title>
 	</head>
 	<body>
 		<div class = "topnav" id ="titulo">
-        <a id="cerrar" href="index_dos.php" class="button">Cerrar Sesión</a>
-			<a id="pagina" href="#" class="button">Ver Web</a>
+        <a id="cerrar" href="#" class="button">Cerrar Sesión</a>
+        <a id="pagina" href="index_dos.php" class="button">Ver Web</a>
 			<h2>Admin Panel Middle-Earth</h2>
 		</div>
 		<div class="topnav" id = "menu">
@@ -24,7 +24,7 @@
             <a class="active" href="empleados.php">Empleados</a>
 			<a href="pedidos.php">Pedidos</a>	
 			<a href="proveedores.php">Proveedores</a>
-			<a href="#">Reservas</a>
+			<a href="reservas.php">Reservas</a>
 			<a href="#">Tickets</a>
             </div>
         </div>
@@ -119,7 +119,7 @@ function actualizado_correcto(){
 					if ( $pagina == $pagina_seleccionada) { 	?>
 						<span class="current"><?php echo $pagina; ?></span>
 			<?php }	else { ?>			
-						<a href="empleados.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
+						<a class="paginas" href="empleados.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 			<?php } ?>			
 		</div>
 		
@@ -166,12 +166,12 @@ function actualizado_correcto(){
             <?php        
                 if(isset($empleado) and ($empleado["OID_E"]== $fila["OID_E"])){ ?>
                     <!--Editando los campos del GRID-->
-                    <h3><input id="ID" name="ID" type="number" value="<?php echo $fila["ID"]; ?>"/></h3>
-                    <h3><input id="NIF" name="NIF" type="text" value="<?php echo $fila["NIF"]; ?>"/></h3>
-                    <h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/></h3>
-                    <h3><input id="APELLIDOS" name="APELLIDOS" type="text" value="<?php echo $fila["APELLIDOS"]; ?>"/></h3>
-                    <h3><input id="TURNO" name="TURNO" type="text" value="<?php echo $fila["TURNO"]; ?>"/></h3>
-                    <h3><input id="SUELDO" name="SUELDO" type="text" value="<?php echo $fila["SUELDO"]; ?>"/></h3>
+                    <h5>ID: <input id="ID" name="ID" type="number" value="<?php echo $fila["ID"]; ?>"required/></h5>
+                    <h5>NIF: <input id="NIF" name="NIF" type="text" value="<?php echo $fila["NIF"]; ?>"required/></h5>
+                    <h5>Nombre: <input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"required/></h5>
+                    <h5>Apellidos: <input id="APELLIDOS" name="APELLIDOS" type="text" value="<?php echo $fila["APELLIDOS"]; ?>"required/></h5>
+                    <h5>Turno: <input id="TURNO" name="TURNO" type="text" value="<?php echo $fila["TURNO"]; ?>"required/></h5>
+                    <h5>Sueldo: <input id="SUELDO" name="SUELDO" type="text" value="<?php echo $fila["SUELDO"]; ?>"required/></h5>
 
             <?php }  else { ?>
             
@@ -196,12 +196,14 @@ function actualizado_correcto(){
 
                                 </button>
 
-                                <button id="atras" name="atras" type="submit" class="boton_atras" >
+                                <button id="atras" name="atras" type="button" class="boton_atras" >
                                     
-                                    <a href="<?=$_SERVER["HTTP_REFERER"]?>" class="link_atras">Atras</a>
+                                    <a href="<?=$_SERVER["HTTP_REFERER"]?>" class="link_atras">
+                                    <img href="<?=$_SERVER["HTTP_REFERER"]?>" src="images/boton_atras.png" alt="Volver atrás">
+                                    </a>
                                     <!--Esto lo que hace es volver atras en caso de que no se quiera editar nada--> 
 
-                                    <!--<img  src="images/boton_atras.png" alt="Volver atrás">-->
+                                    
                                     
                                 </button>
 
