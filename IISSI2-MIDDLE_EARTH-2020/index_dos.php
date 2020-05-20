@@ -19,7 +19,7 @@ session_start();
                 </div>
                 <div class="botones">
                     <div class="boton1">
-                        <a href="inicio.html">Ver Productos</a>
+                        <a href="productos_principal.php">Ver Productos</a>
                     </div>  
                 </div>
             </section>
