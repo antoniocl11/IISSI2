@@ -13,9 +13,9 @@
         $_SESSION["formulario"] = $nuevoPedido;
     }
 
-    else
+    else{
         Header("Location: form_alta_pedido.php");
-    
+    }
 
     //Validamos el formulario en el servidor
     $conexion = crearConexionBD();
@@ -36,6 +36,11 @@
     /////////Validacion del formulario
     function validarDatosPedido($conexion,$nuevoPedido){
             $errores = array();
+
+         //El campo fecha no puede estar vacio
+         if($nuevoPedido["fecha"]=="" || $nuevoPedido["fecha"] == null){
+            $errores[] = "<p>El campo fecha no puede estar vacío</p>";
+        }
          
         //Validacion ID, no puede estar vacío
         if($nuevoPedido["id"]=="" || $nuevoPedido["id"]==null)
@@ -45,10 +50,6 @@
             $errores[] = "<p>El ID debe contener 9 dígitos</p>";
         }
 
-        //El campo fecha no puede estar vacio
-        if($nuevoPedido["fecha"]=="" || $nuevoPedido["fecha"] == null){
-            $errores[] = "<p>El campo fecha no puede estar vacío</p>";
-        }
 
         return $errores;
     }

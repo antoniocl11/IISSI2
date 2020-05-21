@@ -11,6 +11,7 @@
     /*Añadir pedidos*/
 
     function añadir_pedido($conexion, $nuevoPedido){
+        $fecha = date('d/m/Y', strtotime($nuevoPedido["fecha"]));
         try{
             $consulta = 'CALL NUEVO_PEDIDO(:FECHA,:ID,:OID_U)';
 

@@ -11,7 +11,6 @@ function headermain() {
         <link type="text/css" href="css/styles.css" rel="stylesheet">
         <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> <!--Para detectar el tama�o de pantalla-->
-        <script type="text/javascript" src="js/javascript.js"></script>
         <script src="https://kit.fontawesome.com/b3de7dbd0c.js" crossorigin="anonymous"></script>
     </head>    
     ';
@@ -36,13 +35,13 @@ function headermain() {
                             <li><a href="index_dos.php">Inicio</a></li>
                             <li><a href="#">Productos</a></li>
                             <li><a href="sobre_nosotros.php">Sobre Nosotros</a></li>
-                            <li><a href="#">Contacto</a></li>
+                            <li><a href="form_alta_ticket.php">Contacto</a></li>
                         </ul>
                     </nav>
                 </div>
                     <div class="colheader">
                         <div class="botones">
-                            <a class="login" href="login.html">Entrar</a>
+                            <a class="login" href="login.php">Entrar</a>
                             <a href="form_alta_usuario.php">Registrarse</a>
                      </div>
                 </div>

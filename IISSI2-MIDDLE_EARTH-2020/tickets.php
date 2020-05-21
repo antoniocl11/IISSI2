@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="css/adminStyles.css" />
         <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
 		<script src="js/desp_imagenes.js" type="text/javascript"></script>
-		<title>Admin Proveedores</title>
+		<title>Admin Tickets</title>
 	</head>
 	<body>
 		<div class = "topnav" id ="titulo">
@@ -19,21 +19,21 @@
 			<a href="clientes.php">Clientes</a>
             <a href="empleados.php">Empleados</a>
 			<a href="pedidos.php">Pedidos</a>	
-			<a class="active" href="proveedores.php">Proveedores</a>
+			<a  href="proveedores.php">Proveedores</a>
 			<a href="reservas.php">Reservas</a>
-			<a href="tickets.php">Tickets</a>
+			<a class="active" href="tickets.php">Tickets</a>
             </div>
         </div>
         
 <?php
     session_start();
     require_once("gestionBD.php");
-    require_once("gestionar_proveedores.php");
+    require_once("gestionar_tickets.php");
     require_once("paginacion_consulta.php");
 
-    if(isset($_SESSION["proveedor"])){
-        $proveedor = $_SESSION["proveedor"];
-        unset($_SESSION["proveedor"]);
+    if(isset($_SESSION["ticket"])){
+        $ticket = $_SESSION["ticket"];
+        unset($_SESSION["ticket"]);
     }
 
     //Aqui comprobamos si venimos de cambiar de página o de haber seleccionado un registro
@@ -55,7 +55,7 @@
     $conexion = crearConexionBD();
 
     //consulta a la base de datos que ha de paginarse
-    $query = 'SELECT * FROM PROVEEDOR';
+    $query = 'SELECT * FROM TICKET';
 
 
     //Comprobamos el tamaño de página, página seleccionada y total de registros
@@ -84,7 +84,7 @@
 <!--Script alerta para delete-->
 <script type="text/javascript">
 function confirmar_eliminar(){
-    var respuesta= confirm ("¿Está seguro que deseas eliminar el Proveedor?");
+    var respuesta= confirm ("¿Está seguro que deseas eliminar el Ticket?");
 
     if (respuesta == true){
         return true;
@@ -98,17 +98,19 @@ function confirmar_eliminar(){
 <!------------------------------------------------------------->
 <!--Script alerta para actualizado-->
 <script>
+    /*
 function actualizado_correcto(){
-    var respuesta=alert("Proveedor modificado correctamente");
+    var respuesta=alert("Ticket modificado correctamente");
     print_r(respuesta);
     
 }
+*/
 </script>
 
 
 <main>
 <nav>
-        <div class="botones" ><a href="form_alta_proveedor.php">Nuevo proveedor</a></div>
+        <div class="botones" ><a href="form_alta_ticket.php">Nuevo Ticket</a></div>
         
         <div class="enlaces">
 			<?php
@@ -116,11 +118,11 @@ function actualizado_correcto(){
 					if ( $pagina == $pagina_seleccionada) { 	?>
 						<span class="current"><?php echo $pagina; ?></span>
 			<?php }	else { ?>			
-						<a class="paginas" href="proveedores.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
+						<a class="paginas" href="tickets.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 			<?php } ?>			
 		</div>
 		
-		<form method="get" action="proveedores.php">
+		<form method="get" action="tickets.php">
 			<input id="PAG_NUM" name="PAG_NUM" type="hidden" value="<?php echo $pagina_seleccionada?>"/>
 			Mostrando <!--Te pone el número de resultados que está mostrando y el total encontrado en la tabla-->
 			<input id="PAG_TAM" name="PAG_TAM" type="number" 
@@ -134,10 +136,13 @@ function actualizado_correcto(){
 
     <table >
 			<tr>
-                <th>CIF</th>
-				<th>Nombre</th>
-                <th>Teléfono</th>
-				<th>Dirección</th>
+                <th>Fecha</th>
+				<th>Comentario</th>
+                <th>OID_U</th>
+                <th>OID_E</th>
+                <th>¿Resuelto?</th>
+                <th>Nombre</th>
+                <th>Email</th>
 				<th></th>
 			</tr>
     
@@ -145,33 +150,43 @@ function actualizado_correcto(){
         foreach($filas as $fila){
     ?>
         <tr><!--Muestra los datos recogidos de la base de datos en cada campo-->
-                <td><?php echo $fila["CIF"]?></td>
-				<td><?php echo $fila["NOMBRE"]?></td>
-				<td><?php echo $fila["TELEFONO"]?></td>
-                <td><?php echo $fila["DIRECCION"]?></td>
+                <td><?php echo $fila["FECHA"]?></td>
+				<td><?php echo $fila["COMENTARIO"]?></td>
+				<td><?php echo $fila["OID_U"]?></td>
+                <td><?php echo $fila["OID_E"]?></td>
+                <td><?php echo $fila["RESUELTO"]?></td>
+                <td><?php echo $fila["NOMBRE"]?></td>
+                <td><?php echo $fila["EMAIL"]?></td>
+                
             <td>
                 
 
-                <form method="post" action="controlador_proveedores.php">
+                <form method="post" action="controlador_tickets.php">
                     
                         
-                        <input id="OID_PV" name="OID_PV" type="hidden" value="<?php echo $fila["OID_PV"]; ?>"/>
+                        <input id="OID_TICKET" name="OID_TICKET" type="hidden" value="<?php echo $fila["OID_TICKET"]; ?>"/>
 
                              
                 <?php        
-                    if(isset($proveedor) and ($proveedor["OID_PV"]== $fila["OID_PV"])){ ?>
+                    if(isset($ticket) and ($ticket["OID_TICKET"]== $fila["OID_TICKET"])){ ?>
                         <!--Editando los campos del GRID-->
-                        <h5>CIF: <input id="CIF" name="CIF" type="text" value="<?php echo $fila["CIF"]; ?>" required/></h5>
+                        <h5>Fecha: <input id="FECHA" name="FECHA" type="text" value="<?php echo $fila["FECHA"]; ?>" required/></h5>
+                        <h5>Comentario: <textarea id="COMENTARIO" name="COMENTARIO" type="text" value="<?php echo $fila["COMENTARIO"]; ?>"required></textarea></h5>
+                        <h5>OID_U: <input id="OID_U" name="OID_U" type="number" value="<?php echo $fila["OID_U"]; ?>"required/></h5>
+                        <h5>OID_E: <input id="OID_E" name="OID_E" type="number" value="<?php echo $fila["OID_E"]; ?>"required/></h5>
+                        <h5>¿Resuelto?: <input id="RESUELTO" name="RESUELTO" type="number" value="<?php echo $fila["RESUELTO"]; ?>"required/></h5>
                         <h5>Nombre: <input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"required/></h5>
-                        <h5>Teléfono: <input id="TELEFONO" name="TELEFONO" type="text" value="<?php echo $fila["TELEFONO"]; ?>"required/></h5>
-                        <h5>Dirección: <input id="DIRECCION" name="DIRECCION" type="text" value="<?php echo $fila["DIRECCION"]; ?>"required/></h5>
+                        <h5>Email: <input id="EMAIL" name="EMAIL" type="text" value="<?php echo $fila["EMAIL"]; ?>"required/></h5>
 
                 <?php }  else { ?>
                 
-                    <input id="CIF" name="CIF" type="hidden" value="<?php echo $fila["CIF"]; ?>"/>
+                    <input id="FECHA" name="FECHA" type="hidden" value="<?php echo $fila["FECHA"]; ?>"/>
+                    <input id="COMENTARIO" name="COMENTARIO" type="hidden" value="<?php echo $fila["COMENTARIO"]; ?>"/>
+                    <input id="OID_U" name="OID_U" type="hidden" value="<?php echo $fila["OID_U"]; ?>"/>
+                    <input id="OID_E" name="OID_E" type="hidden" value="<?php echo $fila["OID_E"]; ?>"/>
+                    <input id="RESUELTO" name="RESUELTO" type="hidden" value="<?php echo $fila["RESUELTO"]; ?>"/>
                     <input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
-                    <input id="TELEFONO" name="TELEFONO" type="hidden" value="<?php echo $fila["TELEFONO"]; ?>"/>
-                    <input id="DIRECCION" name="DIRECCION" type="hidden" value="<?php echo $fila["DIRECCION"]; ?>"/>
+                    <input id="EMAIL" name="EMAIL" type="hidden" value="<?php echo $fila["EMAIL"]; ?>"/>
 
                     
                         
@@ -179,7 +194,7 @@ function actualizado_correcto(){
 
                     <div id="botones_fila">
 
-                            <?php if (isset($proveedor) and ($proveedor["OID_PV"] == $proveedor["OID_PV"])) { ?>
+                            <?php if (isset($ticket) and ($ticket["OID_TICKET"] == $ticket["OID_TICKET"])) { ?>
                                     
                                     <button id="grabar" name="grabar" type="submit" class="boton_grabar" onclick="return actualizado_correcto()">
 
