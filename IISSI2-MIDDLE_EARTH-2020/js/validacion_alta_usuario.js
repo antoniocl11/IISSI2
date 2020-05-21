@@ -117,11 +117,14 @@ function validacion_direccion(){
     tablaDireccion.setCustomValidity(error);
     return error;
 }
-
+/*
 //Validacion fecha de nacimiento (en construccion)
 function validacion_fechaNacimiento(){
     var tablaFechaNacimiento = document.getElementById(fechaNacimiento);
     var fechaNacimiento = tablaFechaNacimiento.value;
+
+    let ahora = new Date();
+    let anyos = ahora.getFullYear() - fechaNacimiento.getFullYear();
 
     var error;
     
@@ -129,11 +132,15 @@ function validacion_fechaNacimiento(){
         error = "El campo fecha de nacimiento no puede estar vacío";
     }
 
+    else if (anyos <= 16){
+        error = "Debe ser mayor de 16 años."
+    }
+
 
     tablaFechaNacimiento.setCustomValidity(error);
     return error;
 }
-
+*/
 //Validacion email
 function validacion_email(){
     var tablaEmail = document.getElementById("email");
@@ -179,3 +186,50 @@ function validacion_contrasena(){
     tablaContrasena.setCustomValidity(error);
     return error;
 }
+
+//Validacion FECHA DEFINITIVA
+
+//Funcion para calcular y validad la edad en el formulario (No permitido el registro a menores de 16 años)
+function validacion_fechaNacimiento(){
+    var fecha = document.getElementById("fechaNacimiento").value;
+    var error;
+
+    //if(validar_fecha(fecha) == true){
+        //si la fecha es correcta calculamos la edad
+        var values = fecha.split("-");
+        var dia = values[2];
+        var mes = values[1];
+        var anyo = values[0];
+
+
+        var fecha_actual = new Date();
+        var año_actual = fecha_actual.getYear();
+        var dia_actual = fecha_actual.getDate();
+        var mes_actual = fecha_actual.getMonth();
+
+        //Calculo de la edad
+
+        var edad = (año_actual + 1900) - anyo;
+
+        if(mes_actual < (mes-1)){
+            edad --;
+        }
+
+        if(((mes - 1) == mes_actual) && (dia_actual < dia)){
+            edad --;
+        }
+
+        if(edad > 1900){
+            edad -= 1900
+        }
+            
+        document.getElementById("result").innerHTML="Tienes "+edad+" años";
+
+        if(edad < 16){
+            //document.getElementById("result").innerHTML="Edad incorrecta";
+            error = "Prueba";
+        }
+
+        
+        return error;
+    }

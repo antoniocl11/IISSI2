@@ -1,19 +1,19 @@
 <?php
     session_start();
 
-    //Importo archivos necesarios para la gestion del proveedor
+    //Importo archivos necesarios para la gestion del ticket de contacto
     require_once("gestionBD.php");
-    require_once("gestionar_pedidos.php");
+    require_once("gestionar_tickets.php");
 
       //Aqui comprobamos que hemos llegado a esta página porque se ha rellenado el formulario.
       if(isset($_SESSION["formulario"])){
-          $nuevoPedido = $_SESSION["formulario"];
+          $nuevoTicket = $_SESSION["formulario"];
           $_SESSION["formulario"] = null;
           $_SESSION["errores"] = null;
       }
       //sino volvemos al formulario
       else{
-          Header("Location: form_alta_pedido.php");
+          Header("Location: form_alta_ticket.php");
       }
 
       $conexion = crearConexionBD();
@@ -24,7 +24,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Nuevo pedido</title>
+  <title>Nuevo Ticket</title>
   <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
 </head>
 
@@ -33,22 +33,21 @@
 
 	<main>
       <?php
-        if(añadir_pedido($conexion, $nuevoPedido)){
-          
+        if(añadir_ticket($conexion, $nuevoTicket)){
       ?>
             <div id="div_exito">
-              <h1>Pedido con ID: <?php echo $nuevoPedido["id"]; ?>, añadido con éxito</h1>
+              <h1><?php echo $nuevoTicket["nombre"]; ?>, se ha registrado su consulta, el administrador se pondrá en contacto con usted lo antes posible.</h1>
               <div id="div_volver">	
-                Pulsa <a href="pedidos.php">aquí</a> para ir a la lista de pedidos.
+                Pulsa <a href="index_dos.php.php">aquí</a> para ir a la página principal.
               </div>
             </div>
-        <?php print_r($nuevoPedido);} 
+        <?php } 
         
         else { ?>
-                  <h2>El pedido ya existe en la base de datos.</h2>
+                  <h2>Ya ha registrado esa consulta.</h2>
                   
               <div>
-                Pulsa <a href="form_alta_pedido.php"> aquí</a> para volver al formulario o pulsa <a href="pedidos.php">aquí</a> para ir a la lista de pedidos
+                Pulsa <a href="form_alta_ticket.php"> aquí</a> para volver al formulario.
               </div>
         <?php } ?>
 			

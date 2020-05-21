@@ -25,7 +25,7 @@
 			<a href="pedidos.php">Pedidos</a>	
 			<a href="proveedores.php">Proveedores</a>
 			<a href="reservas.php">Reservas</a>
-			<a href="#">Tickets</a>
+			<a href="tickets.php">Tickets</a>
             </div>
         </div>
         

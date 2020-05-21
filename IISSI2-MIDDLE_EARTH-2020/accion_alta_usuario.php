@@ -1,8 +1,7 @@
 <?php
     session_start();
 	
-	
-	   //Importo archivos necesarios para la gestion del usuario
+	//Importo archivos necesarios para la gestion del usuario
 	require_once("gestionBD.php");
 	require_once("gestionar_usuario.php");
 

@@ -103,13 +103,18 @@
 
 
     </style>
+
+
     <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
     <title>Middle Earth - Inicio de Sesión</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/validacion_login.js"></script>
 </head>
+
+
 <body>
 
 

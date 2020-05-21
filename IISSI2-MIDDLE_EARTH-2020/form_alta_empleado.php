@@ -23,9 +23,8 @@
             <a class="active" href="empleados.php">Empleados</a>
 			<a href="pedidos.php">Pedidos</a>	
 			<a href="proveedores.php">Proveedores</a>
-			<a href="#">Reservas</a>
-			<a href="#">Tickets</a>
-            <a href="#">Linea Pedido</a>
+			<a href="reservas.php">Reservas</a>
+			<a href="tickets.php">Tickets</a>
             </div>
         </div>
         <?php

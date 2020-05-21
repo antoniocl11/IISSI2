@@ -4,12 +4,14 @@
         $consulta = "SELECT * FROM USUARIO";
         return $conexion->query($consulta); 
     }
+
+
      /*Añadir usuario*/
 
      function añadir_usuario($conexion, $nuevoUsuario){
-        
+        $fechaNacimiento = date('d/m/Y', strtotime($nuevoUsuario["fechaNacimiento"]));
         try{
-            $consulta = 'CALL NUEVO_USUARIO(:NIF,:NOMBRE,:APELLIDOS,:EMAIL,:TELEFONO,:ESSOCIO,:DIRECCION,:FECHANACIMIENTO,:CONTRASENA)';
+            $consulta = 'CALL PK_USUARIO.NUEVO_USUARIO(:NIF,:NOMBRE,:APELLIDOS,:EMAIL,:TELEFONO,:ESSOCIO,:DIRECCION,:FECHANACIMIENTO,:CONTRASENA)';
 
             $stmt = $conexion -> prepare($consulta);
             $stmt -> bindParam(':NIF', $nuevoUsuario["nif"]);

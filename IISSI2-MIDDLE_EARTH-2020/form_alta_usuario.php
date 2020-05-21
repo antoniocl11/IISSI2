@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang=es>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="js/validacion_alta_usuario.js"></script>    
+    </head>
     <?php
             session_start();
             
@@ -136,3 +142,4 @@
                 cerrarConexionBD($conexion);
             ?>
         
+</html>
