@@ -20,14 +20,18 @@
             <h4 class="titulo_reservas">Elige un producto para reservar</h4>
             <div class="contenedor1">
                 <div class="productos">
-                    <a href="form_alta_reserva.php"><img class="imagenes" src="images/s0.jpg" style="width:70%"></img></a>
+                    <a href="form_alta_reserva.php"><img class="imagenes" src="images/s0.jpg" ></img></a>
+                    <h5>Comic Marvel: The Incredible Hulk</h5>
                 </div>
                 <div class="productos">
-                    <a href="form_alta_reserva.php"><img class="imagenes" src="images/s1.jpg" style="width:70%"></img></a>
+                    <a href="form_alta_reserva.php"><img class="imagenes" src="images/s1.jpg" ></img></a>
+                    <h5>Juego de Mesa: El señor de los anillos</h5>
                 </div><div class="productos">
-                    <a href="form_alta_reserva.php"><img class="imagenes" src="images/s2.jpg" style="width:70%"></img></a>
+                    <a href="form_alta_reserva.php"><img class="imagenes" src="images/s2.jpg" ></img></a>
+                    <h5>Camiseta Marvel Oficial</h5>
                 </div><div class="productos">
-                    <a href="form_alta_reserva.php"><img class="imagenes" src="images/s3.jpg" style="width:70%"></img></a>
+                    <a href="form_alta_reserva.php"><img class="imagenes" src="images/s3.jpg"></img></a>
+                    <h5>Figura SpiderMan Traje Avanzado</h5>
                 </div>
 </div>
 </html>

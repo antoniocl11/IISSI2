@@ -21,7 +21,7 @@
             $stmt -> bindParam(':TELEFONO', $nuevoUsuario["telefono"]);
             $stmt -> bindParam(':ESSOCIO', $nuevoUsuario["esSocio"]);
             $stmt -> bindParam(':DIRECCION', $nuevoUsuario["direccion"]);
-            $stmt -> bindParam(':FECHANACIMIENTO', $nuevoUsuario["fechaNacimiento"]);
+            $stmt -> bindParam(':FECHANACIMIENTO', $fechaNacimiento);
             $stmt -> bindParam(':CONTRASENA', $nuevoUsuario["contrasena"]);
             
             $stmt -> execute();
@@ -31,7 +31,7 @@
         }
 
         catch(PDOException $e){
-            return $e -> getMessage();
+            $_SESSION['excepcion'] = $e -> GetMessage();
             Header("Location: excepcion.php");
         }
     }

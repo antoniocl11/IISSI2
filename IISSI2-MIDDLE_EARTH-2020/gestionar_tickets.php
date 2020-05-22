@@ -12,7 +12,7 @@
 
             $stmt = $conexion -> prepare($consulta);
 
-            $stmt -> bindParam(':FECHA', $nuevoTicket["fecha"]);
+            $stmt -> bindParam(':FECHA', $fecha);
             $stmt -> bindParam(':COMENTARIO', $nuevoTicket["comentario"]);
             $stmt -> bindParam(':OID_U', $nuevoTicket["oid_u"]);
             $stmt -> bindParam(':OID_E', $nuevoTicket["oid_e"]);
@@ -25,7 +25,7 @@
         }
 
         catch(PDOException $e){
-            return $e -> getMessage();
+            $_SESSION['excepcion'] = $e -> GetMessage();
             Header("Location: excepcion.php");
         }
     }

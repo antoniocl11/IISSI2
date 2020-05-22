@@ -33,7 +33,7 @@
 
 	<main>
       <?php
-        if(añadir_pedido($conexion, $nuevoPedido)){
+        if(añadir_pedido($conexion, $nuevoPedido)==""){
           
       ?>
             <div id="div_exito">

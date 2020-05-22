@@ -83,7 +83,7 @@
 
                     <div class="campos"><label for="fecha">Fecha de Pedido<em>*</em></label>
                     <input class="fecha" name="fecha" type="date" title="Fecha en la que se realizó el pedido"
-                    value="<?php echo $formulario["fecha"];?>" required>
+                    value="<?php echo @$formulario["fecha"];?>" required>
                     </div>
 
                     <div class="campos"><label for="id">ID<em>*</em></label>
@@ -93,7 +93,7 @@
 
                     <div class="campos"><label for="oid_u">OID_USUARIO<em>*</em></label>
                     <input class="oid_u" name="oid_u" type="number" title="OID del Usuario que realizó el pedido"
-                    value="<?php echo $formulario["oid_u"];?>">
+                    value="<?php echo @$formulario["oid_u"];?>">
                     </div>
 
                     <div class="botones"><input type="submit" value="Confirmar"/>

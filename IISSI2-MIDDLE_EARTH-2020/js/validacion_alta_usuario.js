@@ -1,3 +1,31 @@
+/*Funcion para que no se invoque la validacion al servidor si hay errores de validación en js*/
+function validacionUsuario(){
+    var noValidate = document.getElementById("#altaUsuario").noValidate;
+    var error1, error2, error3, error4, error5, error6, error7, error8;
+
+    var res = true;
+
+    if(!noValidate){
+        error1 = validacion_nif();
+        error2 = validacion_nombre();
+        error3 = validacion_apellidos();
+        error4 = validacion_telefono();
+        error5 = validacion_direccion();
+        error6 = validacion_fechaNacimiento();
+        error7 = validacion_email();
+        error8 = validacion_contrasena
+
+        if(!(error1.length==0 && error2.length==0 && error3.length==0 && error4.length==0 &&
+            error5.length==0 && error6.length==0 && error7.length==0 && error8.length==0)){
+            res = false;
+        }
+    }
+
+    return res;
+}
+
+
+
 //Validación número NIF(DNI)
 function validacion_nif(){
     //Obtiene el elemento con la id nif, es decir lo que contiene
@@ -35,7 +63,7 @@ function validacion_nombre(){
     
     var error;
 
-    if(!(/^[a-zA-ZÑñÁÉÍÓÚáéíóú0-9,.\s]*$/.test(nombre))){
+    if(!(/^[a-zA-ZÑñÁÉÍÓÚáéíóú,.\s]*$/.test(nombre))){
         error = "El campo nombre no posee el formato correcto.";
     }
     else if(nombre=="" || nombre==null){
@@ -57,7 +85,7 @@ function validacion_apellidos(){
     
     var error;
 
-    if(!/^[a-zA-ZÑñÁÉÍÓÚáéíóú0-9,.\s]*$/.test(apellidos)){
+    if(!/^[a-zA-ZÑñÁÉÍÓÚáéíóú,.\s]*$/.test(apellidos)){
         error = "El campo apellidos no posee el formato correcto.";
     }
     else if(apellidos=="" || apellidos==null){
@@ -117,38 +145,17 @@ function validacion_direccion(){
     tablaDireccion.setCustomValidity(error);
     return error;
 }
-/*
-//Validacion fecha de nacimiento (en construccion)
-function validacion_fechaNacimiento(){
-    var tablaFechaNacimiento = document.getElementById(fechaNacimiento);
-    var fechaNacimiento = tablaFechaNacimiento.value;
 
-    let ahora = new Date();
-    let anyos = ahora.getFullYear() - fechaNacimiento.getFullYear();
-
-    var error;
-    
-    if(fechaNacimiento == "" || fechaNacimiento == null){
-        error = "El campo fecha de nacimiento no puede estar vacío";
-    }
-
-    else if (anyos <= 16){
-        error = "Debe ser mayor de 16 años."
-    }
-
-
-    tablaFechaNacimiento.setCustomValidity(error);
-    return error;
-}
-*/
 //Validacion email
 function validacion_email(){
     var tablaEmail = document.getElementById("email");
     var email = tablaEmail.value;
 
+    var validadorCorreo = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    var res = true;
     var error;
-
-    if(!(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i)){
+    res = res && validadorCorreo.test(email);
+    if(!res){
         error = "El formato del campo email no es correcto";
     }
 
@@ -160,38 +167,36 @@ function validacion_email(){
         error = "";
     }
 
-    tablaEmail.setCustomValidity(error);
+    //tablaEmail.setCustomValidity(error);
     return error;
 }
 
 //Validacion contraseña
 function validacion_contrasena(){
-    var tablaContrasena = document.getElementById("contraseña");
+    var tablaContrasena = document.getElementById("contrasena");
     var contrasena = tablaContrasena.value;
+
+    var espacios = /\s/;
 
     var error;
 
-    if(contrasena=="" || contrasena == null){
-        error = "La contraseña no puede contener espacios vacíos";
-    }
-
-    else if(/^[" "]&/.test(contrasena)/*contrasena == " "*/){
-        error="El campo contraseña no puede estar vacío";
+    if(espacios.test(contrasena)){
+        error="La contraseña no puede contener espacios";
     }
 
     else{
-        error = "";
+        error ="";
     }
 
     tablaContrasena.setCustomValidity(error);
     return error;
 }
 
-//Validacion FECHA DEFINITIVA
-
-//Funcion para calcular y validad la edad en el formulario (No permitido el registro a menores de 16 años)
+//Validacion edad
 function validacion_fechaNacimiento(){
-    var fecha = document.getElementById("fechaNacimiento").value;
+    var tablaFecha = document.getElementById("fechaNacimiento");
+    var fecha= tablaFecha.value;
+
     var error;
 
     //if(validar_fecha(fecha) == true){
@@ -222,14 +227,16 @@ function validacion_fechaNacimiento(){
         if(edad > 1900){
             edad -= 1900
         }
-            
-        document.getElementById("result").innerHTML="Tienes "+edad+" años";
 
         if(edad < 16){
-            //document.getElementById("result").innerHTML="Edad incorrecta";
-            error = "Prueba";
+            error = "No permitido a menores de 16 años";
+        }
+        else{
+            error = "";
         }
 
-        
+        tablaFecha.setCustomValidity(error);
         return error;
-    }
+            
+        
+}

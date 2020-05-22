@@ -99,15 +99,6 @@ function confirmar_eliminar(){
     }
 }
 </script>
-<!------------------------------------------------------------->
-<!--Script alerta para actualizado-->
-<script>
-function actualizado_correcto(){
-    var respuesta=alert("Empleado modificado correctamente");
-    print_r(respuesta);
-    
-}
-</script>
 
 <main>
 <nav>
@@ -190,7 +181,7 @@ function actualizado_correcto(){
 
                         <?php if (isset($empleado) and ($empleado["OID_E"] == $empleado["OID_E"])) { ?>
                                 
-                                <button id="grabar" name="grabar" type="submit" class="boton_grabar" onclick="return actualizado_correcto()">
+                                <button id="grabar" name="grabar" type="submit" class="boton_grabar">
 
                                     <img src="images/icono_guardar.png" class="editar_fila" alt="Guardar modificación">
 

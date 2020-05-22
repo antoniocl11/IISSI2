@@ -4,6 +4,15 @@
         <meta charset="utf-8">
         <script type="text/javascript" src="js/validacion_alta_ticket.js"></script>    
     </head>
+    <script>
+        $(document).ready(funtion()){ //LLamamos a la funcion validacion ticket para que salte las validaciones
+                                    //en servidor si tenemos en cliente
+            $("#altaTicket").on("submit", function(){
+                return validacionTicket();
+            });
+        }
+
+    </script>
 <?php
             session_start();
             
@@ -59,25 +68,26 @@
             }
         ?>
         
-                <form class="altaTicket" method="get" action="validacion_alta_ticket.php" >
+                <form id="altaTicket" method="get" action="validacion_alta_ticket.php" >
                     <h4>Abre un ticket de contacto al soporte de Middle earth</h4></br>
                     <p class="campos">
                         <i>Los campos obligatorios están marcados con </i><em>*</em>
                     </p>
 
                     <div class="campos"><label for="fecha">Fecha<em>*</em></label>
+                    <div id="errorFecha"></div>
                     <input id="fecha" class="fecha" name="fecha" type="date"  
                     title="Una letra mayúscula seguida de 8 dígitos numéricos" value="<?php echo @$formulario["fecha"];?>"
-                    oninput="validacion_fecha()" ><!--required Quitado para probar validaciones js-->
+                     required><!--required Quitado para probar validaciones js-->
                     </div>
 
                     <div class="campos"><label for="comentario">Comentario<em>*</em></label>
-                    <textarea id="comentario" type="number"  class="comentario" name="comentario" value="<?php echo @$formulario["comentario"];?>" 
-                    oninput="validacion_comentario()"></textarea><!--required Quitado para probar validaciones js-->
+                    <textarea id="comentario" type="text"  class="comentario" name="comentario" value="<?php echo @$formulario["comentario"];?>" 
+                    oninput="validacion_comentario()" required></textarea><!--required Quitado para probar validaciones js-->
                     </div>
 
                     <div class="campos"><label for="nombre">Nombre<em>*</em></label>
-                    <input id="nombre" class="nombre" name="nombre" type="text" size="25"  value="<?php echo @$formulario["nombre"];?>"
+                    <input id="nombre" class="nombre" name="nombre" type="text" value="<?php echo @$formulario["nombre"];?>"
                     oninput="validacion_nombre()" ><!--required Quitado para probar validaciones js-->
                     </div>
 
@@ -86,7 +96,7 @@
                     oninput="validacion_email()"><!--required Quitado para probar validaciones js-->
                     </div>
 
-                    <div class="botones"><input type="submit" value="Confirmar"/></div>
+                    <div class="botones"><input type="submit" value="Confirmar" onclick="validacion_fecha()"/></div>
                 </form>
             </section>    
         

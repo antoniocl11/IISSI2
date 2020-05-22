@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/adminStyles.css" />
         <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
-		<script src="js/desp_imagenes.js" type="text/javascript"></script>
+		<script src="js/validacion_editar_usuario.js" type="text/javascript"></script>
 		<title>Admin Clientes</title>
 	</head>
 	<body>
@@ -92,16 +92,6 @@ function confirmar_eliminar(){
     }
 }
 </script>
-<!------------------------------------------------------------->
-<!--Script alerta para actualizado-->
-<script>
-function actualizado_correcto(){
-    var respuesta=alert("Cliente modificado correctamente");
-    print_r(respuesta);
-    
-}
-</script>
-
 
 <main>
 <nav>
@@ -194,7 +184,7 @@ function actualizado_correcto(){
 
                         <?php if (isset($usuario) and ($usuario["OID_U"] == $usuario["OID_U"])) { ?>
                                 
-                                <button id="grabar" name="grabar" type="submit" class="boton_grabar" onclick="return actualizado_correcto()">
+                                <button id="grabar" name="grabar" type="submit" class="boton_grabar">
 
                                     <img src="images/icono_guardar.png" class="editar_fila" alt="Guardar modificación">
 

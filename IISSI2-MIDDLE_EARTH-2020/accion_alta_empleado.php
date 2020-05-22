@@ -24,13 +24,14 @@
 <head>
   <meta charset="utf-8">
   <title>Middle-Earth: Empleado agregado con éxito</title>
+  <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
 </head>
 
 <body>
 
 <main>
       <?php
-        if(añadir_empleado($conexion, $nuevoEmpleado)){
+        if(añadir_empleado($conexion, $nuevoEmpleado)==""){
       ?>
             <div id="div_exito">
               <h1>Empleado <?php echo $nuevoEmpleado["nombre"]; ?>, añadido con éxito</h1>

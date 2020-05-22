@@ -37,7 +37,7 @@
 
 
     function validarDatosTicket($conexion, $nuevoTicket){
-        /*$errores = array();
+        $errores = array();
         
         //Validacion fecha, no puede estar vacío
         if($nuevoTicket["fecha"]=="" || $nuevoTicket["fecha"]==null)
@@ -63,7 +63,7 @@
         }
         
 
-        return $errores;*/
+        return $errores;
     }
     
     ?>

@@ -12,11 +12,12 @@
 
     function añadir_pedido($conexion, $nuevoPedido){
         $fecha = date('d/m/Y', strtotime($nuevoPedido["fecha"]));
+        
         try{
             $consulta = 'CALL NUEVO_PEDIDO(:FECHA,:ID,:OID_U)';
 
             $stmt = $conexion -> prepare($consulta);
-            $stmt -> bindParam(':FECHA', $nuevoPedido["fecha"]);
+            $stmt -> bindParam(':FECHA', $fecha);
             $stmt -> bindParam(':ID', $nuevoPedido["id"]);
             $stmt -> bindParam(':OID_U', $nuevoPedido["oid_u"]);
             $stmt -> execute();
@@ -24,7 +25,7 @@
         }
 
         catch(PDOException $e){
-            return $e -> getMessage();
+            $_SESSION['excepcion'] = $e -> GetMessage();
             Header("Location: excepcion.php");
         }
     }

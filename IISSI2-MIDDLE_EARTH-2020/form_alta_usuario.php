@@ -4,6 +4,15 @@
         <meta charset="utf-8">
         <script type="text/javascript" src="js/validacion_alta_usuario.js"></script>    
     </head>
+    <script>
+        $(document).ready(funtion()){ //LLamamos a la funcion validacion usuario para que salte las validaciones
+                                    //en servidor si tenemos en cliente
+            $("#altaUsuario").on("submit", function(){
+                return validacionUsuario();
+            });
+        }
+
+    </script>
     <?php
             session_start();
             
@@ -77,7 +86,7 @@
         }
         ?>
         
-                <form class="altaUsuario" method="get" action="validacion_alta_usuario.php" >
+                <form id="altaUsuario" method="get" action="validacion_alta_usuario.php" >
                    
                     <p class="campos">
                         <i>Los campos obligatorios están marcados con </i><em>*</em>
@@ -85,55 +94,57 @@
 
                     <div class="campos"><label for="nif">NIF<em>*</em></label>
                     <input id="nif" class="nif" name="nif" type="text" placeholder="12345678X" 
-                    title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario["nif"];?>" 
+                    title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo @$formulario["nif"];?>" 
                     oninput="validacion_nif()"><!--required Quitado para validaciones js-->
                     </div>
 
                     <div class="campos"><label for="nombre">Nombre<em>*</em></label>
-                    <input id="nombre" class="nombre" name="nombre" type="text" size="25"  value="<?php echo $formulario["nombre"];?>" 
+                    <input id="nombre" class="nombre" name="nombre" type="text" size="25"  value="<?php echo @$formulario["nombre"];?>" 
                     oninput="validacion_nombre()" ><!--required Quitado para validaciones js-->
                     </div>
 
                     <div class="campos"><label for="apellidos">Apellidos<em>*</em></label>
-                    <input  id="apellidos" class="apellidos" name="apellidos" type="text"   value="<?php echo $formulario["apellidos"];?>" 
+                    <input  id="apellidos" class="apellidos" name="apellidos" type="text"   value="<?php echo @$formulario["apellidos"];?>" 
                     oninput="validacion_apellidos()" ><!--required Quitado para validaciones js-->
                     </div>
 
                     <div class="campos"><label for="telefono">Teléfono<em>*</em></label>
-                    <input id="telefono" type="text"  class="telefono" name="telefono" value="<?php echo $formulario["telefono"];?>" 
+                    <input id="telefono" type="text"  class="telefono" name="telefono" value="<?php echo @$formulario["telefono"];?>" 
                     oninput="validacion_telefono()" ><!--required Quitado para validaciones js-->
+                    
                     </div>
 
                     <div class="campos"><label for="direccion">Dirección</label>
-                    <input  id="direccion" class="direccion" name="direccion" type="text"   value="<?php echo $formulario["direccion"];?>" 
-                    oninput="validacion_direccion()">
+                    <input  id="direccion" class="direccion" name="direccion" type="text"   value="<?php echo @$formulario["direccion"];?>" 
+                    oninput="validacion_direccion()"><!--required Quitado para validaciones js-->
                     </div>
 
                     <div class="campos"><label for="essocio">¿Eres socio?<em>*</em></label>
-                     <select id="essocio" name="esSocio" value="<?php echo $formulario["esSocio"];?>" ><!--required Quitado para validaciones js-->
+                     <select id="essocio" name="esSocio" value="<?php echo @$formulario["esSocio"];?>" >
                         <option value="1">Sí</option> 
                         <option value="0">No</option> 
                      </select>
                     </div>
                     
                     <div class="campos"><label for="fechaNacimiento">Fecha de Nacimiento<em>*</em></label>
-                    <input id="fechaNacimiento" class="fechaNacimiento" name="fechaNacimiento" type="date"  placeholder= "Sólo mayores de 16 años" 
-                    value="<?php echo $formulario["fechaNacimiento"];?>" oninput="validacion_fechaNacimiento()" ><!--required Quitado para validaciones js-->
+                    <input id="fechaNacimiento" class="fechaNacimiento" name="fechaNacimiento" type="date"  title="Sólo mayores de 16 años" 
+                    value="<?php echo @$formulario["fechaNacimiento"];?>"><!--required Quitado para validaciones js-->
+                    
                     </div>
                     
 
                     <div class="campos"><label for="email">E-Mail<em>*</em></label>
-                    <input id="email" class="email" name="email" type="email" placeholder="example@domain.com" value="<?php echo $formulario["email"];?>" 
+                    <input id="email" class="email" name="email" type="text" placeholder="example@domain.com" value="<?php echo @$formulario["email"];?>" 
                     oninput="validacion_email()" ><!--required Quitado para validaciones js-->
                     </div>
 
                     <div class="campos"><label for="contrasena">Contraseña<em>*</em></label>
                     <input id="contrasena" class="contrasena" name="contrasena" minLength="8" type="password" placeholder="Mínimo 8 caracteres, incluyendo letras y dígitos" 
-                    value="<?php echo $formulario["contrasena"];?>" oninput="validacion_contrasena()" ><!--required Quitado para validaciones js-->
+                    value="<?php echo @$formulario["contrasena"];?>" oninput="validacion_contrasena()" required>
                     </div>
                     
                 
-                    <div class="botones"><input type="submit" value="Enviar"/></div>
+                    <div class="botones"><input type="submit" value="Enviar" onclick="validacion_fechaNacimiento()"/></div>
                     <p><a href="login.html">¿Ya tienes una cuenta?</a></p>
                 </form>
             </section>    
