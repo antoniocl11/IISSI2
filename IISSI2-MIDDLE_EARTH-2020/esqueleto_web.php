@@ -33,9 +33,9 @@ function headermain() {
                     <nav class="menu-principal">    
                         <ul>
                             <li><a href="index_dos.php">Inicio</a></li>
-                            <li><a href="productos_principal.php">Productos</a></li>
-                            <li><a href="sobre_nosotros.php">Sobre Nosotros</a></li>
-                            <li><a href="form_alta_ticket.php">Contacto</a></li>
+                            <li><a href="#">Productos</a></li>
+                            <li><a href="#">Sobre Nosotros</a></li>
+                            <li><a href="#">Contacto</a></li>
                         </ul>
                     </nav>
                 </div>
