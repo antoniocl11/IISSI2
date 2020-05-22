@@ -33,10 +33,10 @@
 
 	<main>
       <?php
-        if(añadir_ticket($conexion, $nuevoTicket)){
+        if(añadir_ticket($conexion, $nuevoTicket)==""){
       ?>
             <div id="div_exito">
-              <h1><?php echo $nuevoTicket["nombre"]; ?>, se ha registrado su consulta, el administrador se pondrá en contacto con usted lo antes posible.</h1>
+              <h2>Hola, <?php echo $nuevoTicket["nombre"]; ?>, se ha registrado su consulta, el administrador se pondrá en contacto con usted lo antes posible.</h2>
               <div id="div_volver">	
                 Pulsa <a href="index_dos.php.php">aquí</a> para ir a la página principal.
               </div>

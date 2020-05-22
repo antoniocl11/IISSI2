@@ -95,17 +95,6 @@ function confirmar_eliminar(){
     }
 }
 </script>
-<!------------------------------------------------------------->
-<!--Script alerta para actualizado-->
-<script>
-    /*
-function actualizado_correcto(){
-    var respuesta=alert("Ticket modificado correctamente");
-    print_r(respuesta);
-    
-}
-*/
-</script>
 
 
 <main>

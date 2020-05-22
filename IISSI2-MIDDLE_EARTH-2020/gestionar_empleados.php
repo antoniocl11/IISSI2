@@ -23,7 +23,7 @@
         }
 
         catch(PDOException $e){
-            return $e -> getMessage();
+            $_SESSION['excepcion'] = $e -> GetMessage();
             Header("Location: excepcion.php");
         }
     }

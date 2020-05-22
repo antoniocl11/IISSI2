@@ -1,20 +1,48 @@
+/*Funcion para que no se invoque la validacion al servidor si hay errores de validación en js*/
+function validacionTicket(){
+    var noValidate = document.getElementById("#altaTicket").noValidate;
+    var error1, error2, error3, error4;
+
+    var res = true;
+
+    if(!noValidate){
+        error1 = validacion_fecha();
+        error2 = validacion_comentario();
+        error3 = validacion_nombre();
+        error4 = validacion_email();
+
+        if(!(error1.length==0 && error2.length==0 && error3.length==0 && error4.length==0)){
+            res = false;
+        }
+    }
+
+    return res;
+}
+
+
+
+
 function validacion_fecha(){ /*No funciona*/
     var tablaFecha = document.getElementById("fecha");
     var fecha = tablaFecha.value.split('-');
 
     var fech = new Date(fecha[0] + "-" + fecha[1] + "-" +fecha[2]);
     var hoy = new Date();
-
+    hoy.setHours(0,0,0,0);
     var error;
 
-    if(fech < hoy){
-        error = "¡La fecha no puede ser anterior a la de hoy!";
-        return false;
+    if(fech <= hoy){
+        //document.getElementById("errorFecha").innerHTML("La fecha no puede ser anterior al día de hoy");
+        //return false;
+        error = "La fecha no puede ser anterior a la actual";
     }
 
     else{
-        return true;
+        error = "";
     }
+
+    tablaFecha.setCustomValidity(error);
+    return error;
 
 }
 
@@ -42,8 +70,8 @@ function validacion_nombre(){
     
     var error;
 
-    if(!(/^[a-zA-ZÑñÁÉÍÓÚáéíóú0-9,.\s]*$/.test(nombre))){
-        error = "El campo nombre no posee el formato correcto.";
+    if(!(/^[a-zA-ZÑñÁÉÍÓÚáéíóú,.\s]*$/.test(nombre))){
+        error = "El campo nombre no posee el formato correcto";
     }
     else if(nombre=="" || nombre==null){
         error = "El campo nombre no puede estar vacío";
@@ -61,9 +89,13 @@ function validacion_email(){
     var tablaEmail = document.getElementById("email");
     var email = tablaEmail.value;
 
+    var validadorCorreo = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    var res = true;
     var error;
 
-    if(!(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i)){
+    res = res && validadorCorreo.test(email);
+
+    if(!res){
         error = "El formato del campo email no es correcto";
     }
 

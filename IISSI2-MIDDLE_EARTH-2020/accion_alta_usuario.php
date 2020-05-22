@@ -33,7 +33,7 @@
 	<main>
 
 	<?php
-		if(añadir_usuario($conexion, $nuevoUsuario)){
+		if(añadir_usuario($conexion, $nuevoUsuario)==""){
 	?>
 			
 		<div id="div_exito">
