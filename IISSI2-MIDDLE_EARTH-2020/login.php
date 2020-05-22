@@ -58,7 +58,6 @@
                 transition: .5s;
             }
 
-            /*
             .lgn span::after {
                 content: '';
                 position: absolute;
@@ -67,7 +66,6 @@
                 background: linear-gradient(120deg,#3498db,#8e44ad);
                 transition: .5s;
             }
-            */
 
         .focus + span::before {
             top: -5px;
