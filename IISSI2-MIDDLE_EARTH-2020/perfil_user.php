@@ -1,10 +1,10 @@
 <?php
-// Creamos la conexión con la BD.
+// Creamos la conexian con la BD.
 require_once("gestionBD.php");
 include_once('esqueleto_web.php');
 $conexion = crearConexionBD();
 session_start();
-// Si el usuario no está logeado, redirige a la pantalla de login.
+// Si el usuario no esta logeado, redirige a la pantalla de login.
 if (!isset($_SESSION['loggedin'])) {
 	header('Location: login.html');
 	exit;
@@ -31,7 +31,7 @@ if (!isset($_SESSION['loggedin'])) {
 			if ($soci == 0) {
 				$socio = 'No';
 			} else {
-				$socio = 'Sí';
+				$socio = 'Si';
 			}
 		}
 	} catch ( PDOException $e ){
@@ -54,7 +54,7 @@ if (!isset($_SESSION['loggedin'])) {
         <title>Middle Earth</title>
         <link type="text/css" href="css/styles.css" rel="stylesheet">
         <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> <!--Para detectar el tamaño de pantalla-->
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> <!--Para detectar el tamaÃ±o de pantalla-->
         <script type="text/javascript" src="js/javascript.js"></script>
         <script src="https://kit.fontawesome.com/b3de7dbd0c.js" crossorigin="anonymous"></script>
 	<style>

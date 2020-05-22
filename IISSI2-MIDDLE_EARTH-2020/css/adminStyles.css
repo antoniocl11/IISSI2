@@ -187,10 +187,19 @@ p{
     padding: 8px;
 }
 
+#pagina{
+    margin-right: 15px;
+}
 
+.paginas{
+    border: 3px solid #007ac3;
+    border-radius: 3px;
+}
 
-
-
+.current{
+    border: 5px solid #007ac3;
+    border-radius: 2px;
+}
 
 
 /*------------------------------------------------------------------------*/
@@ -214,4 +223,6 @@ table td{
     border: 1px solid black;
     padding: 8px;
 }
+
+
 

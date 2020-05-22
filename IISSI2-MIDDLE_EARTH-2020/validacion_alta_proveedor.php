@@ -23,14 +23,18 @@
     $errores = validarDatosProveedor($conexion, $nuevoProveedor);
     cerrarConexionBD($conexion);
 
+    
     //Si se han detectado errores
     if (count($errores)>0) {
         // Guardo en la sesión los mensajes de error y volvemos al formulario
         $_SESSION["errores"] = $errores;
         Header('Location: form_alta_proveedor.php');
-    } else
+    } else{
         // Si todo va bien, vamos a la página de acción (inserción del usuario en la base de datos)
+        
         Header('Location: accion_alta_proveedor.php');
+    }
+
 
     function validarDatosProveedor($conexion, $nuevoProveedor){
         $errores = array();

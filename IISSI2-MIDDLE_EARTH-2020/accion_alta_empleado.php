@@ -2,7 +2,7 @@
 	session_start();
 	
 	//Importo archivos necesarios para la gestion del empleado
-    require_once("gestionBD.php");
+  require_once("gestionBD.php");
 	require_once("gestionar_empleados.php");
 	
     //Aqui comprobamos que hemos llegado a esta página porque se ha rellenado el formulario.
@@ -24,6 +24,7 @@
 <head>
   <meta charset="utf-8">
   <title>Middle-Earth: Empleado agregado con éxito</title>
+  <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
 </head>
 
 <body>
@@ -42,11 +43,14 @@
         
         else { ?>
                   <h2>El Empleado ya existe en la base de datos.</h2>
+                
                   
               <div>
-                Pulsa <a href="form_alta_Empleado.php"> aquí</a> para volver al formulario o pulsa <a href="empleados.php">aquí</a> para ir a la lista de Empleados
+                Pulsa <a href="form_alta_empleado.php"> aquí</a> para volver al formulario o pulsa <a href="empleados.php">aquí</a> para ir a la lista de Empleados
               </div>
-        <?php } ?>
+        <?php }
+        
+        ?>
 			
 		</ul>		
 	</main>

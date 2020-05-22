@@ -13,17 +13,18 @@
 	<body>
 		<div class = "topnav" id ="titulo">
 			<a id="cerrar" href="#" class="button">Cerrar Sesión</a>
-			<h2>Admin Panel Middle-Earth(Sevilla)</h2>
+			<a id="pagina" href="index_dos.php" class="button">Ver Web</a>
+			<h2>Admin Panel Middle-Earth</h2>
 		</div>
 		<div class="topnav" id = "menu">
             <div class="dentroMenu">
 			<a class="active" href="admin.php">Inicio</a>
-			<a href="#">Clientes</a>
+			<a href="clientes.php">Clientes</a>
             <a href="empleados.php">Empleados</a>
-			<a href="#">Pedidos</a>	
+			<a href="pedidos.php">Pedidos</a>	
 			<a href="proveedores.php">Proveedores</a>
-			<a href="#">Reservas</a>
-			<a href="#">Tickets</a>
+			<a href="reservas.php">Reservas</a>
+			<a href="tickets.php">Tickets</a>
             </div>
         </div>
         <section class="imagenInicio">

@@ -2,26 +2,36 @@
 session_start();
 
 if (isset($_REQUEST["OID_U"])) {
-        $CIF["OID_U"] = $_REQUEST["OID_U"];
-        $CIF["NIF"] = $_REQUEST["NIF"];
-        $CIF["NOMBRE"] = $_REQUEST["NOMBRE"];
-		$CIF["APELLIDOS"] = $_REQUEST["APELLIDOS"];
-        $CIF["EMAIL"] = $_REQUEST["EMAIL"]; 
-        $CIF["TELEFONO"] = $_REQUEST["TELEFONO"];
-        $CIF["ESSOCIO"] = $_REQUEST["ESSOCIO"];
-        $CIF["DIRECCION"] = $_REQUEST["DIRECCION"];
-        $CIF["FECHANACIMIENTO"] = $_REQUEST["FECHANACIMIENTO"];
+        $usuario["OID_U"] = $_REQUEST["OID_U"];
+        $usuario["NIF"] = $_REQUEST["NIF"];
+        $usuario["NOMBRE"] = $_REQUEST["NOMBRE"];
+		$usuario["APELLIDOS"] = $_REQUEST["APELLIDOS"];
+        $usuario["EMAIL"] = $_REQUEST["EMAIL"]; 
+        $usuario["TELEFONO"] = $_REQUEST["TELEFONO"];
+        $usuario["ESSOCIO"] = $_REQUEST["ESSOCIO"];
+        $usuario["DIRECCION"] = $_REQUEST["DIRECCION"];
+        $usuario["FECHANACIMIENTO"] = $_REQUEST["FECHANACIMIENTO"];
+        $usuario["CONTRASENA"] = $_REQUEST["CONTRASENA"];
 		
-		$_SESSION["cliente"] = $CIF;
-}	
+		$_SESSION["usuario"] = $usuario;
+
 		if (isset($_REQUEST["editar"])) {
 			Header("Location: clientes.php");
         }
-        /*Para después poder modificar los clientes
-		if(isset($_REQUEST["grabar"])){
-			Header("Location: editarCliente.php");
-        }
-        */else {
+        
+        else if(isset($_REQUEST["atras"])) {
 			Header("Location: clientes.php");
-		}
+        }
+        else if(isset($_REQUEST["grabar"])) {
+			Header("Location: modificar_usuario.php");
+        }
+        else if(isset($_REQUEST["borrar"])) {
+			Header("Location: borrar_usuario.php");
+        }
+        
+    }	
+
+    else{
+        Header("Location: clientes.php");
+    }
 		?>

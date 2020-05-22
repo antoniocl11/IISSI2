@@ -19,12 +19,12 @@
 		<div class="topnav" id = "menu">
             <div class="dentroMenu">
 			<a href="admin.php">Inicio</a>
-			<a href="#">Clientes</a>
+			<a href="clientes.php">Clientes</a>
             <a href="empleados.php">Empleados</a>
-			<a href="#">Pedidos</a>	
+			<a href="pedidos.php">Pedidos</a>	
 			<a class="active" href="proveedores.php">Proveedores</a>
-			<a href="#">Reservas</a>
-			<a href="#">Tickets</a>
+			<a href="reservas.php">Reservas</a>
+			<a href="tickets.php">Tickets</a>
             </div>
         </div>
         <?php
@@ -33,18 +33,19 @@
             require_once("gestionBD.php");
             //Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
             if(!isset($_SESSION["formulario"])){
-                $formulario['cif'] = "";
-                $formulario['nombre'] = "";
-                $formulario['telefono'] = "";
-                $formulario['direccion'] = "";
+                $formulario["cif"] = "";
+                $formulario["nombre"] = "";
+                $formulario["telefono"] = "";
+                $formulario["direccion"] = "";
  
 
                 $_SESSION["formulario"] = $formulario;
             }
             //si ya existían valores se usan para inicializar el formulario
-            else
-                $formulario = $_SESSION["formulario"];
+            else{
                 
+                $formulario = $_SESSION["formulario"];
+            }   
             //si hay errores de validacion hay que mostrarlos y marcar los datos
             if (isset($_SESSION["errores"])){
                     $errores = $_SESSION["errores"];
@@ -74,7 +75,7 @@
             }
         ?>
         
-                <form class="altaProveedor" method="get" action="validacion_alta_proveedor.php" novalidate>
+                <form class="altaProveedor" method="get" action="validacion_alta_proveedor.php">
                     
                     <p class="campos">
                         <i>Los campos obligatorios están marcados con </i><em>*</em>
@@ -82,22 +83,22 @@
 
                     <div class="campos"><label for="cif">CIF<em>*</em></label>
                     <input id="cif" class="cif" name="cif" type="text" placeholder="X12345678" 
-                    title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['cif'];?>" 
-                    oninput="validacion_cif()"><!--required Quitado para probar validaciones js-->
+                    title="Una letra mayúscula seguida de 8 dígitos numéricos" value="<?php echo @$formulario["cif"];?>"
+                    oninput="validacion_cif()" ><!--required Quitado para probar validaciones js-->
                     </div>
 
                     <div class="campos"><label for="nombre">Nombre<em>*</em></label>
-                    <input id="nombre" class="nombre" name="nombre" type="text" size="25"  value="<?php echo $formulario['nombre'];?>"
+                    <input id="nombre" class="nombre" name="nombre" type="text" size="25"  value="<?php echo @$formulario["nombre"];?>"
                     oninput="validacion_nombre()" ><!--required Quitado para probar validaciones js-->
                     </div>
 
                     <div class="campos"><label for="telefono">Teléfono<em>*</em></label>
-                    <input id="telefono" type="number"  class="telefono" name="telefono" value="<?php echo $formulario['telefono'];?>" 
+                    <input id="telefono" type="number"  class="telefono" name="telefono" value="<?php echo @$formulario["telefono"];?>" 
                     oninput="validacion_telefono()"><!--required Quitado para probar validaciones js-->
                     </div>
 
                     <div class="campos"><label for="direccion">Dirección<em>*</em></label>
-                    <input id="direccion" class="direccion" name="direccion" type="text"   value="<?php echo $formulario['direccion'];?>" 
+                    <input id="direccion" class="direccion" name="direccion" type="text"   value="<?php echo @$formulario["direccion"];?>" 
                     oninput="validacion_direccion()"><!--required Quitado para probar validaciones js-->
                     </div>
                     <div class="botones"><input type="submit" value="Confirmar"/></div>

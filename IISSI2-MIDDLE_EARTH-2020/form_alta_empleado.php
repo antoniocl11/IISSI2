@@ -1,6 +1,6 @@
 <?php
     if(isset($_SESSION["login"]))
-
+    error_reporting(E_ERROR|E_WARNING|E_PARSE);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -21,11 +21,10 @@
 			<a  href="admin.php">Inicio</a>
 			<a href="clientes.php">Clientes</a>
             <a class="active" href="empleados.php">Empleados</a>
-			<a href="#">Pedidos</a>	
+			<a href="pedidos.php">Pedidos</a>	
 			<a href="proveedores.php">Proveedores</a>
-			<a href="#">Reservas</a>
-			<a href="#">Tickets</a>
-            <a href="#">Linea Pedido</a>
+			<a href="reservas.php">Reservas</a>
+			<a href="tickets.php">Tickets</a>
             </div>
         </div>
         <?php
@@ -35,12 +34,12 @@
             
             //Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
             if(!isset($_SESSION["formulario"])){
-                $formulario['id'] = "";
-                $formulario['nif'] = "";
-                $formulario['nombre'] = "";
-                $formulario['apellidos'] = "";
-                $formulario['turno'] = "";
-                $formulario['sueldo'] = "";
+                $formulario["id"] = "";
+                $formulario["nif"] = "";
+                $formulario["nombre"] = "";
+                $formulario["apellidos"] = "";
+                $formulario["turno"] = "";
+                $formulario["sueldo"] = "";
 
                 $_SESSION["formulario"] = $formulario;
             }
@@ -70,6 +69,8 @@
             if(count($errores) > 0){
                 echo "<div id=\"div_errores\" class=\"error\">";
                 echo "<h4> Errores en el formulario:</h4>";
+                
+                
                 foreach($errores as $error){
                     echo $error;
                 }
@@ -79,44 +80,41 @@
         }
     ?>
             
-                <form class="altaProveedor" method="get" action="validacion_alta_empleado.php">
+                <form class="altaEmpleado" method="get" action="validacion_alta_empleado.php">
                     
                     <p class="campos">
                         <i>Los campos obligatorios están marcados con </i><em>*</em>
                     </p>
 
                     <div class="campos"><label for="id">ID<em>*</em></label>
-                    <input id="id" name="id" type="number"
-                    title="El ID asociado debe contener 9 dígitos numéricos" value="<?php echo $formulario['id'];?>" 
+                    <input id="id" name="id" type="number" class="id" placeholder="9 dígitos numéricos"
+                    title="El ID asociado debe contener 9 dígitos numéricos" value="<?php echo @$formulario["id"];?>" 
                     oninput="validacion_id()"><!--required Quitado para probar validacion js-->
                     </div>
                     <div class="campos"><label for="nif">NIF<em>*</em></label>
-                    <input id="nif" name="cif" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" 
-                    title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['nif'];?>" 
-                    oninput="validacion_nif()"><!--required Quitado para probar validacion js-->
+                    <input id="nif" class="nif" name="nif" type="text" placeholder="12345678X" 
+                    title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo @$formulario["nif"];?>"
+                    oninput="validacion_nif()"><!--required Quitado para probar validaciones js-->
                     </div>
 
                     <div class="campos"><label for="nombre">Nombre<em>*</em></label>
-                    <input id="nombre" name="nombre" type="text" size="25"  value="<?php echo $formulario['nombre'];?>" 
+                    <input id="nombre" name="nombre" type="text" size="25"  value="<?php echo @$formulario["nombre"];?>" 
                     oninput="validacion_nombre()"><!--required Quitado para probar validacion js-->
                     </div>
 
                     <div class="campos"><label for="apellidos">Apellidos<em>*</em></label>
-                    <input id="apellidos" name="apellidos" type="text"   value="<?php echo $formulario['apellidos'];?>" 
+                    <input id="apellidos" name="apellidos" type="text"   value="<?php echo @$formulario["apellidos"];?>" 
                     oninput="validacion_apellidos()"><!--required Quitado para probar validacion js-->
                     </div>
 
-                    <div id="turnos" class="casillasTurnos">Turno
-                        <input name="M" type="checkbox" value="1" <?php echo $formulario['turno'];?>/>
-                            <label for="M">M</label>
-                        <input name="T" type="checkbox" value="2" <?php echo $formulario['turno'];?>/>
-                            <label for="T">T</label>
-                        <input name="P" type="checkbox" value="3"  <?php echo $formulario['turno'];?>/>
-                            <label for="P">P</label>
+                    <div class="campos"><label for="turno">Turno<em>*</em></label>
+                    <input id="turno" type="text" name="turno" placeholder="M(Mañana) o T(Tarde) o P(Parcial)" 
+                    value="<?php echo @$formulario["turno"];?>">
+                    <!--required Quitado para probar validacion js-->
                     </div>
 
                     <div class="campos"><label for="sueldo">Sueldo<em>*</em></label>
-                    <input id="sueldo" type="text" name="sueldo" value="<?php echo $formulario['sueldo'];?>" 
+                    <input id="sueldo" type="text" name="sueldo" value="<?php echo @$formulario["sueldo"];?>" 
                     oninput="validacion_sueldo()"><!--required Quitado para probar validacion js-->
                     </div>
 

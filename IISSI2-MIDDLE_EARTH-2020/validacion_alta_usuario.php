@@ -1,6 +1,9 @@
 <?php
     session_start();
 
+    //Importo los archivos necesarios para la gestion del nuevo usuario
+    require_once("gestionBD.php");
+
     if (isset($_SESSION["formulario"])) {
 		// Recogemos los datos del formulario
 		$nuevoUsuario["nif"] = $_REQUEST["nif"];
@@ -11,15 +14,20 @@
         $nuevoUsuario["esSocio"] = $_REQUEST["esSocio"];
         $nuevoUsuario["fechaNacimiento"] = $_REQUEST["fechaNacimiento"];
         $nuevoUsuario["email"] = $_REQUEST["email"];
-        $nuevoUsuario["contraseña"] = $_REQUEST["contraseña"];
+        $nuevoUsuario["contrasena"] = $_REQUEST["contrasena"];
 
         $_SESSION["formulario"] = $nuevoUsuario;
     }
 
-    else
+    else{
         Header("Location: form_alta_usuario.php");
+    }
+    //Validamos el formulario en el servidor
+    $conexion = crearConexionBD();
+    $errores = validarDatosUsuario($conexion, $nuevoUsuario);
+    cerrarConexionBD($conexion);
     
-    $errores = validarDatosUsuario($nuevoUsuario);
+    
     //Si se han detectado errores
         if (count($errores)>0) {
             // Guardo en la sesión los mensajes de error y volvemos al formulario
@@ -31,7 +39,7 @@
     
     
     /////////Validacion del formulario
-    function validarDatosUsuario($nuevoUsuario){
+    function validarDatosUsuario($conexion,$nuevoUsuario){
             $errores = array();
          
         //Validacion DNI, no puede estar vacío
@@ -85,7 +93,7 @@
         }
 
         //El campo contraseña no puede estar vacío
-        if($nuevoUsuario["contraseña"]=="" || $nuevoUsuario["contraseña"==null]){
+        if($nuevoUsuario["contrasena"]=="" || $nuevoUsuario["contrasena"==null]){
             $errores[] = "<p>El campo contraseña no puede estar vacío</p>";
         }
         else if(preg_match("/^[/s]$/", $nuevoUsuario["contraseña"])){

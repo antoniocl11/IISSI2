@@ -10,8 +10,7 @@ function headermain() {
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
         <link type="text/css" href="css/styles.css" rel="stylesheet">
         <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> <!--Para detectar el tamaño de pantalla-->
-        <script type="text/javascript" src="js/javascript.js"></script>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> <!--Para detectar el tamaï¿½o de pantalla-->
         <script src="https://kit.fontawesome.com/b3de7dbd0c.js" crossorigin="anonymous"></script>
     </head>    
     ';
@@ -32,16 +31,17 @@ function headermain() {
                     <input type="checkbox" id="btn-menu">
                     <label for="btn-menu"><img src="images/icono-menu.png"></label>
                     <nav class="menu-principal">    
-                        <a href="index_dos.php" class="nav-item is-active" active-color="#007ac3">Inicio</a>
-                        <a href="#" class="nav-item" active-color="#007ac3">Productos</a>
-                        <a href="#" class="nav-item" active-color="#007ac3">Compromiso</a>
-                        <a href="#" class="nav-item" active-color="#007ac3">Contacto</a>
-                        <span class="nav-indicator"></span>
+                        <ul>
+                            <li><a href="index_dos.php">Inicio</a></li>
+                            <li><a href="#">Productos</a></li>
+                            <li><a href="#">Sobre Nosotros</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul>
                     </nav>
                 </div>
                     <div class="colheader">
                         <div class="botones">
-                            <a class="login" href="login.html">Entrar</a>
+                            <a class="login" href="login.php">Entrar</a>
                             <a href="form_alta_usuario.php">Registrarse</a>
                      </div>
                 </div>
@@ -66,9 +66,9 @@ function headermain() {
                     <nav class="menu-principal">    
                         <ul>
                             <li><a href="index_dos.php">Inicio</a></li>
-                            <li><a href="#">Productos</a></li>
-                            <li><a href="#">Sobre Nosotros</a></li>
-                            <li><a href="#">Contacto</a></li>
+                            <li><a href="productos_principal.php">Productos</a></li>
+                            <li><a href="sobre_nosotros.php">Sobre Nosotros</a></li>
+                            <li><a href="form_alta_ticket.php">Contacto</a></li>
                         </ul>
                     </nav>
                 </div>

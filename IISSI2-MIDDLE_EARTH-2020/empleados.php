@@ -9,22 +9,23 @@
         <link rel="stylesheet" type="text/css" href="css/adminStyles.css" />
         <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
 		<script src="js/desp_imagenes.js" type="text/javascript"></script>
-		<title>Admin Middle-Earth</title>
+		<title>Admin Empleados</title>
 	</head>
 	<body>
 		<div class = "topnav" id ="titulo">
-			<a id="cerrar" href="#" class="button">Cerrar Sesión</a>
-			<h2>Admin Panel Middle-Earth(Sevilla)</h2>
+        <a id="cerrar" href="#" class="button">Cerrar Sesión</a>
+        <a id="pagina" href="index_dos.php" class="button">Ver Web</a>
+			<h2>Admin Panel Middle-Earth</h2>
 		</div>
 		<div class="topnav" id = "menu">
             <div class="dentroMenu">
 			<a href="admin.php">Inicio</a>
 			<a href="clientes.php">Clientes</a>
             <a class="active" href="empleados.php">Empleados</a>
-			<a href="#">Pedidos</a>	
+			<a href="pedidos.php">Pedidos</a>	
 			<a href="proveedores.php">Proveedores</a>
-			<a href="#">Reservas</a>
-			<a href="#">Tickets</a>
+			<a href="reservas.php">Reservas</a>
+			<a href="tickets.php">Tickets</a>
             </div>
         </div>
         
@@ -35,7 +36,7 @@
     		require_once("paginacion_consulta.php");
 
     if(isset($_SESSION["empleado"])){
-        $proveedor = $_SESSION["empleado"];
+        $empleado = $_SESSION["empleado"];
         unset($_SESSION["empleado"]);
     }
 
@@ -84,6 +85,20 @@
     cerrarConexionBD($conexion);
 ?>
 
+<!--Script alerta para delete-->
+<script type="text/javascript">
+function confirmar_eliminar(){
+    var respuesta= confirm ("¿Está seguro que deseas eliminar el Empleado?");
+
+    if (respuesta == true){
+        return true;
+    }
+
+    else{
+        return false;
+    }
+}
+</script>
 
 <main>
 <nav>
@@ -95,7 +110,7 @@
 					if ( $pagina == $pagina_seleccionada) { 	?>
 						<span class="current"><?php echo $pagina; ?></span>
 			<?php }	else { ?>			
-						<a href="empleados.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
+						<a class="paginas" href="empleados.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 			<?php } ?>			
 		</div>
 		
@@ -133,7 +148,77 @@
 				<td><?php echo $fila["TURNO"]?></td>
 				<td><?php echo $fila["SUELDO"]?></td>
             <td>
+            <form method="post" action="controlador_empleados.php">
+                    
+                        
+                    <input id="OID_E" name="OID_E" type="hidden" value="<?php echo $fila["OID_E"]; ?>"/>
 
+                         
+            <?php        
+                if(isset($empleado) and ($empleado["OID_E"]== $fila["OID_E"])){ ?>
+                    <!--Editando los campos del GRID-->
+                    <h5>ID: <input id="ID" name="ID" type="number" value="<?php echo $fila["ID"]; ?>"required/></h5>
+                    <h5>NIF: <input id="NIF" name="NIF" type="text" value="<?php echo $fila["NIF"]; ?>"required/></h5>
+                    <h5>Nombre: <input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"required/></h5>
+                    <h5>Apellidos: <input id="APELLIDOS" name="APELLIDOS" type="text" value="<?php echo $fila["APELLIDOS"]; ?>"required/></h5>
+                    <h5>Turno: <input id="TURNO" name="TURNO" type="text" value="<?php echo $fila["TURNO"]; ?>"required/></h5>
+                    <h5>Sueldo: <input id="SUELDO" name="SUELDO" type="text" value="<?php echo $fila["SUELDO"]; ?>"required/></h5>
+
+            <?php }  else { ?>
+            
+                    <input id="ID" name="ID" type="hidden" value="<?php echo $fila["ID"]; ?>"/>
+                    <input id="NIF" name="NIF" type="hidden" value="<?php echo $fila["NIF"]; ?>"/>
+                    <input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
+                    <input id="APELLIDOS" name="APELLIDOS" type="hidden" value="<?php echo $fila["APELLIDOS"]; ?>"/>
+                    <input id="TURNO" name="TURNO" type="hidden" value="<?php echo $fila["TURNO"]; ?>"/>
+                    <input id="SUELDO" name="SUELDO" type="hidden" value="<?php echo $fila["SUELDO"]; ?>"/>
+
+                
+                    
+                <?php } ?>
+
+                <div id="botones_fila">
+
+                        <?php if (isset($empleado) and ($empleado["OID_E"] == $empleado["OID_E"])) { ?>
+                                
+                                <button id="grabar" name="grabar" type="submit" class="boton_grabar">
+
+                                    <img src="images/icono_guardar.png" class="editar_fila" alt="Guardar modificación">
+
+                                </button>
+
+                                <button id="atras" name="atras" type="button" class="boton_atras" >
+                                    
+                                    <a href="<?=$_SERVER["HTTP_REFERER"]?>" class="link_atras">
+                                    <img href="<?=$_SERVER["HTTP_REFERER"]?>" src="images/boton_atras.png" alt="Volver atrás">
+                                    </a>
+                                    <!--Esto lo que hace es volver atras en caso de que no se quiera editar nada--> 
+
+                                    
+                                    
+                                </button>
+
+                        <?php } else { ?>
+                                
+                                <button id="editar" name="editar" type="submit" class="boton_editar">
+
+                                   <img src="images/icono_editar.png" class="editar_fila" alt="Editar libro">
+
+                                </button>
+
+                                
+
+                        <?php } ?>
+
+                            <button id="borrar" name="borrar" type="submit" class="boton_borrar" onclick="return confirmar_eliminar()">
+
+                                <img src="images/icono_borrar.png" class="editar_fila" alt="Borrar libro">
+
+                            </button>
+
+                </div>
+                        
+            </form>
             
 
                         

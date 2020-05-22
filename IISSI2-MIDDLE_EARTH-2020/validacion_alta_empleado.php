@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    //Importo los archivos necesarios para la gestion del nuevo proveedor
+    //Importo los archivos necesarios para la gestion del nuevo pedido
     require_once("gestionBD.php");
 
     if (isset($_SESSION["formulario"])) {
@@ -17,6 +17,7 @@
     }
 
     else
+        
         Header("Location: form_alta_empleado.php");
 
     //Validamos el formulario en el servidor
@@ -24,7 +25,7 @@
     $errores = validarDatosEmpleado($conexion, $nuevoEmpleado);
     cerrarConexionBD($conexion);
     
-    $errores = validarDatosEmpleado($nuevoEmpleado);
+    
     //Si se han detectado errores
         if (count($errores)>0) {
             // Guardo en la sesión los mensajes de error y volvemos al formulario
@@ -56,19 +57,22 @@
 
         //El campo nombre no puede estar vacio 
         if($nuevoEmpleado["nombre"]=="" || $nuevoEmpleado["nombre"]==null) 
-            $errores[] = "<p>El nombre no puede estar vacío </p>";
+            $errores[] = "<p>El campo nombre no puede estar vacío </p>";
         
         //El campo apellidos no puede estar vacio 
         if($nuevoEmpleado["apellidos"]=="" || $nuevoEmpleado["apellidos"]==null) 
-            $errores[] = "<p>Los apellidos no pueden estar vacíos</p>";
+            $errores[] = "<p>El campo apellidos no puede estar vacío</p>";
             
-        /*
+        
         //El campo turno no puede estar vacío 
         if($nuevoEmpleado["turno"] =="" || $nuevoEmpleado["turno"]==null){
             $errores[] ="<p>El campo Turno no puede estar vacío </p>";
         }
-        */
-
+/*
+        else if(!(preg_match("/^[M]$/", $nuevoEmpleado["turno"]))) {//|| !(preg_match("/^[T]$/", $nuevoEmpleado["turno"]) || preg_match("/^[P]$/", $nuevoEmpleado["turno"])){
+            $errores[] = "<p>El campo Turno solo puede contener los caracteres M, T o P</p>";
+        }
+*/
         //El campo sueldo no puede estar vacío
         if($nuevoEmpleado["sueldo"]=="" || $nuevoEmpleado["sueldo"]==null){
             $errores[] ="<p>El campo Sueldo no puede estar vacío </p>";
@@ -79,7 +83,7 @@
         }
 
             return $errores;
-        
+       
         
     }
 ?>
