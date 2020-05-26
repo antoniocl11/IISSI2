@@ -10,13 +10,20 @@ function headermain() {
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
         <link type="text/css" href="css/styles.css" rel="stylesheet">
         <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> <!--Para detectar el tama�o de pantalla-->
         <script src="https://kit.fontawesome.com/b3de7dbd0c.js" crossorigin="anonymous"></script>
-    </head>    
+    </head>  
+    <header>
+    <div class="icon-bar">
+  <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+  <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+  <a href="#" class="google"><i class="fa fa-google"></i></a>
+  <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+    </div>
     ';
     if (!isset($_SESSION['loggedin'])) {
     echo '
-    <header>
         <div class="contenedor">
                 <div class="espacio"> 
                     <div class="colheader">
@@ -32,10 +39,10 @@ function headermain() {
                     <label for="btn-menu"><img src="images/icono-menu.png"></label>
                     <nav class="menu-principal">    
                         <ul>
-                            <li><a href="index_dos.php">Inicio</a></li>
-                            <li><a href="productos_principal.php">Productos</a></li>
-                            <li><a href="sobre_nosotros.php">Sobre Nosotros</a></li>
-                            <li><a href="form_alta_ticket.php">Contacto</a></li>
+                            <li><a class="menu-style" href="index_dos.php" id="cinicio">Inicio</a></li>
+                            <li><a class="menu-style" href="productos_principal.php" id="cproducto">Productos</a></li>
+                            <li><a class="menu-style" href="sobre_nosotros.php" id="cabout">Sobre Nosotros</a></li>
+                            <li><a class="menu-style" href="form_alta_ticket.php" id="ccontacto">Contacto</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -49,7 +56,6 @@ function headermain() {
         </div>
     </header>';} else {
      echo '   
-     <header>
         <div class="contenedor">
                 <div class="espacio">
                     <div class="colheader">
@@ -65,17 +71,17 @@ function headermain() {
                     <label for="btn-menu"><img src="images/icono-menu.png"></label>
                     <nav class="menu-principal">    
                         <ul>
-                            <li><a href="index_dos.php">Inicio</a></li>
-                            <li><a href="productos_principal.php">Productos</a></li>
-                            <li><a href="sobre_nosotros.php">Sobre Nosotros</a></li>
-                            <li><a href="form_alta_ticket.php">Contacto</a></li>
+                            <li><a class="menu-style" href="index_dos.php" id="cinicio">Inicio</a></li>
+                            <li><a class="menu-style" href="productos_principal.php" id="cproducto">Productos</a></li>
+                            <li><a class="menu-style" href="sobre_nosotros.php" id="cabout">Sobre Nosotros</a></li>
+                            <li><a class="menu-style" href="form_alta_ticket.php" id="ccontacto">Contacto</a></li>
                         </ul>
                     </nav>
                 </div>
                     <div class="colheader">
                          <div class="botones">
-                        <a id="perfil_activo" href="perfil_user.php">&#x2659;Perfil</a>
-				        <a href="logout.php">&#x2716;Logout</a>
+                        <a id="perfil_activo" style="font-weight:500;" href="perfil_user.php">&#x2659;&nbspPerfil</a>
+				        <a href="logout.php"style="font-weight:500;">&#x2716;&nbsp;Logout</a>
                         </div>
                     </div>
             </div>
@@ -88,14 +94,14 @@ function footermain() {
     echo '<footer>  
                     <div class="contenedor">
                         <div class="footercol">
-                            <div class="copyright">Copyright&#169;2020 - M.E S.R.L</div>
-                            <a href="privacidad.html">Privacidad</a>
+                            <div class="copyright">Copyright&#169;2020 - M.E S.R.L -<a style="font-weight:700;" href="privacidad.php">&nbsp;Privacidad</a></div>
+                            
                         </div>
                         <div class="footercol centrar">
-                            <div class="telefono">&#x2706; 958958744</div>
+                            <div style="font-weight:700;" class="telefono">&#x2706; 958958744</div>
                         </div>
                         <div class="footercol derecha">
-                            <div class="email">&#x2709; info@middleearth.com</div>
+                            <div style="font-weight:700;" class="email">&#x2709; info@middleearth.com</div>
                         </div>
                     </div>
           </footer>';

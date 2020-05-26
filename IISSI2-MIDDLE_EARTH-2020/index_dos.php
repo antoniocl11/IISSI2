@@ -4,7 +4,7 @@ require_once("gestionBD.php");
 include_once('esqueleto_web.php');
 $conexion = crearConexionBD();
 session_start();
-// Si el usuario no est� logeado, redirige a la pantalla de login.
+
 
 
    headermain();

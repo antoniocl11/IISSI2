@@ -39,9 +39,9 @@ if($stmt = $conexion->prepare('SELECT OID_U,contrasena FROM usuario WHERE email 
 		echo 'Bienvenido,' . $_SESSION['name'];
 		header("Location: index_dos.php");
 	} else {
+		session_regenerate_id();
+		$_SESSION['error'] = '<p style="color:red;font-weight:500;">&#9888;&nbsp;Nombre de usuario/contraseña incorrectos!</p>';
 		header('Location: login.php');
 	}
-} else {
-	echo 'Nombre de usuario incorrecto!';
-}
+} 
 ?>
