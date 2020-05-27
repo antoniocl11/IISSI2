@@ -11,6 +11,7 @@ function headermain() {
         <link type="text/css" href="css/styles.css" rel="stylesheet">
         <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> <!--Para detectar el tama�o de pantalla-->
         <script src="https://kit.fontawesome.com/b3de7dbd0c.js" crossorigin="anonymous"></script>
     </head>  
@@ -21,6 +22,23 @@ function headermain() {
   <a href="#" class="google"><i class="fa fa-google"></i></a>
   <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
     </div>
+    <script> // FUNCIÓN PARA EL ELEMENTO ACTIVO DEL NAVBAR
+    jQuery(function($) {
+        var path = window.location.href; // 
+        $("ul li a").each(function() {
+            if (this.href === path) {
+                $(this).addClass("active");
+                $(this).parent().addClass("active-menu");
+                }
+            });
+        $(".botones a").each(function() {
+            if (this.href === path) {
+                $(this).addClass("active-boton");
+                
+                }
+            });
+        });
+    </script>
     ';
     if (!isset($_SESSION['loggedin'])) {
     echo '
