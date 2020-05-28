@@ -2,7 +2,7 @@
 	session_start();	
 	
 	if (isset($_SESSION["reserva"])) {
-		$pedido = $_SESSION["reserva"];
+		$reserva = $_SESSION["reserva"];
 		unset($_SESSION["reserva"]);
 		
 		require_once("gestionBD.php");
