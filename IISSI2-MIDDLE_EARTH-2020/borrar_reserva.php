@@ -9,7 +9,7 @@
 		require_once("gestionar_reserva.php");
 		
 		$conexion = crearConexionBD();		
-		$excepcion = eliminar_pedido($conexion,$pedido["OID_RES"]);
+		$excepcion = eliminar_reserva($conexion,$reserva["OID_RES"]);
 		cerrarConexionBD($conexion);
 			
 		if ($excepcion<>"") {
