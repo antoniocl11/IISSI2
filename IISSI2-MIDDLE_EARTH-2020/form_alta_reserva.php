@@ -6,19 +6,25 @@
             footermain();
             require_once("gestionBD.php");
             
+
+            $producto = $_POST['submit'];
             //Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
-            if(!isset($_SESSION["formulario"])){
+            if(!isset($_SESSION["loggedin"])){
                 $formulario["fecha"] = "";
-                $formulario["producto"] = "";
+                $formulario["producto"] = $producto;
                 $formulario["email"] = "";
                 $formulario["nombre"] = "";
 
                 $_SESSION["formulario"] = $formulario;
             }
             //si ya existían valores se usan para inicializar el formulario
-            else
+            else{
+                $formulario["fecha"] = "";
+                $formulario["producto"] = $producto;
+                $formulario["email"] = $_SESSION['name'];
+                $formulario["nombre"] = $_SESSION['nombre'];
                 $formulario = $_SESSION["formulario"];
-                
+            }    
             //si hay errores de validacion hay que mostrarlos y marcar los datos
             if (isset($_SESSION["errores"])){
                     $errores = $_SESSION["errores"];
@@ -26,6 +32,8 @@
             }
 
             $conexion = crearConexionBD();
+
+            
         ?>
 
     
@@ -60,25 +68,25 @@
 
                     <div class="campos"><label for="fecha">Fecha<em>*</em></label>
                     <input id="fecha" name="fecha" type="date" class="fecha"
-                    title="La fecha no puede ser posterior al día actual" value="<?php echo @$formulario["fecha"];?>" 
+                    title="La fecha no puede ser posterior al día actual" value="<?php echo $formulario["fecha"];?>" 
                     oninput="validacion_fecha()"><!--required Quitado para probar validacion js-->
                     </div>
                     <div class="campos"><label for="producto">Producto<em>*</em></label>
                     <input id="producto" class="producto" name="producto" type="text" placeholder="Nombre del Producto" 
-                    value="<?php echo @$formulario["producto"];?>"required>
+                    value="<?php echo $formulario["producto"];?>"required>
                     </div>
 
                     <div class="campos"><label for="email">Email<em>*</em></label>
-                    <input id="email" name="email" type="text" size="25"  value="<?php echo @$formulario["email"];?>" 
-                    oninput="validacion_email()" placeholder="juanymedio@gmail.com"><!--required Quitado para probar validacion js-->
+                    <input id="email" name="email" type="text" size="25"  value="<?php echo $formulario["email"];?>" 
+                    oninput="validacion_email()" placeholder="ejemplo@gmail/hotmail/.../.com"><!--required Quitado para probar validacion js-->
                     </div>
 
                     <div class="campos"><label for="nombre">Nombre</label>
-                    <input id="nombre" name="nombre" type="text"   value="<?php echo @$formulario["nombre"];?>" 
+                    <input id="nombre" name="nombre" type="text" placeholder="Escribe tu nombre..."  value="<?php echo $formulario["nombre"];?>" 
                     oninput="validacion_nombre()"><!--required Quitado para probar validacion js-->
                     </div>
 
-                    <div class="botones"><input type="submit" value="Confirmar"/></div>
+                    <div class="botones"><input type="submit" value="Confirmar" onclick="return confirm('Seguro que quieres reservar <?php echo $formulario["producto"];?>')" /></div>
                 </form>
             </section>    
         

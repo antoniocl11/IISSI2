@@ -27,11 +27,13 @@ include_once('esqueleto_web.php');
 		while ($row = $stmt->fetch(PDO::FETCH_BOUND)) {
 			
             echo '<div class="productos">
+					<form action="form_alta_reserva.php" method="post">
                     <h5 class="titprod">' .$no . '</h5>
                     <a href="form_alta_reserva.php"><img class="imagenes" src="' . $url . '" ></img></a>
                     <p class="preciores">' . $precio . '€</p>
-                    <p><button class="breserva">Reservar</button></p>
-                  </div>';
+                    <p><button type="submit" name="submit" value="'. $no .'"onclick="return confirm("¿Seguro que quieres reservar:'. $no.'?") class="breserva">Reservar</button></p>
+                  </form>
+				  </div>';
 			}
 		
 	} catch ( PDOException $e ){
