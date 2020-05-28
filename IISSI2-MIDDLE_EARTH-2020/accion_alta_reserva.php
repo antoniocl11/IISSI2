@@ -3,7 +3,7 @@
     session_start();
 
         require_once("gestionBD.php")
-        require_once("gestionar_reservas.php");
+        require_once("gestionar_reserva.php");
 
          if(isset($_SESSION["formulario"])){
             $nuevaReserva = $_SESSION["formulario"];
