@@ -17,10 +17,10 @@
             <div class="dentroMenu">
 			<a  href="admin.php">Inicio</a>
 			<a href="clientes.php">Clientes</a>
-            <a href="empleados.php">Empleados</a>
+                        <a href="empleados.php">Empleados</a>
 			<a href="pedidos.php">Pedidos</a>	
+			<a href="proveedores.php">Proveedores</a>	
 			<a class="active" href="reservas.php">Reservas</a>
-			<a href="proveedores.php">Proveedores</a>
 			<a href="tickets.php">Tickets</a>
             </div>
         </div>
