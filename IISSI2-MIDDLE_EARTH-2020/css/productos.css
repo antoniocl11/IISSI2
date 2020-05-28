@@ -12,13 +12,31 @@
     text-align: center;
 }
 
-.productos{
+.productos {
     width: 350px;
-    height: 200px;
+    height: 250px;
     margin-bottom: 30px;
     object-fit: cover;
     /*animation: escalar 3s infinite;*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
+    .titprod {
+        font-family: 'Montserrat', sans-serif;
+        padding-bottom: 20px;
+    }
+
+.breserva {
+    background-color: #007ac3;
+    color: white;
+    font-weight: 400;
+}
+.preciores {
+    font-family: 'Montserrat', sans-serif;
+    color: lightgrey;
+    font-weight: 300;
+}
+
 /*
 @keyframes escalar{
     to{
@@ -28,12 +46,15 @@
     }
 }
 */
-.titulo_reservas{
+.titulo_reservas {
     position: absolute;
     top: 15%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     text-align: center;
+    color: #007ac3;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 
 .imagenes{
