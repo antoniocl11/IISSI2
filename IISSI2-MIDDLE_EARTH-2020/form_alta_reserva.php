@@ -23,7 +23,8 @@
                 $formulario["producto"] = $producto;
                 $formulario["email"] = $_SESSION['name'];
                 $formulario["nombre"] = $_SESSION['nombre'];
-                $formulario = $_SESSION["formulario"];
+                
+                $_SESSION["formulario"] = $formulario;
             }    
             //si hay errores de validacion hay que mostrarlos y marcar los datos
             if (isset($_SESSION["errores"])){
@@ -82,7 +83,7 @@
                     </div>
 
                     <div class="campos"><label for="nombre">Nombre</label>
-                    <input id="nombre" name="nombre" type="text" placeholder="Escribe tu nombre..."  value="<?php echo $formulario["nombre"];?>" 
+                    <input id="nombre" name="nombre" type="text" placeholder="Escribe tu nombre..."  value="<?=$formulario["nombre"]?>" 
                     oninput="validacion_nombre()"><!--required Quitado para probar validacion js-->
                     </div>
 
