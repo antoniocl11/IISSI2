@@ -5,50 +5,43 @@ include_once('esqueleto_web.php');
 $conexion = crearConexionBD();
 session_start();
 
-
-
    headermain();
    footermain();
 ?>
-
         <main>
             <section class="banner">
-                <!--<img src="images/banner.png">-->
-                <!-- Slideshow container -->
-<div class="slideshow-container">
-
-  <!-- Full-width images with number and caption text -->
+                <div class="texto-banner">
+                <div class="slideshow-container">
+  <!-- SLIDESHOW-->
   <div class="mySlides fade">
     <div class="numbertext">1 / 3</div>
-    <img src="images/slideruno.png" style="width:100%">
+    <img class="borderimg" src="images/slideruno.png" style="width:100%">
     <div class="text">¡Todos tus cómics preferidos!</div>
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">2 / 3</div>
-    <img src="images/sliderdos.jpg" style="width:100%">
+    <img class="borderimg" src="images/sliderdos.jpg" style="width:100%">
     <div class="text">¡Tus figuras preferidas, al mejor precio!</div>
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">3 / 3</div>
-    <img src="images/slidertres.png" style="width:100%">
+    <img class="borderimg" src="images/slidertres.png" style="width:100%">
     <div class="text">¡Camisetas frikis para toda la familia!</div>
   </div>
-
-  <!-- Next and previous buttons -->
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
 <br>
 
-<!-- The dots/circles -->
+<!-- PUNTOS Y BOTONES -->
 <div style="text-align:center">
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
   <span class="dot" onclick="currentSlide(1)"></span>
   <span class="dot" onclick="currentSlide(2)"></span>
   <span class="dot" onclick="currentSlide(3)"></span>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
-                <div class="texto-banner">
+<!-- BODY -->
                     <h3> Bienvenido a Middle-Earth (Sevilla), tu tienda de comics, juegos de mesa y merchandising</h3>
                 </div>
                 <div class="botones">
@@ -63,12 +56,10 @@ session_start();
 var slideIndex = 1;
 showSlides(slideIndex);
 
-// Next/previous controls
+// Controles
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
-
-// Thumbnail image controls
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
