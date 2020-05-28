@@ -57,29 +57,6 @@ if (!isset($_SESSION['loggedin'])) {
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> <!--Para detectar el tamaño de pantalla-->
         <script type="text/javascript" src="js/javascript.js"></script>
         <script src="https://kit.fontawesome.com/b3de7dbd0c.js" crossorigin="anonymous"></script>
-	<style>
-	.profile-box {
-		position: fixed; 
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-	;}
-	.profilepic {
-		margin-left: 10%;
-		margin-bottom: 15px;
-		width: 150px;
-		height: 150px;
-		padding: -.6rem;
-		border-collapse: separate; 
-		perspective: 1px;
-		border: 3px solid #007ac3;
-		border-radius: 100%;
-	}
-	td {
-		font-weight: bold;
-	}
-	
-	</style>
 	</head>
 <body>
 	<div class="profile-box">
@@ -116,6 +93,15 @@ if (!isset($_SESSION['loggedin'])) {
 						<td><?=$socio?></td>
 					</tr>
 				</table>
+
+				<?php
+
+				if($_SESSION['name'] == 'admin@middleearth.es') {
+					echo '<button><a style="background-color:red;color:white;padding:3px;" href="admin..php.php">Panel Administrador</a></button>';
+				}
+
+				?>
+				
 	</div>
 </body>
 </html>

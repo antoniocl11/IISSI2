@@ -42,5 +42,6 @@
                     <p><button class="breserva">Reservar</button></p>
                 </div>
 </div>
+<button class="breserva"><a style="color:white;padding:3px;" href="productos_dinamico.php">Productos con BBDD</a></button>
 </html>
 

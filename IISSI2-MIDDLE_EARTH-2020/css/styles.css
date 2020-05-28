@@ -535,3 +535,28 @@ footer{
 .borderimg {
     border: 2px solid #007ac3;
 }
+
+/* PERFIL USUARIO*/
+.profile-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    ;
+}
+
+.profilepic {
+    margin-left: 10%;
+    margin-bottom: 15px;
+    width: 150px;
+    height: 150px;
+    padding: -.6rem;
+    border-collapse: separate;
+    perspective: 1px;
+    border: 3px solid #007ac3;
+    border-radius: 100%;
+}
+
+td {
+    font-weight: bold;
+}
