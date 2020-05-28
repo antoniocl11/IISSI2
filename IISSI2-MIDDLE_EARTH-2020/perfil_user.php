@@ -93,15 +93,44 @@ if (!isset($_SESSION['loggedin'])) {
 						<td><?=$socio?></td>
 					</tr>
 				</table>
-
+				<button id="btnres" style="text-align:center;background-color:#007ac3;"><a onclick="mostrarReservas()" style="color:white;padding:6px;font-weight:500;">Mostrar reservas</a></button>;
+				<div style="height:100px;" id="ajaxtry"></div>
 				<?php
-
+				// BOTON ADMIN PANEL
 				if($_SESSION['name'] == 'admin@middleearth.es') {
-					echo '<button><a style="background-color:red;color:white;padding:3px;" href="admin..php.php">Panel Administrador</a></button>';
+					echo '<button><a style="background-color:red;color:white;padding:3px;" href="admin.php">Panel Administrador</a></button>';
 				}
 
 				?>
 				
 	</div>
 </body>
+
+
+<script>
+
+
+function mostrarReservas() {
+  var xhttp;
+		if (document.getElementById("ajaxtry").innerHTML != ""){
+			document.getElementById("btnres").style.backgroundColor = "#007ac3";
+			document.getElementById("ajaxtry").innerHTML = "";
+	} else {
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() { 
+	if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("ajaxtry").innerHTML = this.responseText;
+    }
+  };
+  document.getElementById("btnres").style.backgroundColor = "red";
+  xhttp.open("GET", "mostrar_reservasuser.php", true);
+  xhttp.send();
+   ;}
+}
+</script>
+
+
+
+
+
 </html>

@@ -30,11 +30,12 @@
     background-color: #007ac3;
     color: white;
     font-weight: 400;
+    cursor: crosshair;
 }
 .preciores {
     font-family: 'Montserrat', sans-serif;
-    color: lightgrey;
-    font-weight: 300;
+    color: #007ac3;
+    font-weight: 600;
 }
 
 /*

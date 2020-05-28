@@ -467,7 +467,7 @@ footer{
 
 /* Texto en slideshow */
 .text {
-    color: white;//#007ac3;
+    color: white;
     font-size: 25px;
     font-weight: 400;
     padding: 8px 12px;
@@ -559,4 +559,10 @@ footer{
 
 td {
     font-weight: bold;
+}
+
+#btnres {
+    margin-top: 30px;
+    text-align: center;
+    margin-left: 40px;
 }
