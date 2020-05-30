@@ -43,7 +43,7 @@
 			</div>
 			
 		</div>
-<?php print_r($nuevoUsuario); ?>
+
 		<?php }
 
 		else { ?>

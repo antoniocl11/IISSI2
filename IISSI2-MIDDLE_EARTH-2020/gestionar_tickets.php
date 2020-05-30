@@ -42,7 +42,7 @@
             $stmt -> bindParam(':OID_E', $OID_E);
             $stmt -> bindParam(':RESUELTO', $RESUELTO);
             $stmt -> bindParam(':NOMBRE', $NOMBRE);
-            $stmt -> bindParam(':EMAIL', $EMAIL);
+            $stmt -> bindParam(':EMAIL', $EMAIL);   
             
             $stmt -> execute();
             return "";
