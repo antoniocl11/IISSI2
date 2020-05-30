@@ -6,8 +6,8 @@ function validacionPedido(){
     var res = true;
 
     if(!noValidate){
-        error1 = validacion_fecha;
-        error2 = validacion_id;
+        error1 = validacion_fecha();
+        error2 = validacion_id();
 
         if(!(error1.length==0 && error2.length==0)){
             res = false;
@@ -18,7 +18,7 @@ function validacionPedido(){
 }
 
 
-function validacion_fecha(){ 
+function validacion_fecha(){
     var tablaFecha = document.getElementById("fecha");
     var fecha = tablaFecha.value.split('-');
 

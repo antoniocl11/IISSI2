@@ -8,11 +8,21 @@
 		<meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/adminStyles.css" />
         <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
+        <script type="text/javascript" src="js/validacion_alta_pedido.js"></script>
+        <script>
+        $(document).ready(funtion()){ //LLamamos a la funcion validacion pedido para que salte las validaciones
+                                    //en servidor si tenemos en cliente
+            $("#altaPedido").on("submit", function(){
+                return validacionPedido();
+            });
+        }
+
+    </script>
 		<title>Alta Pedido</title>
 	</head>
 	<body>
 		<div class = "topnav" id ="titulo">
-			<a id="cerrar" href="#" class="button">Cerrar Sesión</a>
+			<a id="cerrar" href="logout.php" class="button">Cerrar Sesión</a>
 			<h2>Admin Panel Middle-Earth(Sevilla)</h2>
 		</div>
 		<div class="topnav" id = "menu">
@@ -75,7 +85,7 @@
         }
     ?>
         
-                <form class="altaPedido" method="get" action="validacion_alta_pedido.php">
+                <form id="altaPedido" method="get" action="validacion_alta_pedido.php">
                     
                     <p class="campos">
                         <i>Los campos obligatorios están marcados con </i><em>*</em>
@@ -83,15 +93,15 @@
 
                     <div class="campos"><label for="fecha">Fecha de Pedido<em>*</em></label>
                     <input class="fecha" name="fecha" type="date" title="Fecha en la que se realizó el pedido"
-                    value="<?php echo @$formulario["fecha"];?>" required>
+                    value="<?php echo @$formulario["fecha"];?>" oninput="validacion_fecha()">
                     </div>
 
                     <div class="campos"><label for="id">ID<em>*</em></label>
                     <input class="id" name="id" type="text" placeholder="123456789" pattern="^[0-9]{9}" 
-                    title="Nueve dígitos seguidos" value="<?php echo @$formulario["id"];?>" required>
+                    title="Nueve dígitos seguidos" value="<?php echo @$formulario["id"];?>" oninput="validacion_id()">
                     </div>
 
-                    <div class="campos"><label for="oid_u">OID_USUARIO<em>*</em></label>
+                    <div class="campos"><label for="oid_u">OID_USUARIO<em></em></label>
                     <input class="oid_u" name="oid_u" type="number" title="OID del Usuario que realizó el pedido"
                     value="<?php echo @$formulario["oid_u"];?>">
                     </div>

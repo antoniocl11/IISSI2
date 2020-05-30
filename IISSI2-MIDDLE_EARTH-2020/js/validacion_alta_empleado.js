@@ -1,3 +1,26 @@
+/*Funcion para que no se invoque la validacion al servidor si hay errores de validación en js*/
+function validacionEmpleado(){
+    var noValidate = document.getElementById("#altaEmpleado").noValidate;
+    var error1, error2, error3, error4, error5;
+
+    var res = true;
+
+    if(!noValidate){
+        error1 = validacion_id();
+        error2 = validacion_nif();
+        error3 = validacion_nombre();
+        error4 = validacion_nombre();
+        error5 = validacion_sueldo();
+
+        if(!(error1.length==0 && error2.length==0 && error3.length==0 && error4.length==0 && error5.length==0)){
+            res = false;
+        }
+    }
+
+    return res;
+}
+
+
 /*Validcion de id*/
 function validacion_id(){
     var tablaId = document.getElementById("id");

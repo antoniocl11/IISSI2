@@ -9,11 +9,20 @@
         <link rel="stylesheet" type="text/css" href="css/adminStyles.css" />
         <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
         <script type="text/javascript" src="js/validacion_alta_proveedor.js"></script>
+        <script>
+        $(document).ready(funtion()){ //LLamamos a la funcion validacion proveedor para que salte las validaciones
+                                    //en servidor si tenemos en cliente
+            $("#altaProveedor").on("submit", function(){
+                return validacionProveedor();
+            });
+        }
+
+</script>
 		<title>Alta Proveedor</title>
 	</head>
 	<body>
 		<div class = "topnav" id ="titulo">
-			<a id="cerrar" href="#" class="button">Cerrar Sesión</a>
+			<a id="cerrar" href="logout.php" class="button">Cerrar Sesión</a>
 			<h2>Admin Panel Middle-Earth(Sevilla)</h2>
 		</div>
 		<div class="topnav" id = "menu">
@@ -75,7 +84,7 @@
             }
         ?>
         
-                <form class="altaProveedor" method="get" action="validacion_alta_proveedor.php" >
+                <form id="altaProveedor" method="get" action="validacion_alta_proveedor.php" >
                     
                     <p class="campos">
                         <i>Los campos obligatorios están marcados con </i><em>*</em>

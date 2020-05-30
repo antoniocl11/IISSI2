@@ -5,7 +5,7 @@ $conexion = crearConexionBD();
 session_start();
 // Si el usuario no esta logeado, redirige a la pantalla de login.
 if (!isset($_SESSION['loggedin'])) {
-	header('Location: login.html');
+	header('Location: login.php');
 	exit;
 } else {
 	try {

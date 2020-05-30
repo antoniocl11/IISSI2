@@ -32,8 +32,6 @@ function validacion_fecha(){ /*No funciona*/
     var error;
 
     if(fech <= hoy){
-        //document.getElementById("errorFecha").innerHTML("La fecha no puede ser anterior al día de hoy");
-        //return false;
         error = "La fecha no puede ser anterior a la actual";
     }
 

@@ -5,10 +5,10 @@
         <script type="text/javascript" src="js/validacion_alta_reserva.js"></script>    
     </head>
     <script>
-        $(document).ready(funtion()){ //LLamamos a la funcion validacion ticket para que salte las validaciones
+        $(document).ready(funtion()){ //LLamamos a la funcion validacion reserva para que salte las validaciones
                                     //en servidor si tenemos en cliente
-            $("#altaTicket").on("submit", function(){
-                return validacionTicket();
+            $("#altaReserva").on("submit", function(){
+                return validacionReserva();
             });
         }
 
@@ -21,7 +21,7 @@
             footermain();
             require_once("gestionBD.php");
 
-            $producto = $_POST['submit'];
+            @$producto = $_POST['submit'];
 
             //Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
             if(!isset($_SESSION["loggedin"])){
@@ -55,7 +55,7 @@
     
     <body>
         
-    <section class="formulario">
+    <section class="formulario_alta_usuario">
     <?php
          //Muestra los errores de validación si ha encontrado alguno
          if(isset($errores) && is_array($errores)){
@@ -75,8 +75,8 @@
             }
         }
     ?>
-             <section class="formulario_alta_usuario">        
-                <form class="altaReserva" method="get" action="validacion_alta_reserva.php">
+                  
+                <form id="altaReserva" method="get" action="validacion_alta_reserva.php">
                     
                     <p class="campos">
                         <i>Los campos obligatorios están marcados con </i><em>*</em>
@@ -102,7 +102,7 @@
                     oninput="validacion_nombre()"><!--required Quitado para probar validacion js-->
                     </div>
 
-                    <div class="botones"><input type="submit" value="Confirmar" onclick="return confirm('Seguro que quieres reservar <?php echo $formulario["producto"];?>')" /></div>
+                    <div class="botones"><input type="submit" value="Confirmar" /></div>
                 </form>
             </section>    
         

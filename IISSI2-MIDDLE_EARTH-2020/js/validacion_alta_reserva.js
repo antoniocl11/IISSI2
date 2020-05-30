@@ -18,18 +18,26 @@ function validacionReserva(){
     return res;
 }
 
-function validacion_fecha(){ 
-    fecha=document.getElementById("fecha");
-    if(fecha.length<3 || fecha[2].length<4){
-    
-    return false;
+function validacion_fecha(){
+    var tablaFecha = document.getElementById("fecha");
+    var fecha = tablaFecha.value.split('-');
+
+    var fech = new Date(fecha[0] + "-" + fecha[1] + "-" +fecha[2]);
+    var hoy = new Date();
+    hoy.setHours(0,0,0,0);
+    var error;
+
+    if(fech <= hoy){
+        error = "La fecha no puede ser anterior a la actual";
     }
-    
-    fechaPuesta=new Date(fecha[2],fecha[1]-1,fecha[0]);
-    fechaActual=new Date();
-    if(fechaPuesta<=fechaActual){
-    alert("Debe poner una fecha posterior!!");
-    fecha.focus();
+
+    else{
+        error = "";
+    }
+
+    tablaFecha.setCustomValidity(error);
+    return error;
+
 }
 
 function validacion_producto(){
@@ -38,7 +46,11 @@ function validacion_producto(){
 
     var error;
 
-    if(producto =="" || producto == null){
+    if(!(/^[a-zA-ZÑñÁÉÍÓÚáéíóú,.\s]*$/.test(producto))){
+        error = "El campo producto no posee el formato correcto";
+    }
+
+    else if(producto =="" || producto == null){
         error= "El campo producto no puede estar vacío";
     }
 
@@ -96,4 +108,4 @@ function validacion_nombre(){
     tablaNombre.setCustomValidity(error);
     return error;
 }
-}
+
