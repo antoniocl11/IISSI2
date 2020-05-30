@@ -192,7 +192,7 @@ function validacion_contrasena(){
     return error;
 }
 
-//Validacion edad
+//Validacion edad (No permitido a menores de 16 años)
 function validacion_fechaNacimiento(){
     var tablaFecha = document.getElementById("fechaNacimiento");
     var fecha= tablaFecha.value;

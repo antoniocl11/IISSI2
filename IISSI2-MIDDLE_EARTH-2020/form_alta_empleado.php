@@ -108,13 +108,13 @@
                     </div>
 
                     <div class="campos"><label for="turno">Turno<em>*</em></label>
-                    <input id="turno" type="text" name="turno" placeholder="M(Mañana) o T(Tarde) o P(Parcial)" 
+                    <input id="turno" type="text" name="turno" title="Introducir sólo las letras M, P o T" placeholder="M(Mañana) o T(Tarde) o P(Parcial)" 
                     value="<?php echo @$formulario["turno"];?>">
                     <!--required Quitado para probar validacion js-->
                     </div>
 
                     <div class="campos"><label for="sueldo">Sueldo<em>*</em></label>
-                    <input id="sueldo" type="text" name="sueldo" value="<?php echo @$formulario["sueldo"];?>" 
+                    <input id="sueldo" type="text" name="sueldo" title="Sueldo del empleado" placeholder="XXX.XX" value="<?php echo @$formulario["sueldo"];?>" 
                     oninput="validacion_sueldo()"><!--required Quitado para probar validacion js-->
                     </div>
 
