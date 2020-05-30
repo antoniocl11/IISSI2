@@ -1,13 +1,28 @@
-        <?php
+<!DOCTYPE html>
+<html lang=es>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="js/validacion_alta_reserva.js"></script>    
+    </head>
+    <script>
+        $(document).ready(funtion()){ //LLamamos a la funcion validacion ticket para que salte las validaciones
+                                    //en servidor si tenemos en cliente
+            $("#altaTicket").on("submit", function(){
+                return validacionTicket();
+            });
+        }
+
+</script>
+<?php
             session_start();
             include_once('esqueleto_web.php');
         
             headermain();
             footermain();
             require_once("gestionBD.php");
-            
 
             $producto = $_POST['submit'];
+
             //Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
             if(!isset($_SESSION["loggedin"])){
                 $formulario["fecha"] = "";
@@ -74,7 +89,7 @@
                     </div>
                     <div class="campos"><label for="producto">Producto<em>*</em></label>
                     <input id="producto" class="producto" name="producto" type="text" placeholder="Nombre del Producto" 
-                    value="<?php echo $formulario["producto"];?>"required>
+                    value="<?php echo $formulario["producto"];?>" oninput="validacion_producto()">
                     </div>
 
                     <div class="campos"><label for="email">Email<em>*</em></label>

@@ -55,10 +55,23 @@
             $errores[] = "<p>El nombre no puede estar vacío</p>";
         
 
+        //Validacion formato incorrecto nombre
+        else if(!preg_match("/^[a-zA-ZÑÁÉÍÓÚáéíóú,.\s]*$/", $nuevaReserva["nombre"])){
+            $errores[] = "El campo nombre no posee el formato correcto.";
+        }
+
+
+
         //El campo apellidos no puede estar vacio
-        if($nuevoUsuario["apellidos"]=="" || $nuevoUsuario["apellidos"]==null) 
+        if($nuevoUsuario["apellidos"]=="" || $nuevoUsuario["apellidos"]==null) {
             $errores[] = "<p>Los apellidos no pueden estar vacíos</p>";
-        
+        }
+        //Validacion formato incorrecto apellidos
+        else if(!preg_match("/^[a-zA-ZÑÁÉÍÓÚáéíóú,.\s]*$/", $nuevaReserva["apellidos"])){
+            $errores[] = "El campo apellidos no posee el formato correcto.";
+        }
+        /*
+
         //El campo teléfono no puede estar vacío, además sólo debe contener
         //9 números y ninguna letra 
         if($nuevoUsuario["telefono"]=="" || $nuevoUsuario["telefono"]==null)
@@ -66,7 +79,7 @@
         else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["telefono"])){
             $errores[] = "<p>El teléfono debe contener 9 números</p>";
         }
-        
+        */
 
         //El campo direccion no puede estar vacío
         if($nuevoUsuario["direccion"]=="" || $nuevoUsuario["direccion"] == null){
