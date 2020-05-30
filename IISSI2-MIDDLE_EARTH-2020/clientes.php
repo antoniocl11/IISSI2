@@ -156,7 +156,7 @@ function confirmar_eliminar(){
                                 <h5>NIF: <input id="NIF" name="NIF" type="text" value="<?php echo $fila["NIF"]; ?>"required/></h5>
                                 <h5>Nombre: <input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"required/></h5>
                                 <h5>Apellidos: <input id="APELLIDOS" name="APELLIDOS" type="text" value="<?php echo $fila["APELLIDOS"]; ?>"required/></h5>
-                                <h5>E-mail: <input id="EMAIL" name="EMAIL" type="text" value="<?php echo $fila["EMAIL"]; ?>"required/></h5>
+                                <h5>E-mail: <input id="EMAIL" name="EMAIL" type="email" value="<?php echo $fila["EMAIL"]; ?>"required/></h5>
                                 <h5>Teléfono: <input id="TELEFONO" name="TELEFONO" type="text" value="<?php echo $fila["TELEFONO"]; ?>"required/></h5>
                                 <h5>Es Socio: <input id="ESSOCIO" name="ESSOCIO" type="number" value="<?php echo $fila["ESSOCIO"]; ?>"required/></h5>
                                 <h5>Dirección: <input id="DIRECCION" name="DIRECCION" type="text" value="<?php echo $fila["DIRECCION"]; ?>"required/></h5>

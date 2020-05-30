@@ -161,8 +161,8 @@ function confirmar_eliminar(){
                         <!--Editando los campos del GRID-->
                         <h5>Fecha: <input id="FECHA" name="FECHA" type="text" value="<?php echo $fila["FECHA"]; ?>" required/></h5>
                         <h5>Comentario: <textarea id="COMENTARIO" name="COMENTARIO" type="text" value="<?php echo $fila["COMENTARIO"]; ?>"required></textarea></h5>
-                        <h5>OID_U: <input id="OID_U" name="OID_U" type="number" value="<?php echo $fila["OID_U"]; ?>"required/></h5>
-                        <h5>OID_E: <input id="OID_E" name="OID_E" type="number" value="<?php echo $fila["OID_E"]; ?>"required/></h5>
+                        <h5>OID_U: <input id="OID_U" name="OID_U" type="number" value="<?php echo $fila["OID_U"]; ?>"/></h5>
+                        <h5>OID_E: <input id="OID_E" name="OID_E" type="number" value="<?php echo $fila["OID_E"]; ?>"/></h5>
                         <h5>¿Resuelto?: <input id="RESUELTO" name="RESUELTO" type="number" value="<?php echo $fila["RESUELTO"]; ?>"required/></h5>
                         <h5>Nombre: <input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"required/></h5>
                         <h5>Email: <input id="EMAIL" name="EMAIL" type="text" value="<?php echo $fila["EMAIL"]; ?>"required/></h5>
