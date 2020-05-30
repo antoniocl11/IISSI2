@@ -54,12 +54,11 @@
         if($nuevoUsuario["nombre"]=="" || $nuevoUsuario["nombre"]==null) 
             $errores[] = "<p>El nombre no puede estar vacío</p>";
         
-            //Validacion formato incorrecto nombre y apellidos
 
         //El campo apellidos no puede estar vacio
         if($nuevoUsuario["apellidos"]=="" || $nuevoUsuario["apellidos"]==null) 
             $errores[] = "<p>Los apellidos no pueden estar vacíos</p>";
-        /*
+        
         //El campo teléfono no puede estar vacío, además sólo debe contener
         //9 números y ninguna letra 
         if($nuevoUsuario["telefono"]=="" || $nuevoUsuario["telefono"]==null)
@@ -67,10 +66,7 @@
         else if(!preg_match("/^[0-9]{9}$/", $nuevoUsuario["telefono"])){
             $errores[] = "<p>El teléfono debe contener 9 números</p>";
         }
-        else if (preg_match("/^{a-z}{A-Z}$/", $nuevoUsuario["telefono"])) {
-			$errores[] = "<p>El número de teléfono no puede contener letras.</p>";
-        }
-        */
+        
 
         //El campo direccion no puede estar vacío
         if($nuevoUsuario["direccion"]=="" || $nuevoUsuario["direccion"] == null){
@@ -80,12 +76,10 @@
         else if(!preg_match("/^[a-zA-ZñÑÁÉÍÓÚáéíóú0-9\s\º\,\''\-\_\.]*$/", $nuevoUsuario["direccion"])){
             $errores[] = "El campo direccion no posee el formato correcto.";
         }
-/*
         //El campo fecha de nacimiento no puede estar vacio
         if($nuevoUsuario["fechaNacimiento"]=="" || $nuevoUsuario["fechaNacimiento"] == null){
             $errores[] = "<p>El campo fecha de nacimiento no puede estar vacío</p>";
         }
-*/
 
         //El campo email no puede estar vacio
         if($nuevoUsuario["email"]=="" || $nuevoUsuario["email"] == null){
@@ -95,9 +89,6 @@
         //El campo contraseña no puede estar vacío
         if($nuevoUsuario["contrasena"]=="" || $nuevoUsuario["contrasena"==null]){
             $errores[] = "<p>El campo contraseña no puede estar vacío</p>";
-        }
-        else if(preg_match("/^[/s]$/", $nuevoUsuario["contraseña"])){
-            $errores[] = "<p>La contraseña no puede contener espacios</p>";
         }
     
         return $errores;

@@ -76,8 +76,7 @@
 
                     <div class="campos"><label for="fecha">Fecha<em>*</em></label>
                     <div id="errorFecha"></div>
-                    <input id="fecha" class="fecha" name="fecha" type="date"  
-                    title="Una letra mayúscula seguida de 8 dígitos numéricos" value="<?php echo @$formulario["fecha"];?>"
+                    <input id="fecha" class="fecha" name="fecha" type="date"   value="<?php echo @$formulario["fecha"];?>"
                      required><!--required Quitado para probar validaciones js-->
                     </div>
 

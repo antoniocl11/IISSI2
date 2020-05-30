@@ -86,7 +86,7 @@
         }
         ?>
         
-                <form id="altaUsuario" method="get" action="validacion_alta_usuario.php" >
+                <form id="altaUsuario" method="get" action="validacion_alta_usuario.php">
                    
                     <p class="campos">
                         <i>Los campos obligatorios están marcados con </i><em>*</em>
@@ -109,7 +109,7 @@
                     </div>
 
                     <div class="campos"><label for="telefono">Teléfono<em>*</em></label>
-                    <input id="telefono" type="text"  class="telefono" name="telefono" value="<?php echo @$formulario["telefono"];?>" 
+                    <input id="telefono" type="number"  class="telefono" name="telefono" value="<?php echo @$formulario["telefono"];?>" 
                     oninput="validacion_telefono()" ><!--required Quitado para validaciones js-->
                     
                     </div>

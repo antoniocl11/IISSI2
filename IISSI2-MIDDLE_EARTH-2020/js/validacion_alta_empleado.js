@@ -57,7 +57,7 @@ function validacion_nombre(){
     
     var error;
 
-    if(!(/^[a-zA-ZÑñÁÉÍÓÚáéíóú0-9,.\s]*$/.test(nombre))){
+    if(!(/^[a-zA-ZÑñÁÉÍÓÚáéíóú,.\s]*$/.test(nombre))){
         error = "El campo nombre no posee el formato correcto.";
     }
     else if(nombre=="" || nombre==null){
@@ -79,7 +79,7 @@ function validacion_apellidos(){
     
     var error;
 
-    if(!/^[a-zA-ZÑñÁÉÍÓÚáéíóú0-9,.\s]*$/.test(apellidos)){
+    if(!/^[a-zA-ZÑñÁÉÍÓÚáéíóú,.\s]*$/.test(apellidos)){
         error = "El campo apellidos no posee el formato correcto.";
     }
     else if(apellidos=="" || apellidos==null){
@@ -103,6 +103,10 @@ function validacion_sueldo(){
 
     if(sueldo == "" || sueldo == null){
         error = "El campo sueldo no puede estar vacío";
+    }
+
+    else if (/^[a-zA-ZÑñÁÉÍÓÚáéíóú.\s]*$/.test(sueldo)){
+        error = "El campo sueldo no puede contener letras";
     }
 
     else{

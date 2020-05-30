@@ -143,9 +143,9 @@ function confirmar_eliminar(){
                     <?php        
                         if(isset($pedido) and ($pedido["OID_PEDIDO"]== $fila["OID_PEDIDO"])){ ?>
                             <!--Editando los campos del GRID-->
-                            <h5>OID_U: <input id="OID_U" name="OID_U" type="number" value="<?php echo $fila["OID_U"]; ?>"/></h5>
-                            <h5>ID: <input id="ID" name="ID" type="number" value="<?php echo $fila["ID"]; ?>"/></h5>
-                            <h5>Fecha: <input id="FECHA" name="FECHA" type="text" value="<?php echo $fila["FECHA"]; ?>"/></h5>
+                            <h5>OID_U: <input id="OID_U" name="OID_U" type="number" value="<?php echo $fila["OID_U"]; ?>" required/></h5>
+                            <h5>ID: <input id="ID" name="ID" type="number" value="<?php echo $fila["ID"]; ?>"required/></h5>
+                            <h5>Fecha: <input id="FECHA" name="FECHA" type="text" value="<?php echo $fila["FECHA"]; ?>"required/></h5>
                             
                             
 
