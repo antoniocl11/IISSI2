@@ -76,11 +76,7 @@
         if($nuevoEmpleado["turno"] =="" || $nuevoEmpleado["turno"]==null){
             $errores[] ="<p>El campo Turno no puede estar vacío </p>";
         }
-/*
-        else if(!(preg_match("/^[M]$/", $nuevoEmpleado["turno"]))) {//|| !(preg_match("/^[T]$/", $nuevoEmpleado["turno"]) || preg_match("/^[P]$/", $nuevoEmpleado["turno"])){
-            $errores[] = "<p>El campo Turno solo puede contener los caracteres M, T o P</p>";
-        }
-*/
+
         //El campo sueldo no puede estar vacío
         if($nuevoEmpleado["sueldo"]=="" || $nuevoEmpleado["sueldo"]==null){
             $errores[] ="<p>El campo Sueldo no puede estar vacío </p>";
@@ -90,7 +86,8 @@
             $errores[] = "<p>El campo sueldo solo puede contener letras</p>";
         }
 
-            return $errores;
+        
+        return $errores;
        
         
     }
