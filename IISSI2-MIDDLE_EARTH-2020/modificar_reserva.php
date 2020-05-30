@@ -10,7 +10,7 @@
         unset($_SESSION["reserva"]);
 
         $conexion = crearConexionBD();
-        $excepcion = modificar_reserva($conexion,$reserva["OID_RES],$reserva["FECHA"],$reserva["PRODUCTO"],$reserva["EMAIL"],$reserva["NOMBRE"]);
+        $excepcion = modificar_reserva($conexion,$reserva["OID_RES"],$reserva["FECHA"],$reserva["PRODUCTO"],$reserva["EMAIL"],$reserva["NOMBRE"]);
         cerrarConexionBD($conexion);
 
         if($excepcion<>""){
