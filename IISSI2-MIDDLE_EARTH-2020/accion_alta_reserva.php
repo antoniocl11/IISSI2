@@ -45,7 +45,7 @@
                   <h2>La reserva ya existe en la base de datos.</h2>
                   
               <div>
-                Pulsa <a href="form_alta_reserva.php"> aquí</a> para volver al formulario o pulsa <a href="reservas.php">aquí</a> para ir a la lista de reservas
+                Pulsa <a href="form_alta_reserva.php"> aquí</a> para volver al formulario o pulsa <a href="index_dos.php">aquí</a> para ir a la página principal
               </div>
         <?php } ?>
 			

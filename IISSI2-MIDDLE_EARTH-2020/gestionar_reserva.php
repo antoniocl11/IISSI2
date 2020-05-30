@@ -11,12 +11,12 @@
 
 
     function añadir_reserva($conexion, $nuevaReserva) {
-        $fecha = dateparse('d/m/Y', strtotime($nuevaReserva["fecha"]));
+        $fecha = date('d/m/Y', strtotime($nuevaReserva["fecha"]));
         try{
             $consulta = 'CALL NUEVA_RESERVA(:FECHA,:PRODUCTO,:EMAIL,:NOMBRE)';
 
             $stmt = $conexion -> prepare($consulta);
-            $stmt -> bindParam(':FECHA', $nuevaReserva["fecha"]);
+            $stmt -> bindParam(':FECHA', $fecha);
             $stmt -> bindParam(':PRODUCTO', $nuevaReserva["producto"]);
             $stmt -> bindParam(':EMAIL', $nuevaReserva["email"]);
             $stmt -> bindParam(':NOMBRE', $nuevaReserva["nombre"]);
@@ -35,7 +35,7 @@
 
     function modificar_reserva($conexion, $OID_RES, $FECHA, $PRODUCTO, $EMAIL, $NOMBRE){
         try{
-            $stmt = $conexion -> prepare('CALL pk_reserva.actualizar_reserva(:OID_RES,:FECHA,:PRODUCTO,:EMAIL,:NOMBRE)');
+            $stmt = $conexion -> prepare('CALL actualizar_reserva(:OID_RES,:FECHA,:PRODUCTO,:EMAIL,:NOMBRE)');
             $stmt -> bindParam(':OID_RES', $OID_RES);
             $stmt -> bindParam(':FECHA', $FECHA);
             $stmt -> bindParam(':PRODUCTO', $PRODUCTO);
@@ -52,7 +52,7 @@
 
     function eliminar_reserva($conexion,$OID_RES){
         try{
-            $stmt = $conexion -> prepare('CALL ELIMINAR_(:OID_RES)');
+            $stmt = $conexion -> prepare('CALL ELIMINAR_RESERVA(:OID_RES)');
 
             $stmt-> bindParam(':OID_RES', $OID_RES);
             $stmt -> execute();

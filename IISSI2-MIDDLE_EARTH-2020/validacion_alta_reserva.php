@@ -40,25 +40,26 @@
         //La fecha no puede estar vacía
         if($nuevaReserva["fecha"]=="" || $nuevaReserva["fecha"]==null)
         $errores[] = "<p>El campo fecha no puede estar vacío</p>";
+        
         //El producto no puede estar vacío
         if($nuevaReserva["producto"]=="" || $nuevaReserva["producto"]==null){
             $errores[] = "<p>El campo producto no puede estar vacío</p>";
         }
-         //El campo email no puede estar vacío
-         if($nuevaReserva["email"]=="" || $nuevaReserva["email"] == null){
+        //El campo email no puede estar vacío
+        if($nuevaReserva["email"]=="" || $nuevaReserva["email"] == null){
             $errores[] = "<p>El campo email no puede estar vacío</p>";
             
             }
-        }
+        
         //El campo nombre no puede estar vacío
         if($nuevaReserva["nombre"]=="" || $nuevaReserva["nombre"]==null){
             $errores[] = "<p>El campo nombre no puede estar vacío ni ser nulo</p>";
         }
-        else if(!preg_match("/^[a-zA-ZÑÁÉÍÓÚáéíóú0-9,.\s]*$/", $nuevaReserva["nombre"])){
+        else if(!preg_match("/^[a-zA-ZÑÁÉÍÓÚáéíóú,.\s]*$/", $nuevaReserva["nombre"])){
             $errores[] = "El campo nombre no posee el formato correcto.";
         }
         return $errores;
-    
+    }
     
     ?>
 

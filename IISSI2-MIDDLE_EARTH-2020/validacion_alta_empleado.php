@@ -56,13 +56,21 @@
         }
 
         //El campo nombre no puede estar vacio 
-        if($nuevoEmpleado["nombre"]=="" || $nuevoEmpleado["nombre"]==null) 
+        if($nuevoEmpleado["nombre"]=="" || $nuevoEmpleado["nombre"]==null) {
             $errores[] = "<p>El campo nombre no puede estar vacío </p>";
-        
+        }
+        //Validacion formato incorrecto nombre
+        else if(!preg_match("/^[a-zA-ZÑÁÉÍÓÚáéíóú,.\s]*$/", $nuevaReserva["nombre"])){
+            $errores[] = "El campo nombre no posee el formato correcto.";
+        }
         //El campo apellidos no puede estar vacio 
-        if($nuevoEmpleado["apellidos"]=="" || $nuevoEmpleado["apellidos"]==null) 
+        if($nuevoEmpleado["apellidos"]=="" || $nuevoEmpleado["apellidos"]==null) {
             $errores[] = "<p>El campo apellidos no puede estar vacío</p>";
-            
+        }
+         //Validacion formato incorrecto apellidos
+        else if(!preg_match("/^[a-zA-ZÑÁÉÍÓÚáéíóú,.\s]*$/", $nuevaReserva["apellidos"])){
+            $errores[] = "El campo apellidos no posee el formato correcto.";
+        }   
         
         //El campo turno no puede estar vacío 
         if($nuevoEmpleado["turno"] =="" || $nuevoEmpleado["turno"]==null){
