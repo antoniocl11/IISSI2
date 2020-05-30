@@ -58,7 +58,7 @@
             $errores[] = "El campo nombre no posee el formato correcto.";
         }
         return $errores;
-    }
+    
     
     ?>
 
