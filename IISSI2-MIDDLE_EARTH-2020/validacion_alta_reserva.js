@@ -1,43 +1,48 @@
+function validacionReserva(){
+    var noValidate = document.getElementById("#altaReserva").noValidate;
+    var error1, error2, error3, error4;
 
-function validacion_fecha(){
-    
-    var tablaFecha = document.getElementById("fecha");
-    var fecha = tablaFecha.value;
-    var hoy = new Date();
-    var error;
-    
-    
-    if(fecha == "" || fecha == null){
-        error = "El campo fecha no puede estar vacío";
-    }
-    
-    else if(hoy <= fecha){
-        error="El campos fecha no es válido. La fecha debe ser posterior o igual a la fecha actual";
-    }
+    var res = true;
 
-    else{
-        error="" 
+    if(!noValidate){
+        error1 = validacion_fecha();
+        error2 = validacion_producto();
+        error3 = validacion_email();
+        error4 = validacion_nombre();
+
+        if(!(error1.length==0 && error2.length==0 && error3.length==0 && error4.length==0)){
+            res = false;
+        }
     }
 
-    tablaFecha.setCustomValidity(error);
-    
-
-    return error;
-
+    return res;
 }
 
+
+
+
+function validacion_fecha(esto){ 
+    fecha=esto.value.split("/");
+    if(fecha.length<3 || fecha[2].length<4){
+    
+    return false;
+    }
+    
+    fechaPuesta=new Date(fecha[2],fecha[1]-1,fecha[0]);
+    fechaActual=new Date();
+    if(fechaPuesta<=fechaActual){
+    alert("Debe poner una fecha posterior!!");
+    esto.focus();
+}
 
 function validacion_producto(){
     var tablaProducto = document.getElementById("producto");
     var producto = tablaProducto.value;
-    
+
     var error;
 
-    if(!(/^[a-zA-ZÑñÁÉÍÓÚáéíóú0-9,.\s]*$/.test(producto))){
-        error = "El campo producto no posee el formato correcto.";
-    }
-    else if(producto=="" || producto==null){
-        error = "El campo producto no puede estar vacío";
+    if(producto =="" || producto == null){
+        error= "El campo producto no puede estar vacío";
     }
 
     else{
@@ -48,18 +53,25 @@ function validacion_producto(){
     return error;
 }
 
-
 function validacion_email(){
     var tablaEmail = document.getElementById("email");
     var email = tablaEmail.value;
 
+    var validadorCorreo = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    var res = true;
     var error;
 
-    if(email=="" || email==null){
+    res = res && validadorCorreo.test(email);
+
+    if(!res){
+        error = "El formato del campo email no es correcto";
+    }
+
+    else if (email=="" || email == null){
         error = "El campo email no puede estar vacío";
     }
 
-    else{
+    else {
         error = "";
     }
 
@@ -70,21 +82,21 @@ function validacion_email(){
 function validacion_nombre(){
     var tablaNombre = document.getElementById("nombre");
     var nombre = tablaNombre.value;
-
+    
     var error;
 
-    if(!(/^[a-zA-ZñÑÁÉÍÓÚáéíóú0-9\s\º\,\''\-\/\.\s]*$/.test(nombre))){
-        error = "El campo nombre no posee el formato correcto.";
+    if(!(/^[a-zA-ZÑñÁÉÍÓÚáéíóú,.\s]*$/.test(nombre))){
+        error = "El campo nombre no posee el formato correcto";
     }
-
-    else if(nombre == "" || nombre == null){
+    else if(nombre=="" || nombre==null){
         error = "El campo nombre no puede estar vacío";
     }
 
     else{
-        error="";
+        error = "";
     }
 
     tablaNombre.setCustomValidity(error);
     return error;
+}
 }
