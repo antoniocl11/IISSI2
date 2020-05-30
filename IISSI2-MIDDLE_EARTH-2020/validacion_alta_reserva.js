@@ -21,8 +21,8 @@ function validacionReserva(){
 
 
 
-function validacion_fecha(esto){ 
-    fecha=esto.value.split("/");
+function validacion_fecha(){ 
+    fecha=document.getElementById("fecha");
     if(fecha.length<3 || fecha[2].length<4){
     
     return false;
@@ -32,7 +32,7 @@ function validacion_fecha(esto){
     fechaActual=new Date();
     if(fechaPuesta<=fechaActual){
     alert("Debe poner una fecha posterior!!");
-    esto.focus();
+    fecha.focus();
 }
 
 function validacion_producto(){
