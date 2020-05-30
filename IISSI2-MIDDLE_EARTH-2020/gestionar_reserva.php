@@ -11,6 +11,7 @@
 
 
     function añadir_reserva($conexion, $nuevaReserva) {
+        $fecha = date('d/m/Y', strtotime($nuevaReserva["fecha"]));
         try{
             $consulta = 'CALL NUEVA_RESERVA(:FECHA,:PRODUCTO,:EMAIL,:NOMBRE)';
 
