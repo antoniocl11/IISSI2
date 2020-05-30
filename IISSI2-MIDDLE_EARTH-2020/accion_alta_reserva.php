@@ -36,7 +36,7 @@
             <div id="div_exito">
               <h1>Reserva <?php echo $nuevaReserva["nombre"]; ?>, añadido con éxito</h1>
               <div id="div_volver">	
-                Pulsa <a href="reservas.php">aquí</a> para ir a la lista de reserva.
+                Pulsa <a href="index_dos.php">aquí</a> para ir a la página principal.
               </div>
             </div>
         <?php } 

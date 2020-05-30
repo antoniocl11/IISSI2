@@ -9,11 +9,21 @@
         <link rel="stylesheet" type="text/css" href="css/adminStyles.css" />
         <link rel="shortcut icon" href="images/icono.png" type="image/x-icon">
         <script type="text/javascript" src="js/validacion_alta_empleado.js"></script>
+        <script>
+        $(document).ready(funtion()){ //LLamamos a la funcion validacion empleado para que salte las validaciones
+                                    //en servidor si tenemos en cliente
+            $("#altaEmpleado").on("submit", function(){
+                return validacionEmpleado();
+            });
+        }
+
+        </script>   
+
 		<title>Alta Empleado</title>
 	</head>
 	<body>
 		<div class = "topnav" id ="titulo">
-			<a id="cerrar" href="#" class="button">Cerrar Sesión</a>
+			<a id="cerrar" href="logout.php" class="button">Cerrar Sesión</a>
 			<h2>Admin Panel Middle-Earth(Sevilla)</h2>
 		</div>
 		<div class="topnav" id = "menu">

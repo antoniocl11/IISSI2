@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<div class = "topnav" id ="titulo">
-        <a id="cerrar" href="#" class="button">Cerrar Sesión</a>
+        <a id="cerrar" href="logout.php" class="button">Cerrar Sesión</a>
         <a id="pagina" href="index_dos.php" class="button">Ver Web</a>
 			<h2>Admin Panel Middle-Earth</h2>
 		</div>

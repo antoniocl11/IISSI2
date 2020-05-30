@@ -1,3 +1,23 @@
+function validacionProveedor(){
+    var noValidate = document.getElementById("#altaProveedor").noValidate;
+    var error1, error2, error3, error4;
+
+    var res = true;
+
+    if(!noValidate){
+        error1 = validacion_cif();
+        error2 = validacion_nombre();
+        error3 = validacion_telefono();
+        error4 = validacion_direccion();
+
+        if(!(error1.length==0 && error2.length==0 && error3.length==0 && error4.length==0)){
+            res = false;
+        }
+    }
+
+    return res;
+}
+
 //Validación número NIF(DNI)
 function validacion_cif(){
     //Obtiene el elemento con la id nif, es decir lo que contiene
