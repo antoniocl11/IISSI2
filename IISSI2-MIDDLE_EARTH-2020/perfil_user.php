@@ -57,29 +57,6 @@ if (!isset($_SESSION['loggedin'])) {
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> <!--Para detectar el tamaño de pantalla-->
         <script type="text/javascript" src="js/javascript.js"></script>
         <script src="https://kit.fontawesome.com/b3de7dbd0c.js" crossorigin="anonymous"></script>
-	<style>
-	.profile-box {
-		position: fixed; 
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-	;}
-	.profilepic {
-		margin-left: 10%;
-		margin-bottom: 15px;
-		width: 150px;
-		height: 150px;
-		padding: -.6rem;
-		border-collapse: separate; 
-		perspective: 1px;
-		border: 3px solid #007ac3;
-		border-radius: 100%;
-	}
-	td {
-		font-weight: bold;
-	}
-	
-	</style>
 	</head>
 <body>
 	<div class="profile-box">
@@ -116,6 +93,44 @@ if (!isset($_SESSION['loggedin'])) {
 						<td><?=$socio?></td>
 					</tr>
 				</table>
+				<button id="btnres" style="text-align:center;background-color:#007ac3;"><a onclick="mostrarReservas()" style="color:white;padding:6px;font-weight:500;">Mostrar reservas</a></button>;
+				<div style="height:100px;" id="ajaxtry"></div>
+				<?php
+				// BOTON ADMIN PANEL
+				if($_SESSION['name'] == 'admin@middleearth.es') {
+					echo '<button><a style="background-color:red;color:white;padding:3px;" href="admin.php">Panel Administrador</a></button>';
+				}
+
+				?>
+				
 	</div>
 </body>
+
+
+<script>
+
+
+function mostrarReservas() {
+  var xhttp;
+		if (document.getElementById("ajaxtry").innerHTML != ""){
+			document.getElementById("btnres").style.backgroundColor = "#007ac3";
+			document.getElementById("ajaxtry").innerHTML = "";
+	} else {
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() { 
+	if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("ajaxtry").innerHTML = this.responseText;
+    }
+  };
+  document.getElementById("btnres").style.backgroundColor = "red";
+  xhttp.open("GET", "mostrar_reservasuser.php", true);
+  xhttp.send();
+   ;}
+}
+</script>
+
+
+
+
+
 </html>

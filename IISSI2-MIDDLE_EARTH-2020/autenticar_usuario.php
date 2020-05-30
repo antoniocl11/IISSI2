@@ -11,7 +11,7 @@ if (!isset($_POST['email'], $_POST['password'])) {
 	exit('Introduce email y usuario.');
 }
 
-if($stmt = $conexion->prepare('SELECT OID_U,contrasena FROM usuario WHERE email = :usuari')) {
+if($stmt = $conexion->prepare('SELECT OID_U,contrasena, nombre FROM usuario WHERE email = :usuari')) {
 	try {
 		$stmt->bindParam(':usuari', $_POST['email']);
 		$stmt->execute();
@@ -24,6 +24,7 @@ if($stmt = $conexion->prepare('SELECT OID_U,contrasena FROM usuario WHERE email 
 	//$stmt->bind_result($id, $password);
 		$stmt->bindColumn('OID_U', $id);
 		$stmt->bindColumn('CONTRASENA', $password);	
+		$stmt->bindColumn('NOMBRE', $nombre);	
 	while ($row = $stmt->fetch(PDO::FETCH_BOUND)) {
       	$data = $password;
     }
@@ -35,13 +36,14 @@ if($stmt = $conexion->prepare('SELECT OID_U,contrasena FROM usuario WHERE email 
 		$_SESSION['loggedin'] = TRUE;
 		$_SESSION['name'] = $_POST['email'];
 		$_SESSION['id'] = $id;
+		$_SESSION['nombre'] = $nombre;
 		//header('Location: perfil_user.php');
 		echo 'Bienvenido,' . $_SESSION['name'];
 		header("Location: index_dos.php");
 	} else {
+		session_regenerate_id();
+		$_SESSION['error'] = '<p style="color:red;font-weight:500;">&#9888;&nbsp;Nombre de usuario/contraseña incorrectos!</p>';
 		header('Location: login.php');
 	}
-} else {
-	echo 'Nombre de usuario incorrecto!';
-}
+} 
 ?>
