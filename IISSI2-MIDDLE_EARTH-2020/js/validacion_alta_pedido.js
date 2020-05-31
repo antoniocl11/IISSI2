@@ -1,7 +1,7 @@
 /*Funcion para que no se invoque la validacion al servidor si hay errores de validación en js*/
 function validacionPedido(){
     var noValidate = document.getElementById("#altaPedido").noValidate;
-    var error1, error2, error3;
+    var error1, error2;
 
     var res = true;
 

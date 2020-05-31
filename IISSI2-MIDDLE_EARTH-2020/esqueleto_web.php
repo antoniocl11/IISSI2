@@ -58,7 +58,7 @@ function headermain() {
                     <nav class="menu-principal">    
                         <ul>
                             <li><a class="menu-style" href="index_dos.php" id="cinicio">Inicio</a></li>
-                            <li><a class="menu-style" href="productos_principal.php" id="cproducto">Productos</a></li>
+                            <li><a class="menu-style" href="productos_dinamico.php" id="cproducto">Productos</a></li>
                             <li><a class="menu-style" href="sobre_nosotros.php" id="cabout">Sobre Nosotros</a></li>
                             <li><a class="menu-style" href="form_alta_ticket.php" id="ccontacto">Contacto</a></li>
                         </ul>
