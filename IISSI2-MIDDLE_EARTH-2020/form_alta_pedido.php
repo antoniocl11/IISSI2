@@ -92,16 +92,16 @@
                     </p>
 
                     <div class="campos"><label for="fecha">Fecha de Pedido<em>*</em></label>
-                    <input class="fecha" name="fecha" type="date" title="Fecha en la que se realizó el pedido"
+                    <input id="fecha" name="fecha" type="date" title="Fecha en la que se realizó el pedido"
                     value="<?php echo @$formulario["fecha"];?>" oninput="validacion_fecha()">
                     </div>
 
                     <div class="campos"><label for="id">ID<em>*</em></label>
-                    <input class="id" name="id" type="text" placeholder="123456789" pattern="^[0-9]{9}" 
+                    <input id="id" name="id" type="text" placeholder="123456789" pattern="^[0-9]{9}" 
                     title="Nueve dígitos seguidos" value="<?php echo @$formulario["id"];?>" oninput="validacion_id()">
                     </div>
 
-                    <div class="campos"><label for="oid_u">OID_USUARIO<em></em></label>
+                    <div class="campos"><label for="oid_u">OID_USUARIO</label>
                     <input class="oid_u" name="oid_u" type="number" title="OID del Usuario que realizó el pedido"
                     value="<?php echo @$formulario["oid_u"];?>">
                     </div>

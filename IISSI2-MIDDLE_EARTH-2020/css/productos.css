@@ -26,6 +26,12 @@
         padding-bottom: 20px;
     }
 
+    @media screen and (max-width:947px){
+        .productos{
+            width: 208px;
+        }
+    }
+
 .breserva {
     background-color: #007ac3;
     color: white;

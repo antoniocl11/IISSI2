@@ -1,11 +1,11 @@
 --------------------------------------------------------
--- Archivo creado  - sábado-mayo-30-2020   
+-- Archivo creado  - domingo-mayo-31-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence SEC_EMPLEADO
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "SEC_EMPLEADO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 181 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "SEC_EMPLEADO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 221 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SEC_FOTO
 --------------------------------------------------------
@@ -20,7 +20,7 @@
 --  DDL for Sequence SEC_PEDIDO
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "SEC_PEDIDO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 183 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "SEC_PEDIDO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 203 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SEC_PEDIDOS2
 --------------------------------------------------------
@@ -30,22 +30,22 @@
 --  DDL for Sequence SEC_PROVEEDOR
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "SEC_PROVEEDOR"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 201 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "SEC_PROVEEDOR"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 261 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SEC_RESERVA
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "SEC_RESERVA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 163 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "SEC_RESERVA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 183 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SEC_TICKET
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "SEC_TICKET"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 42 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "SEC_TICKET"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 62 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SEC_USUARIO
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "SEC_USUARIO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 303 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "SEC_USUARIO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 283 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SEC_VENTA
 --------------------------------------------------------
@@ -104,13 +104,15 @@
 REM INSERTING into ADMINISTRADOR
 SET DEFINE OFF;
 Insert into ADMINISTRADOR (EMAIL,CONTRASENA) values ('admin@md.com                                                                              ','admin                                                                                                                   ');
+Insert into ADMINISTRADOR (EMAIL,CONTRASENA) values ('admin@md.com                                                                              ','admin                                                                                                                   ');
+Insert into ADMINISTRADOR (EMAIL,CONTRASENA) values ('admin@md.com                                                                              ','admin                                                                                                                   ');
 REM INSERTING into EMPLEADO
 SET DEFINE OFF;
 Insert into EMPLEADO (OID_E,NIF,NOMBRE,APELLIDOS,TURNO,SUELDO,ID) values ('83','15984785F','Manuel','Martín Cáceres','M','1000','951212435');
+Insert into EMPLEADO (OID_E,NIF,NOMBRE,APELLIDOS,TURNO,SUELDO,ID) values ('185','17485698A','Ram?n','Ralston Borrego','T','799','236523652');
 Insert into EMPLEADO (OID_E,NIF,NOMBRE,APELLIDOS,TURNO,SUELDO,ID) values ('44','63365524G','José','Linares Martín','T','799','636362533');
 Insert into EMPLEADO (OID_E,NIF,NOMBRE,APELLIDOS,TURNO,SUELDO,ID) values ('68','98798787G','Manuel','Cabello Guerrero','T','799','987987987');
 Insert into EMPLEADO (OID_E,NIF,NOMBRE,APELLIDOS,TURNO,SUELDO,ID) values ('45','34285684F','Antonio','Cáceres Cáceres','M','1000','456585699');
-Insert into EMPLEADO (OID_E,NIF,NOMBRE,APELLIDOS,TURNO,SUELDO,ID) values ('46','17485698A','Ramón','Ralston Borrego','T','799','236523652');
 Insert into EMPLEADO (OID_E,NIF,NOMBRE,APELLIDOS,TURNO,SUELDO,ID) values ('47','36963696F','Javier','Trigos Solís','M','1000','985895899');
 Insert into EMPLEADO (OID_E,NIF,NOMBRE,APELLIDOS,TURNO,SUELDO,ID) values ('48','58586969F','Félix','Trigos Martín','T','799','969696936');
 Insert into EMPLEADO (OID_E,NIF,NOMBRE,APELLIDOS,TURNO,SUELDO,ID) values ('49','12365874Y','Eduardo','Cáceres Linares','M','1000','585859565');
@@ -126,26 +128,31 @@ Insert into FOTO (OID_FOTO,URL,OID_PR) values ('2','images/s0.jpg','123457');
 Insert into FOTO (OID_FOTO,URL,OID_PR) values ('3','images/s1.jpg','123458');
 Insert into FOTO (OID_FOTO,URL,OID_PR) values ('4','images/s2.jpg','123456');
 Insert into FOTO (OID_FOTO,URL,OID_PR) values ('5','images/s3.jpg','123469');
-Insert into FOTO (OID_FOTO,URL,OID_PR) values ('42','images/s0.jpg','123457');
-Insert into FOTO (OID_FOTO,URL,OID_PR) values ('43','images/s1.jpg','123458');
-Insert into FOTO (OID_FOTO,URL,OID_PR) values ('44','images/s2.jpg','123456');
-Insert into FOTO (OID_FOTO,URL,OID_PR) values ('45','images/s3.jpg','123469');
 REM INSERTING into PEDIDOS
 SET DEFINE OFF;
-Insert into PEDIDOS (OID_PEDIDO,FECHA,ID,OID_U) values ('144',to_date('01/01/01','DD/MM/RR'),'123456780','88');
+Insert into PEDIDOS (OID_PEDIDO,FECHA,ID,OID_U) values ('163',to_date('01/01/01','DD/MM/RR'),'123456780','88');
+Insert into PEDIDOS (OID_PEDIDO,FECHA,ID,OID_U) values ('164',to_date('21/05/20','DD/MM/RR'),'123456789','88');
+Insert into PEDIDOS (OID_PEDIDO,FECHA,ID,OID_U) values ('165',to_date('08/05/20','DD/MM/RR'),'999999999','143');
+Insert into PEDIDOS (OID_PEDIDO,FECHA,ID,OID_U) values ('144',to_date('01/05/21','DD/MM/RR'),'123456789','88');
 Insert into PEDIDOS (OID_PEDIDO,FECHA,ID,OID_U) values ('145',to_date('21/05/20','DD/MM/RR'),'123456789','88');
 Insert into PEDIDOS (OID_PEDIDO,FECHA,ID,OID_U) values ('151',to_date('08/05/20','DD/MM/RR'),'999999999','143');
-Insert into PEDIDOS (OID_PEDIDO,FECHA,ID,OID_U) values ('163',to_date('14/03/03','DD/MM/RR'),'123123123',null);
+Insert into PEDIDOS (OID_PEDIDO,FECHA,ID,OID_U) values ('166',to_date('14/03/03','DD/MM/RR'),'123123123',null);
+Insert into PEDIDOS (OID_PEDIDO,FECHA,ID,OID_U) values ('183',to_date('01/01/01','DD/MM/RR'),'123456780','88');
+Insert into PEDIDOS (OID_PEDIDO,FECHA,ID,OID_U) values ('184',to_date('21/05/20','DD/MM/RR'),'123456789','88');
+Insert into PEDIDOS (OID_PEDIDO,FECHA,ID,OID_U) values ('185',to_date('08/05/20','DD/MM/RR'),'999999999','143');
+Insert into PEDIDOS (OID_PEDIDO,FECHA,ID,OID_U) values ('186',to_date('14/03/03','DD/MM/RR'),'123123123',null);
 REM INSERTING into PRODUCTO
 SET DEFINE OFF;
-Insert into PRODUCTO (OID_PR,NOMBRE,PRECIO,STOCK,VALORACION,DEVUELTO,ESCOMIC,EDITORIAL,ISBN,ESFIGURA,NUMSERIE,ESJMESA,NPIEZAS,ESMERCH,TIPO,ID_PRODUCTO) values ('123456','Juan y Medio1','288','2','4','0','0','0','0','1','1234','0','0','0','0',null);
+Insert into PRODUCTO (OID_PR,NOMBRE,PRECIO,STOCK,VALORACION,DEVUELTO,ESCOMIC,EDITORIAL,ISBN,ESFIGURA,NUMSERIE,ESJMESA,NPIEZAS,ESMERCH,TIPO,ID_PRODUCTO) values ('123456','Camiseta Marvel','288','2','4','0','0','0','0','1','1234','0','0','0','0',null);
 Insert into PRODUCTO (OID_PR,NOMBRE,PRECIO,STOCK,VALORACION,DEVUELTO,ESCOMIC,EDITORIAL,ISBN,ESFIGURA,NUMSERIE,ESJMESA,NPIEZAS,ESMERCH,TIPO,ID_PRODUCTO) values ('123457','Marvel Hulk','12','3','4','0','1','Marvel','123','0','0','0','0','0','0',null);
 Insert into PRODUCTO (OID_PR,NOMBRE,PRECIO,STOCK,VALORACION,DEVUELTO,ESCOMIC,EDITORIAL,ISBN,ESFIGURA,NUMSERIE,ESJMESA,NPIEZAS,ESMERCH,TIPO,ID_PRODUCTO) values ('123458','LOTR: BoardGame','40','5','5','0','0',null,null,'0',null,'1','140','0','0',null);
 Insert into PRODUCTO (OID_PR,NOMBRE,PRECIO,STOCK,VALORACION,DEVUELTO,ESCOMIC,EDITORIAL,ISBN,ESFIGURA,NUMSERIE,ESJMESA,NPIEZAS,ESMERCH,TIPO,ID_PRODUCTO) values ('123469','SpiderMan','60','3','4','0','0',null,null,'1','542','0','0','0','0',null);
 REM INSERTING into PROVEEDOR
 SET DEFINE OFF;
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('53','A98798787','Probando','654654654','Matias,13');
 Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('61','B12315151','Prueba','654654654','Calle 13');
 Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('83','B12321323','Comiccc','654987987','Calle 14');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('65','B12612323','Antonio','123123123','Calle 13');
 Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('162','B12315151','Prueba','654654654','Calle 13');
 Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('130','N12345678','Prueba','696969696','Prueba 8');
 Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('144','Y45612378','Prueba','696969696','Calle de prueba');
@@ -158,29 +165,94 @@ Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('165','Q234
 Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('166','P34647567','GameSA','987987987','Monz?n n?14');
 Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('167','I23423443','Rockstar','965326955','Monz?n n?14');
 Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('168','H23423546','UbisoftSA','987987987','Machado n?98');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('181','B12315151','Prueba','654654654','Calle 13');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('182','B12321323','Comiccc','654987987','Calle 14');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('183','B12315151','Prueba','654654654','Calle 13');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('184','N12345678','Prueba','696969696','Prueba 8');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('185','Y45612378','Prueba','696969696','Calle de prueba');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('186','P23423434','Prueba 5','666666969','123');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('187','U87654321','Probando Insert','656565656','Calle de prueba 2');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('188','A98798787','Firulais Juegos','654654654','Matias,13');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('189','B12321323','Comiccc','654987987','Calle 14');
 Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('28','Q23423423','ToySA','968585744','Hola nº34');
 Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('29','P34647567','GameSA','987987987','Monzón nº14');
 Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('30','I23423443','Rockstar','965326955','Monzón nº14');
 Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('31','H23423546','UbisoftSA','987987987','Machado nº98');
-Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('181','X12345678','Antonio','623456789','fernando camara 50');
-Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('182','X12345678','Antonio3','623456789','fernando camara 50');
-Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('183','X12345678','Antonio3','623456783','fernando camara 50');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('190','B12612323','Antonio','123123123','Calle 13');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('191','Q23423423','ToySA','968585744','Hola n?34');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('192','P34647567','GameSA','987987987','Monz?n n?14');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('193','I23423443','Rockstar','965326955','Monz?n n?14');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('194','H23423546','UbisoftSA','987987987','Machado n?98');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('195','Q23423423','ToySA','968585744','Hola n?34');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('196','P34647567','GameSA','987987987','Monz?n n?14');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('197','I23423443','Rockstar','965326955','Monz?n n?14');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('198','H23423546','UbisoftSA','987987987','Machado n?98');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('199','X12345678','Antonio','623456789','fernando camara 50');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('200','X12345678','Antonio3','623456789','fernando camara 50');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('201','X12345678','Antonio3','623456783','fernando camara 50');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('221','B12315151','Prueba','654654654','Calle 13');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('222','B12321323','Comiccc','654987987','Calle 14');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('223','B12315151','Prueba','654654654','Calle 13');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('224','N12345678','Prueba','696969696','Prueba 8');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('225','Y45612378','Prueba','696969696','Calle de prueba');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('226','P23423434','Prueba 5','666666969','123');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('227','U87654321','Probando Insert','656565656','Calle de prueba 2');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('228','A98798787','Firulais Juegos','654654654','Matias,13');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('229','B12321323','Comiccc','654987987','Calle 14');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('230','B12612323','Antonio','123123123','Calle 13');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('231','Q23423423','ToySA','968585744','Hola n?34');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('232','P34647567','GameSA','987987987','Monz?n n?14');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('233','I23423443','Rockstar','965326955','Monz?n n?14');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('234','H23423546','UbisoftSA','987987987','Machado n?98');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('235','Q23423423','ToySA','968585744','Hola nº34');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('236','P34647567','GameSA','987987987','Monzón nº14');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('237','I23423443','Rockstar','965326955','Monzón nº14');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('238','H23423546','UbisoftSA','987987987','Machado nº98');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('239','X12345678','Antonio','623456789','fernando camara 50');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('240','X12345678','Antonio3','623456789','fernando camara 50');
+Insert into PROVEEDOR (OID_PV,CIF,NOMBRE,TELEFONO,DIRECCION) values ('241','X12345678','Antonio3','623456783','fernando camara 50');
 REM INSERTING into RESERVA
 SET DEFINE OFF;
+Insert into RESERVA (OID_RES,FECHA,PRODUCTO,EMAIL,NOMBRE) values ('103',to_date('14/05/20','DD/MM/RR'),'AS','antonio@email.com','Antonio');
+Insert into RESERVA (OID_RES,FECHA,PRODUCTO,EMAIL,NOMBRE) values ('126',to_date('30/05/20','DD/MM/RR'),'Prueba','probando2@email.com','Juanito');
 Insert into RESERVA (OID_RES,FECHA,PRODUCTO,EMAIL,NOMBRE) values ('124',to_date('30/05/20','DD/MM/RR'),'The Hulk','antonio@email.com','Antonio');
 Insert into RESERVA (OID_RES,FECHA,PRODUCTO,EMAIL,NOMBRE) values ('125',to_date('30/05/20','DD/MM/RR'),'The Hulk','antonio@email.com','Antonio');
+Insert into RESERVA (OID_RES,FECHA,PRODUCTO,EMAIL,NOMBRE) values ('128',to_date('30/05/20','DD/MM/RR'),'Prueba','probando2@email.com','Juanito');
+Insert into RESERVA (OID_RES,FECHA,PRODUCTO,EMAIL,NOMBRE) values ('130',to_date('30/05/20','DD/MM/RR'),'Prueba','probando2@email.com','Juanito');
+Insert into RESERVA (OID_RES,FECHA,PRODUCTO,EMAIL,NOMBRE) values ('143',to_date('30/05/20','DD/MM/RR'),'The Hulk','antonio@email.com','Antonio');
+Insert into RESERVA (OID_RES,FECHA,PRODUCTO,EMAIL,NOMBRE) values ('144',to_date('30/05/20','DD/MM/RR'),'The Hulk','antonio@email.com','Antonio');
+Insert into RESERVA (OID_RES,FECHA,PRODUCTO,EMAIL,NOMBRE) values ('163',to_date('30/05/20','DD/MM/RR'),'The Hulk','antonio@email.com','Antonio');
+Insert into RESERVA (OID_RES,FECHA,PRODUCTO,EMAIL,NOMBRE) values ('164',to_date('30/05/20','DD/MM/RR'),'The Hulk','antonio@email.com','Antonio');
+Insert into RESERVA (OID_RES,FECHA,PRODUCTO,EMAIL,NOMBRE) values ('165',to_date('31/05/00','DD/MM/RR'),'Marvel Hulk','admin@email.com','Prueba');
 REM INSERTING into TICKET
 SET DEFINE OFF;
+Insert into TICKET (OID_TICKET,FECHA,COMENTARIO,OID_U,OID_E,RESUELTO,NOMBRE,EMAIL) values ('4',to_date('17/03/04','DD/MM/RR'),'asd','88','83','1','Hola','hola@email.com');
+Insert into TICKET (OID_TICKET,FECHA,COMENTARIO,OID_U,OID_E,RESUELTO,NOMBRE,EMAIL) values ('13',to_date('21/05/20','DD/MM/RR'),'Hola, estoy probando los tickets de contacto',null,null,null,'Antonio','antonio@email.com');
+Insert into TICKET (OID_TICKET,FECHA,COMENTARIO,OID_U,OID_E,RESUELTO,NOMBRE,EMAIL) values ('5',to_date('17/03/04','DD/MM/RR'),'Hola','88','83','0','Hola','hola@email.com');
+Insert into TICKET (OID_TICKET,FECHA,COMENTARIO,OID_U,OID_E,RESUELTO,NOMBRE,EMAIL) values ('18',to_date('19/05/20','DD/MM/RR'),'Prueba',null,null,null,'asd','asd@email.com');
+Insert into TICKET (OID_TICKET,FECHA,COMENTARIO,OID_U,OID_E,RESUELTO,NOMBRE,EMAIL) values ('7',to_date('17/03/04','DD/MM/RR'),'FGH',null,null,'0','tytyh','tytyh@email.com');
+Insert into TICKET (OID_TICKET,FECHA,COMENTARIO,OID_U,OID_E,RESUELTO,NOMBRE,EMAIL) values ('8',to_date('17/03/04','DD/MM/RR'),'FGH',null,null,'0','tyty','tyty@email.com');
+Insert into TICKET (OID_TICKET,FECHA,COMENTARIO,OID_U,OID_E,RESUELTO,NOMBRE,EMAIL) values ('9',to_date('17/03/04','DD/MM/RR'),'HJK',null,null,'0','PRUEBA','prueba@email.com');
+Insert into TICKET (OID_TICKET,FECHA,COMENTARIO,OID_U,OID_E,RESUELTO,NOMBRE,EMAIL) values ('10',to_date('17/03/04','DD/MM/RR'),'TYU',null,null,'0','UUU','uuu@email.com');
+Insert into TICKET (OID_TICKET,FECHA,COMENTARIO,OID_U,OID_E,RESUELTO,NOMBRE,EMAIL) values ('11',to_date('17/03/04','DD/MM/RR'),'TYU',null,null,'0','KI','ki@email.com');
+Insert into TICKET (OID_TICKET,FECHA,COMENTARIO,OID_U,OID_E,RESUELTO,NOMBRE,EMAIL) values ('12',to_date('17/03/04','DD/MM/RR'),'BJK',null,null,'0','IKI','iki@email.com');
+Insert into TICKET (OID_TICKET,FECHA,COMENTARIO,OID_U,OID_E,RESUELTO,NOMBRE,EMAIL) values ('16',to_date('21/05/20','DD/MM/RR'),'Prueba',null,null,null,'asd','asd@email.com');
+Insert into TICKET (OID_TICKET,FECHA,COMENTARIO,OID_U,OID_E,RESUELTO,NOMBRE,EMAIL) values ('17',to_date('21/05/20','DD/MM/RR'),'Prueba',null,null,null,'asd','asd@email.com');
+Insert into TICKET (OID_TICKET,FECHA,COMENTARIO,OID_U,OID_E,RESUELTO,NOMBRE,EMAIL) values ('19',to_date('19/05/20','DD/MM/RR'),'Prueba',null,null,null,'asd','asd@email.com');
 Insert into TICKET (OID_TICKET,FECHA,COMENTARIO,OID_U,OID_E,RESUELTO,NOMBRE,EMAIL) values ('22',to_date('30/05/20','DD/MM/RR'),'este es un nuevo comentario',null,null,'0','Eduardo Mamona','xddddddd@gmail.com');
+Insert into TICKET (OID_TICKET,FECHA,COMENTARIO,OID_U,OID_E,RESUELTO,NOMBRE,EMAIL) values ('42',to_date('30/05/20','DD/MM/RR'),'este es un nuevo comentario',null,null,'0','Eduardo Mamona','xddddddd@gmail.com');
 REM INSERTING into USUARIO
 SET DEFINE OFF;
-Insert into USUARIO (OID_U,NIF,NOMBRE,APELLIDOS,EMAIL,TELEFONO,ESSOCIO,DIRECCION,FECHANACIMIENTO,CONTRASENA) values ('143','12345678A','Ola','Administrador','admin@email.com','654654123','1','Admin, 14',to_date('17/03/99','DD/MM/RR'),'admin');
+Insert into USUARIO (OID_U,NIF,NOMBRE,APELLIDOS,EMAIL,TELEFONO,ESSOCIO,DIRECCION,FECHANACIMIENTO,CONTRASENA) values ('131','12345678U','Francisco','Castilla Melón','fran@email.com','654321112','0','Rivas, 45',to_date('08/05/99','DD/MM/RR'),'12345678');
+Insert into USUARIO (OID_U,NIF,NOMBRE,APELLIDOS,EMAIL,TELEFONO,ESSOCIO,DIRECCION,FECHANACIMIENTO,CONTRASENA) values ('143','12345678A','Admin','Administrador','admin@email.com','654654658','1','Admin, 14',to_date('17/03/99','DD/MM/RR'),'admin');
+Insert into USUARIO (OID_U,NIF,NOMBRE,APELLIDOS,EMAIL,TELEFONO,ESSOCIO,DIRECCION,FECHANACIMIENTO,CONTRASENA) values ('203','32112321R','Prueba','Martín Martín','prueba@emailcom','612345898','1','Maribel, 14',to_date('17/03/04','DD/MM/RR'),'12345678');
 Insert into USUARIO (OID_U,NIF,NOMBRE,APELLIDOS,EMAIL,TELEFONO,ESSOCIO,DIRECCION,FECHANACIMIENTO,CONTRASENA) values ('88','12345678Y','Juan','Juan Juan','juan@email.com','654654654','0','Benitez, 14',to_date('12/12/99','DD/MM/RR'),'12345678');
 Insert into USUARIO (OID_U,NIF,NOMBRE,APELLIDOS,EMAIL,TELEFONO,ESSOCIO,DIRECCION,FECHANACIMIENTO,CONTRASENA) values ('205','12345678T','Prueba','Prueba','prueba@email.com','654987987','1','Prueba 6',to_date('21/05/20','DD/MM/RR'),'123456789');
+Insert into USUARIO (OID_U,NIF,NOMBRE,APELLIDOS,EMAIL,TELEFONO,ESSOCIO,DIRECCION,FECHANACIMIENTO,CONTRASENA) values ('263','12312312B','Paquito','Eldelospa Lotes','antoniomartinfijo@gmail.com','672343434','0','calle minera sn',to_date('21/07/00','DD/MM/RR'),'12341234');
 Insert into USUARIO (OID_U,NIF,NOMBRE,APELLIDOS,EMAIL,TELEFONO,ESSOCIO,DIRECCION,FECHANACIMIENTO,CONTRASENA) values ('208','66546543F','Probando','FechaNacimiento','pruebaFecha@email.com','656565656','1','Prueba fecha',to_date('14/06/00','DD/MM/RR'),'123456789');
 Insert into USUARIO (OID_U,NIF,NOMBRE,APELLIDOS,EMAIL,TELEFONO,ESSOCIO,DIRECCION,FECHANACIMIENTO,CONTRASENA) values ('244','11111111X','Eduardo','Eduardo Eduardo','eduardodo@gmail.com','645323241','0','Calle Juan 2',to_date('12/12/12','DD/MM/RR'),'test');
 Insert into USUARIO (OID_U,NIF,NOMBRE,APELLIDOS,EMAIL,TELEFONO,ESSOCIO,DIRECCION,FECHANACIMIENTO,CONTRASENA) values ('245','00000000A','Admin','Admin Nimda','admin@middleearth.es','0','1','Admin 1',to_date('01/01/01','DD/MM/RR'),'admin');
-Insert into USUARIO (OID_U,NIF,NOMBRE,APELLIDOS,EMAIL,TELEFONO,ESSOCIO,DIRECCION,FECHANACIMIENTO,CONTRASENA) values ('285','12312312B','Paquito','Eldelospa Lotes','antoniomartinfijo@gmail.com','672343434','0','calle minera sn',to_date('21/07/00','DD/MM/RR'),'12341234');
+Insert into USUARIO (OID_U,NIF,NOMBRE,APELLIDOS,EMAIL,TELEFONO,ESSOCIO,DIRECCION,FECHANACIMIENTO,CONTRASENA) values ('249','32132121G','asd','asd','antonio@email.com','666666666','1','gt',to_date('30/05/20','DD/MM/RR'),' ');
 REM INSERTING into VENTA
 SET DEFINE OFF;
 --------------------------------------------------------
@@ -261,6 +333,7 @@ BEGIN
 END;
 
 
+
 /
 ALTER TRIGGER "NOMBRE_USUARIOS" ENABLE;
 --------------------------------------------------------
@@ -276,6 +349,7 @@ DECLARE
      SELECT SEC_Empleado.NEXTVAL INTO valor FROM DUAL;
      :NEW.OID_E := valor;
 END;
+
 
 
 /
@@ -296,6 +370,7 @@ END;
 
 
 
+
 /
 ALTER TRIGGER "TR_SEC_FOTO" ENABLE;
 --------------------------------------------------------
@@ -312,6 +387,7 @@ DECLARE
      :NEW.OID_PEDIDO := valor;
 END;
 
+
 /
 ALTER TRIGGER "TR_SEC_PEDIDO" ENABLE;
 --------------------------------------------------------
@@ -327,6 +403,7 @@ DECLARE
      SELECT SEC_PROVEEDOR.NEXTVAL INTO valor FROM DUAL;
      :NEW.OID_PV := valor;
 END;
+
 
 
 /
@@ -347,6 +424,7 @@ END;
 
 
 
+
 /
 ALTER TRIGGER "TR_SEC_RESERVA" ENABLE;
 --------------------------------------------------------
@@ -364,6 +442,7 @@ DECLARE
 END;
 
 
+
 /
 ALTER TRIGGER "TR_SEC_TICKET" ENABLE;
 --------------------------------------------------------
@@ -379,6 +458,7 @@ DECLARE
      SELECT SEC_Usuario.NEXTVAL INTO valor FROM DUAL;
      :NEW.OID_U := valor;
 END;
+
 
 
 /
@@ -399,8 +479,28 @@ END;
 
 
 
+
 /
 ALTER TRIGGER "TR_SEC_VENTA" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger TR_TICKETS
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "TR_TICKETS" 
+BEFORE INSERT OR UPDATE ON Ticket
+FOR EACH ROW
+DECLARE 
+  n_Tickets INTEGER;
+BEGIN 
+  SELECT COUNT(*) INTO n_Tickets FROM Ticket WHERE OID_U = :NEW.OID_U;
+  IF (n_Tickets > 1)
+  THEN raise_application_error
+    (-50,'No se puede enviar un ticket si a?n no se ha cerrado el anterior');
+  END IF;
+END;
+
+/
+ALTER TRIGGER "TR_TICKETS" ENABLE;
 --------------------------------------------------------
 --  DDL for Procedure ACTUALIZAR_EMPLEADO
 --------------------------------------------------------
@@ -427,6 +527,7 @@ END ACTUALIZAR_EMPLEADO;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Procedure ACTUALIZAR_FOTO
@@ -440,6 +541,7 @@ W_OID_PR IN FOTO.OID_PR%TYPE) AS
 BEGIN
   UPDATE FOTO SET URL = W_URL WHERE OID_FOTO = W_OID_FOTO;
 END ACTUALIZAR_FOTO;
+
 
 
 
@@ -460,6 +562,7 @@ BEGIN
     UPDATE PEDIDOS SET OID_U = W_OID_U WHERE OID_PEDIDO = W_OID_PEDIDO;
 
 END ACTUALIZAR_PEDIDOS;
+
 
 
 /
@@ -507,6 +610,7 @@ END ACTUALIZAR_PRODUCTO;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Procedure ACTUALIZAR_PROVEEDOR
@@ -529,6 +633,7 @@ END ACTUALIZAR_PROVEEDOR;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Procedure ACTUALIZAR_RESERVA
@@ -548,8 +653,6 @@ BEGIN
   UPDATE RESERVA SET NOMBRE = W_NOMBRE WHERE OID_RES = W_OID_RES;
 
 END ACTUALIZAR_RESERVA;
-
-
 
 /
 --------------------------------------------------------
@@ -576,6 +679,7 @@ BEGIN
   UPDATE TICKET SET NOMBRE = W_NOMBRE WHERE OID_TICKET = W_OID_TICKET;
   UPDATE TICKET SET EMAIL = W_EMAIL WHERE OID_TICKET = W_OID_TICKET;
 END ACTUALIZAR_TICKET;
+
 
 /
 --------------------------------------------------------
@@ -608,6 +712,7 @@ END ACTUALIZAR_USUARIO;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Procedure ACTUALIZAR_VENTA
@@ -626,6 +731,7 @@ END ACTUALIZAR_VENTA;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Procedure ELIMINAR_EMPLEADO
@@ -637,6 +743,7 @@ set define off;
 BEGIN
   DELETE FROM EMPLEADO WHERE OID_E = W_OID_E;
 END ELIMINAR_EMPLEADO;
+
 
 
 
@@ -654,6 +761,7 @@ END ELIMINAR_FOTO;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Procedure ELIMINAR_PEDIDOS
@@ -665,6 +773,7 @@ set define off;
 BEGIN
   DELETE FROM PEDIDOS WHERE OID_PEDIDO = W_OID_PEDIDO;
 END ELIMINAR_PEDIDOS;
+
 
 
 /
@@ -679,6 +788,7 @@ AS
 BEGIN
   DELETE FROM PRODUCTO WHERE OID_PR = W_OID_PR;
 END ELIMINAR_PRODUCTO;
+
 
 
 
@@ -697,6 +807,7 @@ END ELIMINAR_PROVEEDOR;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Procedure ELIMINAR_RESERVA
@@ -709,8 +820,6 @@ BEGIN
   DELETE FROM RESERVA WHERE OID_RES = W_OID_RES;
 END ELIMINAR_RESERVA;
 
-
-
 /
 --------------------------------------------------------
 --  DDL for Procedure ELIMINAR_TICKET
@@ -722,6 +831,7 @@ set define off;
 BEGIN
   DELETE FROM TICKET WHERE OID_TICKET = W_OID_TICKET;
 END ELIMINAR_TICKET;
+
 
 
 
@@ -739,6 +849,7 @@ END ELIMINAR_USUARIO;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Procedure ELIMINAR_VENTA
@@ -750,6 +861,7 @@ set define off;
 BEGIN
   DELETE FROM VENTA WHERE OID_VENTA = W_OID_VENTA;
 END ELIMINAR_VENTA;
+
 
 
 
@@ -767,6 +879,7 @@ END INICIALIZAR_EMPLEADO;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Procedure INICIALIZAR_FOTO
@@ -777,6 +890,7 @@ set define off;
 BEGIN
   DELETE FROM FOTO;
 END INICIALIZAR_FOTO;
+
 
 
 
@@ -793,6 +907,7 @@ BEGIN
 END INICIALIZAR_PEDIDO;
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Procedure INICIALIZAR_PRODUCTO
@@ -804,6 +919,7 @@ set define off;
 BEGIN
   DELETE FROM PRODUCTO;
 END INICIALIZAR_PRODUCTO;
+
 
 
 
@@ -821,6 +937,7 @@ END INICIALIZAR_PROVEEDOR;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Procedure INICIALIZAR_RESERVA
@@ -833,8 +950,6 @@ BEGIN
   DELETE FROM RESERVA;
 END INICIALIZAR_RESERVA;
 
-
-
 /
 --------------------------------------------------------
 --  DDL for Procedure INICIALIZAR_TICKET
@@ -846,6 +961,7 @@ set define off;
 BEGIN
   DELETE FROM TICKET;
 END INICIALIZAR_TICKET;
+
 
 
 
@@ -862,6 +978,7 @@ END INICIALIZAR_USUARIO;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Procedure INICIALIZAR_VENTA
@@ -872,6 +989,7 @@ set define off;
 BEGIN
   DELETE FROM VENTA;
 END INICIALIZAR_VENTA;
+
 
 
 
@@ -887,6 +1005,7 @@ BEGIN
   INSERT INTO FOTO(URL)
   VALUES(W_URL);
 END NUEVA_FOTO;
+
 
 
 
@@ -908,6 +1027,7 @@ END NUEVA_RESERVA;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Procedure NUEVA_VENTA
@@ -921,6 +1041,7 @@ BEGIN
   INSERT INTO VENTA (FECHA, ID)
   VALUES (W_FECHA, W_ID);
 END NUEVA_VENTA;
+
 
 
 
@@ -944,6 +1065,7 @@ END NUEVO_EMPLEADO;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Procedure NUEVO_PEDIDO
@@ -955,6 +1077,7 @@ set define off;
    INSERT INTO PEDIDOS (FECHA,ID, OID_U)
   VALUES (W_FECHA,W_ID, W_OID_U);
   END NUEVO_PEDIDO;
+
 
 /
 --------------------------------------------------------
@@ -984,6 +1107,7 @@ END NUEVO_PRODUCTO;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Procedure NUEVO_PROVEEDOR
@@ -999,6 +1123,7 @@ BEGIN
   INSERT INTO PROVEEDOR (CIF, NOMBRE, TELEFONO, DIRECCION)
   VALUES (W_CIF, W_NOMBRE, W_TELEFONO, W_DIRECCION);
 END NUEVO_PROVEEDOR;
+
 
 
 
@@ -1023,6 +1148,7 @@ W_EMAIL IN TICKET.EMAIL%TYPE) IS
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Procedure NUEVO_USUARIO
@@ -1043,6 +1169,7 @@ BEGIN
   INSERT INTO USUARIO (NIF, NOMBRE, APELLIDOS, EMAIL, TELEFONO, ESSOCIO, DIRECCION, FECHANACIMIENTO, CONTRASENA)
   VALUES (W_NIF, W_NOMBRE, W_APELLIDOS, W_EMAIL, W_TELEFONO, W_ESSOCIO, W_DIRECCION, W_FECHANACIMIENTO, W_CONTRASENA);
 END NUEVO_USUARIO;
+
 
 
 
@@ -1082,6 +1209,7 @@ END PK_EMPLEADO;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Package PK_FOTO
@@ -1103,6 +1231,7 @@ PROCEDURE ELIMINAR_FOTO
 PROCEDURE INICIALIZAR_FOTO;
 
 END PK_FOTO;
+
 
 
 
@@ -1131,6 +1260,7 @@ PROCEDURE ELIMINAR_PEDIDO
 PROCEDURE INICIALIZAR_PEDIDO;
 
 END PK_PEDIDO;
+
 
 
 /
@@ -1184,6 +1314,7 @@ END PK_PRODUCTO;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Package PK_PROVEEDOR
@@ -1214,6 +1345,7 @@ END PK_PROVEEDOR;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Package PK_RESERVA
@@ -1240,6 +1372,7 @@ PROCEDURE ELIMINAR_RESERVA
 PROCEDURE INICIALIZAR_RESERVA;
 
 END PK_RESERVA;
+
 
 
 /
@@ -1272,6 +1405,7 @@ PROCEDURE ELIMINAR_TICKET
 PROCEDURE INICIALIZAR_TICKET;
 
 END PK_TICKET;
+
 
 
 
@@ -1314,6 +1448,7 @@ END PK_USUARIO;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Package PK_VENTA
@@ -1337,6 +1472,7 @@ PROCEDURE ELIMINAR_VENTA
 PROCEDURE INICIALIZAR_VENTA;
 
 END PK_VENTA;
+
 
 
 
@@ -1392,6 +1528,7 @@ END PK_EMPLEADO;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Package Body PK_FOTO
@@ -1426,6 +1563,7 @@ W_OID_PR IN FOTO.OID_PR%TYPE) AS
   END INICIALIZAR_FOTO;
 
 END PK_FOTO;
+
 
 
 
@@ -1468,6 +1606,7 @@ W_FECHA IN PEDIDOS.FECHA%TYPE) AS
   END INICIALIZAR_PEDIDO;
 
 END PK_PEDIDO;
+
 
 
 /
@@ -1550,6 +1689,7 @@ END PK_PRODUCTO;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Package Body PK_PROVEEDOR
@@ -1593,6 +1733,7 @@ W_DIRECCION IN PROVEEDOR.DIRECCION%TYPE
   END INICIALIZAR_PROVEEDOR;
 
 END PK_PROVEEDOR;
+
 
 
 
@@ -1641,6 +1782,7 @@ END ACTUALIZAR_RESERVA;
 END PK_RESERVA;
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Package Body PK_TICKET
@@ -1687,6 +1829,7 @@ W_RESUELTO IN TICKET.RESUELTO%TYPE) AS
   END INICIALIZAR_TICKET;
 
 END PK_TICKET;
+
 
 
 
@@ -1750,6 +1893,7 @@ END PK_USUARIO;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Package Body PK_VENTA
@@ -1790,6 +1934,7 @@ END PK_VENTA;
 
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Function ASSERT_EQUALS
@@ -1806,130 +1951,135 @@ END ASSERT_EQUALS;
 
 
 
+
 /
---------------------------------------------------------
---  Constraints for Table TICKET
---------------------------------------------------------
-
-  ALTER TABLE "TICKET" MODIFY ("OID_TICKET" NOT NULL ENABLE);
-  ALTER TABLE "TICKET" MODIFY ("FECHA" NOT NULL ENABLE);
-  ALTER TABLE "TICKET" MODIFY ("COMENTARIO" NOT NULL ENABLE);
-  ALTER TABLE "TICKET" ADD CONSTRAINT "CK_TICKET_RESUELTO" CHECK (Resuelto IN(0,1)) ENABLE;
-  ALTER TABLE "TICKET" ADD CONSTRAINT "PK_TICKET" PRIMARY KEY ("OID_TICKET") ENABLE;
-  ALTER TABLE "TICKET" MODIFY ("NOMBRE" NOT NULL ENABLE);
-  ALTER TABLE "TICKET" MODIFY ("EMAIL" NOT NULL ENABLE);
---------------------------------------------------------
---  Constraints for Table USUARIO
---------------------------------------------------------
-
-  ALTER TABLE "USUARIO" MODIFY ("OID_U" NOT NULL ENABLE);
-  ALTER TABLE "USUARIO" MODIFY ("NIF" NOT NULL ENABLE);
-  ALTER TABLE "USUARIO" MODIFY ("NOMBRE" NOT NULL ENABLE);
-  ALTER TABLE "USUARIO" MODIFY ("APELLIDOS" NOT NULL ENABLE);
-  ALTER TABLE "USUARIO" MODIFY ("EMAIL" NOT NULL ENABLE);
-  ALTER TABLE "USUARIO" MODIFY ("TELEFONO" NOT NULL ENABLE);
-  ALTER TABLE "USUARIO" MODIFY ("ESSOCIO" NOT NULL ENABLE);
-  ALTER TABLE "USUARIO" MODIFY ("FECHANACIMIENTO" NOT NULL ENABLE);
-  ALTER TABLE "USUARIO" ADD CONSTRAINT "PK_USUARIO" PRIMARY KEY ("OID_U") ENABLE;
-  ALTER TABLE "USUARIO" ADD CONSTRAINT "AK_USUARIO_NIF" UNIQUE ("NIF") ENABLE;
-  ALTER TABLE "USUARIO" ADD CONSTRAINT "CK_USUARIO_NIF" CHECK (REGEXP_LIKE(nif, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z]')) ENABLE;
-  ALTER TABLE "USUARIO" ADD CONSTRAINT "CK_USUARIO_EMAIL" CHECK (LENGTH(Email) - LENGTH(replace(Email,'@','')) = 1) ENABLE;
-  ALTER TABLE "USUARIO" ADD CONSTRAINT "CK_USUARIO_SOCIO" CHECK (esSocio IN(0,1)) ENABLE;
-  ALTER TABLE "USUARIO" MODIFY ("CONTRASENA" NOT NULL ENABLE);
---------------------------------------------------------
---  Constraints for Table PEDIDOS
---------------------------------------------------------
-
-  ALTER TABLE "PEDIDOS" MODIFY ("OID_PEDIDO" NOT NULL ENABLE);
-  ALTER TABLE "PEDIDOS" MODIFY ("FECHA" NOT NULL ENABLE);
-  ALTER TABLE "PEDIDOS" MODIFY ("ID" NOT NULL ENABLE);
-  ALTER TABLE "PEDIDOS" ADD CONSTRAINT "PK_PEDIDOS2" PRIMARY KEY ("OID_PEDIDO") ENABLE;
---------------------------------------------------------
---  Constraints for Table ADMINISTRADOR
---------------------------------------------------------
-
-  ALTER TABLE "ADMINISTRADOR" MODIFY ("EMAIL" NOT NULL ENABLE);
-  ALTER TABLE "ADMINISTRADOR" MODIFY ("CONTRASENA" NOT NULL ENABLE);
---------------------------------------------------------
---  Constraints for Table FOTO
---------------------------------------------------------
-
-  ALTER TABLE "FOTO" MODIFY ("OID_FOTO" NOT NULL ENABLE);
-  ALTER TABLE "FOTO" MODIFY ("URL" NOT NULL ENABLE);
-  ALTER TABLE "FOTO" ADD CONSTRAINT "PK_FOTO" PRIMARY KEY ("OID_FOTO") ENABLE;
-  ALTER TABLE "FOTO" MODIFY ("OID_PR" NOT NULL ENABLE);
---------------------------------------------------------
---  Constraints for Table RESERVA
---------------------------------------------------------
-
-  ALTER TABLE "RESERVA" MODIFY ("OID_RES" NOT NULL ENABLE);
-  ALTER TABLE "RESERVA" MODIFY ("FECHA" NOT NULL ENABLE);
-  ALTER TABLE "RESERVA" MODIFY ("EMAIL" NOT NULL ENABLE);
-  ALTER TABLE "RESERVA" MODIFY ("NOMBRE" NOT NULL ENABLE);
-  ALTER TABLE "RESERVA" MODIFY ("PRODUCTO" NOT NULL ENABLE);
-  ALTER TABLE "RESERVA" ADD CONSTRAINT "PK_RESERVA" PRIMARY KEY ("OID_RES") ENABLE;
---------------------------------------------------------
---  Constraints for Table PRODUCTO
---------------------------------------------------------
-
-  ALTER TABLE "PRODUCTO" MODIFY ("OID_PR" NOT NULL ENABLE);
-  ALTER TABLE "PRODUCTO" MODIFY ("NOMBRE" NOT NULL ENABLE);
-  ALTER TABLE "PRODUCTO" MODIFY ("PRECIO" NOT NULL ENABLE);
-  ALTER TABLE "PRODUCTO" MODIFY ("STOCK" NOT NULL ENABLE);
-  ALTER TABLE "PRODUCTO" MODIFY ("VALORACION" NOT NULL ENABLE);
-  ALTER TABLE "PRODUCTO" MODIFY ("DEVUELTO" NOT NULL ENABLE);
-  ALTER TABLE "PRODUCTO" MODIFY ("ESCOMIC" NOT NULL ENABLE);
-  ALTER TABLE "PRODUCTO" MODIFY ("ESFIGURA" NOT NULL ENABLE);
-  ALTER TABLE "PRODUCTO" MODIFY ("ESJMESA" NOT NULL ENABLE);
-  ALTER TABLE "PRODUCTO" MODIFY ("ESMERCH" NOT NULL ENABLE);
-  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "PK_PRODUCTO" PRIMARY KEY ("OID_PR") ENABLE;
-  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "AK_PRODUCTO_NOMBRE" UNIQUE ("NOMBRE") ENABLE;
-  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "CK_PRODUCTO_PRECIO" CHECK (Precio > 0.0) ENABLE;
-  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "CK_PRODUCTO_STOCK" CHECK (Stock > 0) ENABLE;
-  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "CK_PRODUCTO_VALORACION" CHECK (REGEXP_LIKE(Valoracion,'[0-5]')) ENABLE;
-  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "CK_PRODUCTO_COMIC" CHECK (esComic IN(0,1)) ENABLE;
-  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "CK_PRODUCTO_FIGURA" CHECK (esFigura IN(0,1)) ENABLE;
-  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "CK_PRODUCTO_JMESA" CHECK (esJMesa IN(0,1)) ENABLE;
-  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "CK_PRODUCTO_ESMERCH" CHECK (esMerch IN(0,1)) ENABLE;
-  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "CK_PRODUCTO_DEVUELTO" CHECK (Devuelto IN(0,1)) ENABLE;
 --------------------------------------------------------
 --  Constraints for Table EMPLEADO
 --------------------------------------------------------
 
-  ALTER TABLE "EMPLEADO" ADD CHECK (Turno IN('M','T','P') ) ENABLE;
-  ALTER TABLE "EMPLEADO" MODIFY ("OID_E" NOT NULL ENABLE);
-  ALTER TABLE "EMPLEADO" MODIFY ("NOMBRE" NOT NULL ENABLE);
-  ALTER TABLE "EMPLEADO" MODIFY ("APELLIDOS" NOT NULL ENABLE);
-  ALTER TABLE "EMPLEADO" MODIFY ("NIF" NOT NULL ENABLE);
-  ALTER TABLE "EMPLEADO" MODIFY ("TURNO" NOT NULL ENABLE);
-  ALTER TABLE "EMPLEADO" MODIFY ("SUELDO" NOT NULL ENABLE);
-  ALTER TABLE "EMPLEADO" ADD CHECK (Turno IN('M','T','P') ) ENABLE;
-  ALTER TABLE "EMPLEADO" MODIFY ("ID" NOT NULL ENABLE);
-  ALTER TABLE "EMPLEADO" ADD CONSTRAINT "PK_EMPLEADO" PRIMARY KEY ("OID_E") ENABLE;
-  ALTER TABLE "EMPLEADO" ADD CONSTRAINT "AK_EMPLEADO_NIF" UNIQUE ("NIF") ENABLE;
-  ALTER TABLE "EMPLEADO" ADD CONSTRAINT "CK_EMPLEADO_SUELDO" CHECK (Sueldo > 0.0) ENABLE;
   ALTER TABLE "EMPLEADO" ADD CONSTRAINT "CK_EMPLEADO_NIF" CHECK (REGEXP_LIKE(nif, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z]')) ENABLE;
+  ALTER TABLE "EMPLEADO" ADD CONSTRAINT "CK_EMPLEADO_SUELDO" CHECK (Sueldo > 0.0) ENABLE;
+  ALTER TABLE "EMPLEADO" ADD CONSTRAINT "AK_EMPLEADO_NIF" UNIQUE ("NIF") ENABLE;
+  ALTER TABLE "EMPLEADO" ADD CONSTRAINT "PK_EMPLEADO" PRIMARY KEY ("OID_E") ENABLE;
+  ALTER TABLE "EMPLEADO" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "EMPLEADO" ADD CHECK (Turno IN('M','T','P') ) ENABLE;
+  ALTER TABLE "EMPLEADO" ADD CHECK (Turno IN('M','T','P') ) ENABLE;
+  ALTER TABLE "EMPLEADO" ADD CHECK (Turno IN('M','T','P') ) ENABLE;
+  ALTER TABLE "EMPLEADO" ADD CHECK (Turno IN('M','T','P') ) ENABLE;
+  ALTER TABLE "EMPLEADO" ADD CHECK (Turno IN('M','T','P') ) ENABLE;
+  ALTER TABLE "EMPLEADO" MODIFY ("SUELDO" NOT NULL ENABLE);
+  ALTER TABLE "EMPLEADO" MODIFY ("TURNO" NOT NULL ENABLE);
+  ALTER TABLE "EMPLEADO" MODIFY ("NIF" NOT NULL ENABLE);
+  ALTER TABLE "EMPLEADO" MODIFY ("APELLIDOS" NOT NULL ENABLE);
+  ALTER TABLE "EMPLEADO" MODIFY ("NOMBRE" NOT NULL ENABLE);
+  ALTER TABLE "EMPLEADO" MODIFY ("OID_E" NOT NULL ENABLE);
+  ALTER TABLE "EMPLEADO" ADD CHECK (Turno IN('M','T','P') ) ENABLE;
+--------------------------------------------------------
+--  Constraints for Table PEDIDOS
+--------------------------------------------------------
+
+  ALTER TABLE "PEDIDOS" ADD CONSTRAINT "PK_PEDIDOS2" PRIMARY KEY ("OID_PEDIDO") ENABLE;
+  ALTER TABLE "PEDIDOS" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "PEDIDOS" MODIFY ("FECHA" NOT NULL ENABLE);
+  ALTER TABLE "PEDIDOS" MODIFY ("OID_PEDIDO" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table ADMINISTRADOR
+--------------------------------------------------------
+
+  ALTER TABLE "ADMINISTRADOR" MODIFY ("CONTRASENA" NOT NULL ENABLE);
+  ALTER TABLE "ADMINISTRADOR" MODIFY ("EMAIL" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table VENTA
 --------------------------------------------------------
 
-  ALTER TABLE "VENTA" MODIFY ("OID_VENTA" NOT NULL ENABLE);
-  ALTER TABLE "VENTA" MODIFY ("FECHA" NOT NULL ENABLE);
-  ALTER TABLE "VENTA" MODIFY ("ID" NOT NULL ENABLE);
-  ALTER TABLE "VENTA" MODIFY ("OID_U" NOT NULL ENABLE);
-  ALTER TABLE "VENTA" ADD CONSTRAINT "PK_VENTA" PRIMARY KEY ("OID_VENTA") ENABLE;
   ALTER TABLE "VENTA" ADD CONSTRAINT "CK_VENTA_ID" CHECK (REGEXP_LIKE(ID, '[0-9][0-9][0-9][0-9][0-9][0-9]')) ENABLE;
+  ALTER TABLE "VENTA" ADD CONSTRAINT "PK_VENTA" PRIMARY KEY ("OID_VENTA") ENABLE;
+  ALTER TABLE "VENTA" MODIFY ("OID_U" NOT NULL ENABLE);
+  ALTER TABLE "VENTA" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "VENTA" MODIFY ("FECHA" NOT NULL ENABLE);
+  ALTER TABLE "VENTA" MODIFY ("OID_VENTA" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table TICKET
+--------------------------------------------------------
+
+  ALTER TABLE "TICKET" MODIFY ("EMAIL" NOT NULL ENABLE);
+  ALTER TABLE "TICKET" MODIFY ("NOMBRE" NOT NULL ENABLE);
+  ALTER TABLE "TICKET" ADD CONSTRAINT "PK_TICKET" PRIMARY KEY ("OID_TICKET") ENABLE;
+  ALTER TABLE "TICKET" ADD CONSTRAINT "CK_TICKET_RESUELTO" CHECK (Resuelto IN(0,1)) ENABLE;
+  ALTER TABLE "TICKET" MODIFY ("COMENTARIO" NOT NULL ENABLE);
+  ALTER TABLE "TICKET" MODIFY ("FECHA" NOT NULL ENABLE);
+  ALTER TABLE "TICKET" MODIFY ("OID_TICKET" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table USUARIO
+--------------------------------------------------------
+
+  ALTER TABLE "USUARIO" MODIFY ("CONTRASENA" NOT NULL ENABLE);
+  ALTER TABLE "USUARIO" ADD CONSTRAINT "CK_USUARIO_SOCIO" CHECK (esSocio IN(0,1)) ENABLE;
+  ALTER TABLE "USUARIO" ADD CONSTRAINT "CK_USUARIO_EMAIL" CHECK (LENGTH(Email) - LENGTH(replace(Email,'@','')) = 1) ENABLE;
+  ALTER TABLE "USUARIO" ADD CONSTRAINT "CK_USUARIO_NIF" CHECK (REGEXP_LIKE(nif, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z]')) ENABLE;
+  ALTER TABLE "USUARIO" ADD CONSTRAINT "AK_USUARIO_NIF" UNIQUE ("NIF") ENABLE;
+  ALTER TABLE "USUARIO" ADD CONSTRAINT "PK_USUARIO" PRIMARY KEY ("OID_U") ENABLE;
+  ALTER TABLE "USUARIO" MODIFY ("FECHANACIMIENTO" NOT NULL ENABLE);
+  ALTER TABLE "USUARIO" MODIFY ("ESSOCIO" NOT NULL ENABLE);
+  ALTER TABLE "USUARIO" MODIFY ("TELEFONO" NOT NULL ENABLE);
+  ALTER TABLE "USUARIO" MODIFY ("EMAIL" NOT NULL ENABLE);
+  ALTER TABLE "USUARIO" MODIFY ("APELLIDOS" NOT NULL ENABLE);
+  ALTER TABLE "USUARIO" MODIFY ("NOMBRE" NOT NULL ENABLE);
+  ALTER TABLE "USUARIO" MODIFY ("NIF" NOT NULL ENABLE);
+  ALTER TABLE "USUARIO" MODIFY ("OID_U" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table RESERVA
+--------------------------------------------------------
+
+  ALTER TABLE "RESERVA" ADD CONSTRAINT "PK_RESERVA" PRIMARY KEY ("OID_RES") ENABLE;
+  ALTER TABLE "RESERVA" MODIFY ("PRODUCTO" NOT NULL ENABLE);
+  ALTER TABLE "RESERVA" MODIFY ("NOMBRE" NOT NULL ENABLE);
+  ALTER TABLE "RESERVA" MODIFY ("EMAIL" NOT NULL ENABLE);
+  ALTER TABLE "RESERVA" MODIFY ("FECHA" NOT NULL ENABLE);
+  ALTER TABLE "RESERVA" MODIFY ("OID_RES" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table PRODUCTO
+--------------------------------------------------------
+
+  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "CK_PRODUCTO_DEVUELTO" CHECK (Devuelto IN(0,1)) ENABLE;
+  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "CK_PRODUCTO_ESMERCH" CHECK (esMerch IN(0,1)) ENABLE;
+  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "CK_PRODUCTO_JMESA" CHECK (esJMesa IN(0,1)) ENABLE;
+  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "CK_PRODUCTO_FIGURA" CHECK (esFigura IN(0,1)) ENABLE;
+  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "CK_PRODUCTO_COMIC" CHECK (esComic IN(0,1)) ENABLE;
+  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "CK_PRODUCTO_VALORACION" CHECK (REGEXP_LIKE(Valoracion,'[0-5]')) ENABLE;
+  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "CK_PRODUCTO_STOCK" CHECK (Stock > 0) ENABLE;
+  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "CK_PRODUCTO_PRECIO" CHECK (Precio > 0.0) ENABLE;
+  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "AK_PRODUCTO_NOMBRE" UNIQUE ("NOMBRE") ENABLE;
+  ALTER TABLE "PRODUCTO" ADD CONSTRAINT "PK_PRODUCTO" PRIMARY KEY ("OID_PR") ENABLE;
+  ALTER TABLE "PRODUCTO" MODIFY ("ESMERCH" NOT NULL ENABLE);
+  ALTER TABLE "PRODUCTO" MODIFY ("ESJMESA" NOT NULL ENABLE);
+  ALTER TABLE "PRODUCTO" MODIFY ("ESFIGURA" NOT NULL ENABLE);
+  ALTER TABLE "PRODUCTO" MODIFY ("ESCOMIC" NOT NULL ENABLE);
+  ALTER TABLE "PRODUCTO" MODIFY ("DEVUELTO" NOT NULL ENABLE);
+  ALTER TABLE "PRODUCTO" MODIFY ("VALORACION" NOT NULL ENABLE);
+  ALTER TABLE "PRODUCTO" MODIFY ("STOCK" NOT NULL ENABLE);
+  ALTER TABLE "PRODUCTO" MODIFY ("PRECIO" NOT NULL ENABLE);
+  ALTER TABLE "PRODUCTO" MODIFY ("NOMBRE" NOT NULL ENABLE);
+  ALTER TABLE "PRODUCTO" MODIFY ("OID_PR" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table FOTO
+--------------------------------------------------------
+
+  ALTER TABLE "FOTO" MODIFY ("OID_PR" NOT NULL ENABLE);
+  ALTER TABLE "FOTO" ADD CONSTRAINT "PK_FOTO" PRIMARY KEY ("OID_FOTO") ENABLE;
+  ALTER TABLE "FOTO" MODIFY ("URL" NOT NULL ENABLE);
+  ALTER TABLE "FOTO" MODIFY ("OID_FOTO" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table PROVEEDOR
 --------------------------------------------------------
 
-  ALTER TABLE "PROVEEDOR" ADD CONSTRAINT "CK_PROVEEDOR_CIF" CHECK (REGEXP_LIKE(cif, '[A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')) ENABLE;
-  ALTER TABLE "PROVEEDOR" MODIFY ("CIF" NOT NULL ENABLE);
-  ALTER TABLE "PROVEEDOR" MODIFY ("NOMBRE" NOT NULL ENABLE);
-  ALTER TABLE "PROVEEDOR" MODIFY ("TELEFONO" NOT NULL ENABLE);
-  ALTER TABLE "PROVEEDOR" MODIFY ("DIRECCION" NOT NULL ENABLE);
-  ALTER TABLE "PROVEEDOR" ADD CONSTRAINT "CK_PROVEEDOR_TELEFONO" CHECK (REGEXP_LIKE(Telefono, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')) ENABLE;
   ALTER TABLE "PROVEEDOR" ADD CONSTRAINT "PROVEEDOR_PK" PRIMARY KEY ("OID_PV") ENABLE;
+  ALTER TABLE "PROVEEDOR" ADD CONSTRAINT "CK_PROVEEDOR_TELEFONO" CHECK (REGEXP_LIKE(Telefono, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')) ENABLE;
+  ALTER TABLE "PROVEEDOR" MODIFY ("DIRECCION" NOT NULL ENABLE);
+  ALTER TABLE "PROVEEDOR" MODIFY ("TELEFONO" NOT NULL ENABLE);
+  ALTER TABLE "PROVEEDOR" MODIFY ("NOMBRE" NOT NULL ENABLE);
+  ALTER TABLE "PROVEEDOR" MODIFY ("CIF" NOT NULL ENABLE);
+  ALTER TABLE "PROVEEDOR" ADD CONSTRAINT "CK_PROVEEDOR_CIF" CHECK (REGEXP_LIKE(cif, '[A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')) ENABLE;
 --------------------------------------------------------
 --  Ref Constraints for Table PEDIDOS
 --------------------------------------------------------

@@ -93,7 +93,7 @@ if (!isset($_SESSION['loggedin'])) {
 						<td><?=$socio?></td>
 					</tr>
 				</table>
-				<button id="btnres" style="text-align:center;background-color:#007ac3;"><a onclick="mostrarReservas()" style="color:white;padding:6px;font-weight:500;">Mostrar reservas</a></button>;
+				<button id="btnres" style="text-align:center;background-color:#007ac3;"><a onclick="mostrarReservas()" style="color:white;padding:6px;font-weight:500;">Mostrar reservas</a></button>
 				<div style="height:100px;" id="ajaxtry"></div>
 				<?php
 				// BOTON ADMIN PANEL

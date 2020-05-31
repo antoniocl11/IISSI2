@@ -29,7 +29,7 @@ include_once('esqueleto_web.php');
             echo '<div class="productos">
 					<form action="form_alta_reserva.php" method="post">
                     <h5 class="titprod">' .$no . '</h5>
-                    <a href="form_alta_reserva.php"><img class="imagenes" src="' . $url . '" ></img></a>
+                    <img class="imagenes" src="' . $url . '" ></img>
                     <p class="preciores">' . $precio . '€</p>
                     <p><button type="submit" name="submit" value="'. $no .'"onclick="return confirm("¿Seguro que quieres reservar:'. $no.'?") class="breserva">Reservar</button></p>
                   </form>

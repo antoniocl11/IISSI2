@@ -9,21 +9,21 @@ if (!isset($_SESSION['loggedin'])) {
 	exit;
 } else {
 	try {
-		$stmt = $conexion->prepare('SELECT PRODUCTO.Nombre, PRODUCTO.Precio, Reserva.OID_U, Reserva.ID, Reserva.FECHA, Reserva.TENTREGADO FROM Producto INNER JOIN Reserva ON Reserva.OID_U = :iduser');
-		$stmt->bindParam(':iduser', $_SESSION['id']);
+		$stmt = $conexion->prepare('SELECT PRODUCTO.Nombre, PRODUCTO.Precio, Reserva.OID_U,  Reserva.FECHA, Reserva.PRODUCTO, Reserva.EMAIL, Reserva.NOMBRE FROM Producto INNER JOIN Reserva ON Reserva.OID_U = :nombreuser');
+		$stmt->bindParam(':nombreuser', $_SESSION['oid_u']);
 		$stmt->execute();
 
+		$stmt->bindColumn('FECHA', $fecha);
+		$stmt->bindColumn('PRODUCTO', $producto);
+		$stmt->bindColumn('EMAIL', $email);
 		$stmt->bindColumn('NOMBRE', $nombre);
-		$stmt->bindColumn('PRECIO', $precio);
-		$stmt->bindColumn('FECHA', $fechares);
-		$stmt->bindColumn('TENTREGADO', $tentregado);
-		$stmt->bindColumn('ID', $resid);
 		
-		if (!isset($nombre)) {
+		
+		if (!isset($producto)) {
 			echo '&#9888;&nbspNinguna reserva... de momento.&nbsp&#9888;';
 		} else {
 			while ($row = $stmt->fetch(PDO::FETCH_BOUND)) {
-				echo '<b>&#9733;&nbspProducto:&nbsp</b>'. $nombre .'<b>-- Precio:&nbsp</b>'. $precio . '<b>-- Fecha:&nbsp</b>'. $fecha . '<b>-- Total Entregado:&nbsp</b>'. $tentregado . '<b>-- ID Reserva:&nbsp</b>'. $resid;
+				echo '<b>&#9733;&nbspProducto:&nbsp</b>'. $producto .'<b>-- Fecha:&nbsp</b>'. $fecha . '<b>-- Email:&nbsp</b>'. $email . '<b>-- Nombre:&nbsp</b>'. $nombre ;
 				echo 'Todo va bien!';
 				}
 		}
