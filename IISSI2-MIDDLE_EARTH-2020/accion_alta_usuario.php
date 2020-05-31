@@ -39,7 +39,7 @@
 		<div id="div_exito">
 		  <h1>Hola <?php echo $nuevoUsuario["nombre"]; ?>, gracias por registrarte</h1>
 			<div id="div_volver">	
-			   Pulsa <a href="form_alta_usuario.php">aquí</a> para volver al formulario o pulsa <a href="login.html">aquí</a> para entrar en la página
+			   Pulsa <a href="form_alta_usuario.php">aquí</a> para volver al formulario o pulsa <a href="login.php">aquí</a> para entrar en la página
 			</div>
 			
 		</div>
@@ -52,7 +52,7 @@
 			
 
 			<div>
-                Pulsa <a href="form_alta_usuario.php"> aquí</a> para volver al formulario o pulsa <a href="login.html">aquí</a> para entrar en la página
+                Pulsa <a href="form_alta_usuario.php"> aquí</a> para volver al formulario o pulsa <a href="login.php">aquí</a> para entrar en la página
               </div>
 			
 		<?php } ?>
