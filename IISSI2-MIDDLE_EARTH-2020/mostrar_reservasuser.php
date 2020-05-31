@@ -17,11 +17,13 @@ if (!isset($_SESSION['loggedin'])) {
 		$stmt->bindColumn('PRODUCTO', $producto);
 		$stmt->bindColumn('EMAIL', $email);
 
-		if (!isset($stmt)) {
-			echo '&#9888;&nbspNinguna reserva... de momento.&nbsp&#9888;';
-		} else {
-			while ($row = $stmt->fetch(PDO::FETCH_BOUND)) {
-				echo '<b>&#9733;&nbsp&nbsp</b>'. $producto .'<b>&nbsp&nbsp  &#x1f4c5;&nbsp&nbsp&nbsp</b>'. $fecha . '<br />';
+		if (empty($stmt->fetch(PDO::FETCH_BOUND))) {
+						echo '&#9888;&nbspNinguna reserva... de momento.&nbsp&#9888;';
+					} else {
+
+
+				while ($row = $stmt->fetch(PDO::FETCH_BOUND)) {
+					echo '<b>&#9733;&nbsp&nbsp</b>'. $producto .'<b>&nbsp&nbsp  &#x1f4c5;&nbsp&nbsp&nbsp</b>'. $fecha . '<br />';
 				}
 		}
 	} catch ( PDOException $e ){

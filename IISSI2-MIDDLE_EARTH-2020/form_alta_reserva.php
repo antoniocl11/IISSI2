@@ -75,7 +75,6 @@
             }
         }
     ?>
-                  
                 <form id="altaReserva" method="get" action="validacion_alta_reserva.php">
                     
                     <p class="campos">
