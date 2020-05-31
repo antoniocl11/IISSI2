@@ -46,7 +46,7 @@ session_start();
                 </div>
                 <div class="botones">
                     <div class="boton1">
-                        <a href="productos_principal.php">Ver Productos</a>
+                        <a href="productos_dinamico.php">Ver Productos</a>
                     </div>  
                 </div>
             </section>
