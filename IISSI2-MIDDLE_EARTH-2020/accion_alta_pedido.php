@@ -42,7 +42,7 @@
                 Pulsa <a href="pedidos.php">aquí</a> para ir a la lista de pedidos.
               </div>
             </div>
-        <?php} 
+        <?php } 
         
         else { ?>
                   <h2>El pedido ya existe en la base de datos.</h2>
